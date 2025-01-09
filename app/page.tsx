@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { FormEvent, useState } from "react";
+import MemeSkeleton from "./components/MemeSkeleton";
 
 interface Meme {
   index: number;
@@ -10,26 +11,33 @@ interface Meme {
 
 export default function Home() {
   const [message, setMessage] = useState("");
+  const [submittedQuery, setSubmittedQuery] = useState("");
   const [response, setResponse] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [memes, setMemes] = useState<Meme[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [usedTemplates, setUsedTemplates] = useState<string[]>([]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setMemes([]); // Clear previous results
+    setMemes([]);
     setIsLoading(true);
+    setSubmittedQuery(message);
+    setUsedTemplates([]);
 
     let firstResponseReceived = false;
 
-    // Create three separate API calls
-    const apiCalls = Array(3).fill(null).map(() => 
+    const apiCalls = Array(3).fill(null).map((_, index) => 
       fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ 
+          message,
+          sourceType: index,
+          usedTemplates: memes.map(meme => meme.templateName)
+        }),
       }).then(res => res.json())
       .then(data => {
         if (data && !data.error) {
@@ -41,15 +49,16 @@ export default function Home() {
               'https://i.imgflip.com/$1.jpg'
             )
           };
-          setMemes(prevMemes => [...prevMemes, formattedResult]);
           
-          // Remove loading state after first successful response
+          if (!memes.some(m => m.templateName === result.templateName)) {
+            setMemes(prevMemes => [...prevMemes, formattedResult]);
+            setUsedTemplates(prev => [...prev, result.templateName]);
+          }
+          
           if (!firstResponseReceived) {
             firstResponseReceived = true;
             setIsLoading(false);
           }
-        } else {
-          console.error('Error response from API:', data);
         }
       })
       .catch(error => {
@@ -58,7 +67,6 @@ export default function Home() {
     );
 
     try {
-      // Still wait for all calls to complete before clearing the message
       await Promise.all(apiCalls);
     } catch (error) {
       console.error("Error:", error);
@@ -68,8 +76,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col items-center max-w-md mx-auto">
+    <div className="min-h-screen p-8 pb-20 sm:p-20">
+      <main className="flex flex-col items-center max-w-6xl mx-auto">
         <div className="w-full">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
@@ -90,39 +98,44 @@ export default function Home() {
           {/* <Image src="https://i.imgflip.com/9g290y.jpg" alt="Meme" width={500} height={500} /> */}
 
           {isLoading && (
-            <div className="mt-8 flex justify-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white"></div>
+            <div className="mt-8 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {Array(3).fill(null).map((_, i) => (
+                  <MemeSkeleton key={`loading-${i}`} />
+                ))}
+              </div>
             </div>
           )}
 
           {!isLoading && memes && memes.length > 0 && (
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {memes.map((meme, index) => (
-                <div 
-                  key={`${meme.index}-${index}`} 
-                  className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm"
-                >
-                  <h3 className="text-sm font-medium mb-3">{meme.templateName}</h3>
-                  <Image
-                    src={meme.imageUrl}
-                    alt={meme.templateName || 'Meme image'}
-                    width={500}
-                    height={500}
-                    className="rounded-md w-full"
-                    unoptimized={true}
-                  />
-                </div>
-              ))}
-              {isLoading && Array(3 - memes.length).fill(null).map((_, i) => (
-                <div 
-                  key={`loading-${i}`}
-                  className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm animate-pulse"
-                >
-                  <div className="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded mb-3"></div>
-                  <div className="h-40 bg-gray-200 dark:bg-gray-700 rounded-md"></div>
-                </div>
-              ))}
-            </div>
+            <>
+              <div className="mt-8 mb-6 text-center">
+                <span className="text-base text-gray-600 dark:text-gray-400">
+                  Results for: &quot;{submittedQuery}&quot;
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                {memes.map((meme, index) => (
+                  <div 
+                    key={`${meme.index}-${index}`} 
+                    className="p-6 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm"
+                  >
+                    <h3 className="text-base font-medium mb-4">{meme.templateName}</h3>
+                    <Image
+                      src={meme.imageUrl}
+                      alt={meme.templateName || 'Meme image'}
+                      width={800}
+                      height={800}
+                      className="rounded-lg w-full"
+                      unoptimized={true}
+                    />
+                  </div>
+                ))}
+                {isLoading && Array(3 - memes.length).fill(null).map((_, i) => (
+                  <MemeSkeleton key={`loading-${i}`} />
+                ))}
+              </div>
+            </>
           )}
         </div>
       </main>

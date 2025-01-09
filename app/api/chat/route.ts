@@ -19,6 +19,7 @@ interface Meme {
 }
 
 export async function POST(req: NextRequest) {
+    const { message, sourceType = 0, usedTemplates = [] } = await req.json();
 
     const StagehandConfig: ConstructorParams = {
         env:
@@ -27,20 +28,17 @@ export async function POST(req: NextRequest) {
             : "LOCAL",
         apiKey: process.env.BROWSERBASE_API_KEY,
         projectId: process.env.BROWSERBASE_PROJECT_ID,
-        // debugDom: true,
         headless: false,
-        domSettleTimeoutMs: 30_000 /* Timeout for DOM to settle in milliseconds */,
+        domSettleTimeoutMs: 30_000,
         browserbaseSessionCreateParams: {
           projectId: process.env.BROWSERBASE_PROJECT_ID!,
-          region: "us-east-1"
+          region: "us-east-1",
         },
-        enableCaching: true /* Enable caching functionality */,
-        // browserbaseSessionID:
-        //   undefined /* Session ID for resuming Browserbase sessions */,
-        modelName: "claude-3-5-sonnet-latest" /* Name of the model to use */,
+        enableCaching: false,
+        modelName: "claude-3-5-sonnet-latest",
         modelClientOptions: {
           apiKey: process.env.ANTHROPIC_API_KEY,
-        } /* Configuration options for the model client */,
+        },
         verbose: 0,
         logger: (message: LogLine) =>
             console.log(
@@ -51,40 +49,72 @@ export async function POST(req: NextRequest) {
     const stagehand = new Stagehand(StagehandConfig);
 
     try {
-        console.log('Starting POST request processing...');
+        console.log(`Starting POST request processing for template ${sourceType}...`);
         const results: Meme[] = [];
 
         console.log('Initializing Stagehand instance...');
         await stagehand.init();
         
-        const { message } = await req.json();
-        console.log('Received message:', message);
-        
-        const searchQuery = await getMemeTemplate(message);
-        console.log('Optimized search query:', searchQuery);
-        
+        // Only generate search query for sourceType 2
+        const searchQuery = sourceType === 2 
+            ? await getMemeTemplate(message, sourceType + 1, usedTemplates)
+            : '';
+            
+        if (sourceType === 2) {
+            console.log(`Optimized search query for template ${sourceType}:`, searchQuery);
+        }
+
         try {
             console.log('Starting meme processing...');
             const page = await stagehand.page;
             
             console.log('Navigating to search page...');
-            await page.goto(`https://imgflip.com/memesearch?q=${encodeURIComponent(searchQuery)}`, { 
-                waitUntil: "domcontentloaded" 
-            });
+            let templateInfo;
+            const sources = [
+                {
+                    url: 'https://imgflip.com/memetemplates?sort=top-new',
+                    description: 'newest templates'
+                },
+                {
+                    url: 'https://imgflip.com/memetemplates?sort=top-30-days',
+                    description: 'top templates this month'
+                },
+                {
+                    url: `https://imgflip.com/memesearch?q=${encodeURIComponent(searchQuery)}`,
+                    description: 'search results'
+                }
+            ];
+
+            // Use only the specified source
+            const source = sources[sourceType];
+            console.log(`Using ${source.description}...`);
+            await page.goto(source.url, { waitUntil: "domcontentloaded" });
             
+            try {
+                templateInfo = await page.extract({
+                    schema: z.object({
+                        templateUrl: z.string(),
+                        templateName: z.string()
+                    }),
+                    instruction: sourceType === 2 
+                        ? `Look at the meme templates on the page. Find a template that matches the search term "${searchQuery}" and would work well with the message "${message}". Return its URL (starting with '/meme/') and template name exactly as found on the page.`
+                        : `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Return its URL (starting with '/meme/') and template name exactly as found on the page.`
+                });
+                
+                if (!templateInfo?.templateUrl || !templateInfo?.templateName) {
+                    throw new Error(`No suitable template found in ${source.description}`);
+                }
+            } catch (error) {
+                console.log(`Error finding template in ${source.description}:`, error);
+                throw error;
+            }
+
             console.log('Extracting template info...');
-            const templateInfo = await page.extract({
-                schema: z.object({
-                    templateUrl: z.string(),
-                    templateName: z.string()
-                }),
-                instruction: `Look at the search results on the page. For the first meme template shown, find its URL (it should start with '/meme/') and the template name. Return these exactly as found on the page.`
-            });
             console.log('Template found:', templateInfo);
 
             console.log('Clicking add caption...');
             await page.act({
-                action: `Click on the add caption for the meme template you find matching the search query the user provided. Click on the one you think is the best match.`
+                action: `Click on the add caption for the meme template you find matching the search query the user provided. Click on the one you think is the best match. If they want an exact match, click on the one that matches the search query exactly.`
             });
 
             console.log('Generating captions...');
@@ -119,7 +149,7 @@ export async function POST(req: NextRequest) {
             const imageUrl = await imageUrlInput.inputValue();
 
             const result = {
-                index: 0,
+                index: sourceType,
                 imageUrl: imageUrl,
                 templateName: templateInfo.templateName
             };

@@ -1,28 +1,40 @@
 import { anthropic } from '@ai-sdk/anthropic'
 import { generateText } from 'ai'
 
-export default async function getMemeTemplate(message: string) {
-  const result = await generateText({
-    model: anthropic('claude-3-5-sonnet-20240620', {
-      cacheControl: true,
-    }),
-    messages: [
-      {
-        role: 'user',
-        content: [
-          { 
-            type: 'text', 
-            text: `You are a meme generator assistant. Given the following message, suggest a single-word search term that best captures the essence of the message for finding a common meme template. The word should be simple and commonly used in memes.
+export default async function getMemeTemplate(message: string, index: number, usedTemplates: string[] = []) {
+    console.log('usedTemplates', usedTemplates)
+    
+    // Set temperature based on index
+    const temperatures = {
+        0: 0.1,  // First call - more focused
+    };
+    
+    const result = await generateText({
+        model: anthropic('claude-3-5-sonnet-20240620'),
+        temperature: temperatures[index as keyof typeof temperatures] ?? 0.6,
+        messages: [
+            {
+                role: 'user',
+                content: [
+                    { 
+                        type: 'text', 
+                        text: `You are a meme generator assistant. Generate ONE search term.
 
-Message: "${message}"
+Rules:
+1. Must be 1-3 words only (choose common words)
+2. Must NOT be similar to these used templates: ${usedTemplates.join(', ')}
+3. Must relate to this message: "${message}"
+4. Be creative and diverse in your selections
 
-Provide only one word, nothing else.`
-          }
+Return ONLY the search term, nothing else.`
+                    },
+                ],
+            },
         ],
-      },
-    ],
-  });
+    });
 
-  return result.text.trim();
+    const searchTerm = result.text.trim();
+    console.log('Generated search term:', searchTerm);
+    return searchTerm;
 }
 
