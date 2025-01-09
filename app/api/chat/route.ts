@@ -2,6 +2,9 @@ import { ConstructorParams, LogLine, Stagehand } from "@browserbasehq/stagehand"
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import getMemeTemplate from '@/app/utils/template';
+import {groq} from '@ai-sdk/groq'
+import { google } from "@ai-sdk/google";
+// import { AISdkClient } from "@/app/utils/aisdk";
 
 // should pre-process the message to search a meme based on the message or image
 // add context 
@@ -9,7 +12,6 @@ import getMemeTemplate from '@/app/utils/template';
 // ex: query of "cat", give to llm, llm searches for right meme, caption the meme based on query and context
 
 // if you get off track, try to get back to main menu and start over
-
 
 
 interface Meme {
@@ -36,9 +38,18 @@ export async function POST(req: NextRequest) {
         },
         enableCaching: false,
         modelName: "claude-3-5-sonnet-latest",
+        // modelName: "groq/llama3-8b-8192",
         modelClientOptions: {
           apiKey: process.env.ANTHROPIC_API_KEY,
+        //   apiKey: process.env.GROQ_API_KEY,
+        // apiKey: process.env.GOOGLE_API_KEY,
+
         },
+        // llmClient: new AISdkClient({
+            // model: groq("llama3-8b-8192"),
+            // model: google("gemini-1.5-flash-latest"),
+        //   }),
+      
         verbose: 0,
         logger: (message: LogLine) =>
             console.log(
@@ -54,15 +65,6 @@ export async function POST(req: NextRequest) {
 
         console.log('Initializing Stagehand instance...');
         await stagehand.init();
-        
-        // Only generate search query for sourceType 2
-        const searchQuery = sourceType === 2 
-            ? await getMemeTemplate(message, sourceType + 1, usedTemplates)
-            : '';
-            
-        if (sourceType === 2) {
-            console.log(`Optimized search query for template ${sourceType}:`, searchQuery);
-        }
 
         try {
             console.log('Starting meme processing...');
@@ -80,9 +82,21 @@ export async function POST(req: NextRequest) {
                     description: 'top templates this month'
                 },
                 {
-                    url: `https://imgflip.com/memesearch?q=${encodeURIComponent(searchQuery)}`,
-                    description: 'search results'
+                    url: 'https://imgflip.com/memetemplates?sort=top-new',
+                    description: 'newest templates'
+                },
+                {
+                    url: 'https://imgflip.com/memetemplates?sort=top-30-days',
+                    description: 'top templates this month'
+                },
+                {
+                    url: 'https://imgflip.com/memetemplates?sort=top-all-time',
+                    description: 'all time top templates'
                 }
+                // {
+                //     url: `https://imgflip.com/memesearch?q=${encodeURIComponent(searchQuery)}`,
+                //     description: 'search results'
+                // }
             ];
 
             // Use only the specified source
@@ -96,9 +110,11 @@ export async function POST(req: NextRequest) {
                         templateUrl: z.string(),
                         templateName: z.string()
                     }),
-                    instruction: sourceType === 2 
-                        ? `Look at the meme templates on the page. Find a template that matches the search term "${searchQuery}" and would work well with the message "${message}". Return its URL (starting with '/meme/') and template name exactly as found on the page.`
-                        : `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Return its URL (starting with '/meme/') and template name exactly as found on the page.`
+                  
+                    // instruction: sourceType === 2 
+                    // ? `Look at the meme templates on the page. Find a template that matches the search term "${searchQuery}" and would work well with the message "${message}". Return its URL (starting with '/meme/') and template name exactly as found on the page.`
+                    // : 
+                    instruction: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Return its URL (starting with '/meme/') and template name exactly as found on the page.`
                 });
                 
                 if (!templateInfo?.templateUrl || !templateInfo?.templateName) {
@@ -114,7 +130,7 @@ export async function POST(req: NextRequest) {
 
             console.log('Clicking add caption...');
             await page.act({
-                action: `Click on the add caption for the meme template you find matching the search query the user provided. Click on the one you think is the best match. If they want an exact match, click on the one that matches the search query exactly.`
+                action: `Click on the add caption for the meme template you find matching the search query the user provided. Click on the one you think is the best match.`
             });
 
             console.log('Generating captions...');

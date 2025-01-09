@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^1.0.7",
-    "@browserbasehq/stagehand": "^1.8.0",
+    "@ai-sdk/google": "^1.0.13",
+    "@ai-sdk/groq": "^1.0.10",
+    "@browserbasehq/stagehand": "alpha",
     "ai": "^4.0.30",
     "next": "15.1.4",
     "react": "^19.0.0",

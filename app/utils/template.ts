@@ -1,8 +1,8 @@
-import { anthropic } from '@ai-sdk/anthropic'
+// import { anthropic } from '@ai-sdk/anthropic'
+import { google } from '@ai-sdk/google'
 import { generateText } from 'ai'
 
-export default async function getMemeTemplate(message: string, index: number, usedTemplates: string[] = []) {
-    console.log('usedTemplates', usedTemplates)
+export default async function getMemeTemplate(message: string, index: number) {
     
     // Set temperature based on index
     const temperatures = {
@@ -10,7 +10,8 @@ export default async function getMemeTemplate(message: string, index: number, us
     };
     
     const result = await generateText({
-        model: anthropic('claude-3-5-sonnet-20240620'),
+        // model: anthropic('claude-3-5-sonnet-20240620'),
+        model: google('gemini-1.5-flash-latest'),
         temperature: temperatures[index as keyof typeof temperatures] ?? 0.6,
         messages: [
             {
@@ -21,10 +22,9 @@ export default async function getMemeTemplate(message: string, index: number, us
                         text: `You are a meme generator assistant. Generate ONE search term.
 
 Rules:
-1. Must be 1-3 words only (choose common words)
-2. Must NOT be similar to these used templates: ${usedTemplates.join(', ')}
-3. Must relate to this message: "${message}"
-4. Be creative and diverse in your selections
+1. Must be 1 word only (choose common words)
+2. Must relate to this message: "${message}"
+3. Be creative and diverse in your selections
 
 Return ONLY the search term, nothing else.`
                     },
