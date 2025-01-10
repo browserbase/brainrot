@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { FormEvent, useState } from "react";
 import MemeSkeleton from "./components/MemeSkeleton";
 import ImageChecker from "./components/ImageChecker";

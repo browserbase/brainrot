@@ -17,7 +17,7 @@ interface Meme {
 
 // if you get off track, try to get back to main menu and start over
 
-export const maxDuration = 300; // Set max duration to 300 seconds (5 minutes)
+export const maxDuration = 300; 
 
 
 export async function POST(req: NextRequest) {
@@ -38,15 +38,9 @@ export async function POST(req: NextRequest) {
     },
     enableCaching: false,
     modelName: "claude-3-5-sonnet-latest",
-    // modelName: "gpt-4o-mini",
     modelClientOptions: {
       apiKey: process.env.ANTHROPIC_API_KEY,
-      //   apiKey: process.env.GROQ_API_KEY,
-      //   apiKey: process.env.OPENAI_API_KEY,
     },
-    // llmClient: new AISdkClient({
-    //   model: google('gemini-1.5-pro-latest')
-    // }),
     verbose: 0,
     logger: (message: LogLine) =>
       console.log(`[stagehand::${message.category}] ${message.message}`),
@@ -76,6 +70,7 @@ export async function POST(req: NextRequest) {
         },
         {
           url: "https://imgflip.com/memetemplates?sort=top-30-days&page=2",
+          
           description: "top templates this month",
         },
         {
@@ -90,10 +85,6 @@ export async function POST(req: NextRequest) {
           url: "https://imgflip.com/memetemplates?sort=top-all-time&page=5",
           description: "top templates this month",
         },
-        // {
-        //     url: `https://imgflip.com/memesearch?q=${encodeURIComponent(searchQuery)}`,
-        //     description: 'search results'
-        // }
       ];
 
       // Use only the specified source
@@ -102,17 +93,6 @@ export async function POST(req: NextRequest) {
       await page.goto(source.url, { waitUntil: "domcontentloaded" });
 
       try {
-        // templateInfo = await page.extract({
-        //   schema: z.object({
-        //     templateUrl: z.string(),
-        //     templateName: z.string(),
-        //   }),
-
-        //   // instruction: sourceType === 2
-        //   // ? `Look at the meme templates on the page. Find a template that matches the search term "${searchQuery}" and would work well with the message "${message}". Return its URL (starting with '/meme/') and template name exactly as found on the page.`
-        //   // :
-        //   instruction: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Return its URL and template name exactly as found on the page.`,
-        // });
 
         templateInfo = await page.act({
           action: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`,
@@ -120,48 +100,10 @@ export async function POST(req: NextRequest) {
 
         console.log("Template found:", templateInfo);
 
-        // if (!templateInfo?.templateUrl || !templateInfo?.templateName) {
-        //   throw new Error(
-        //     `No suitable template found in ${source.description}`
-        //   );
-        // }
       } catch (error) {
         console.log(`Error finding template in ${source.description}:`, error);
         throw error;
       }
-
-      //   console.log("Extracting template info...");
-      //   console.log("Template found:", templateInfo);
-
-      //   console.log("Clicking add caption...");
-      //   await page.act({
-      //     action: `Click on the add caption for the meme template you find matching the search query the user provided. Click on the one you think is the best match.`,
-      //   });
-
-      //   console.log("Generating captions...");
-      //   const captionPrompt = await page.extract({
-      //     schema: z.object({
-      //       textBoxCount: z.number(),
-      //       captions: z.array(z.string()),
-      //     }),
-      //     instruction: `
-      //             1. Count the number of text input boxes on the meme template.
-      //             2. Generate appropriate captions related to "${message}" for each text box.
-      //             Return both the count and an array of captions matching the number of text boxes.`,
-      //   });
-      //   console.log("Generated captions:", captionPrompt);
-
-      //   console.log("Filling in captions...");
-      //   await page.act({
-      //     action: `Fill in the meme captions:
-      //             1. Locate all text input boxes for the meme
-      //             2. ${captionPrompt.captions
-      //               .map(
-      //                 (caption, idx) =>
-      //                   `Type "${caption}" into text box #${idx + 1}`
-      //               )
-      //               .join("\n3. ")}`,
-      //   });
 
       console.log("Filling in captions...");
       await page.act({
