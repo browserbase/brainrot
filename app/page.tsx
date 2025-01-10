@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 import MemeSkeleton from "./components/MemeSkeleton";
+import ImageChecker from "./components/ImageChecker";
 
 interface Meme {
   index: number;
@@ -212,13 +213,12 @@ export default function Home() {
                         Meme {index + 1}/5
                       </span>
                     </div>
-                    <Image
+                    <ImageChecker
                       src={meme.imageUrl}
                       alt={meme.templateName || "Meme image"}
                       width={800}
                       height={800}
                       className="rounded-lg w-full"
-                      unoptimized={true}
                     />
                   </div>
                 ))}
