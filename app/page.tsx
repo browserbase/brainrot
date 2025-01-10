@@ -71,7 +71,7 @@ export default function Home() {
             if (line.startsWith('{') || line.startsWith('[')) {
               try {
                 jsonData = JSON.parse(line);
-              } catch (e) {
+              } catch {
                 // Not valid JSON, might be incomplete
               }
             } else if (line.includes('console.log')) {
@@ -93,7 +93,8 @@ export default function Home() {
             const lines = completeResponse.split('\n');
             const lastLine = lines[lines.length - 1];
             jsonData = JSON.parse(lastLine);
-          } catch (e) {
+          } catch (error) {
+            console.error('Failed to parse response JSON:', error);
             throw new Error('Failed to parse response JSON');
           }
         }
