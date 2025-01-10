@@ -4,31 +4,21 @@ import {
   Stagehand,
 } from "@browserbasehq/stagehand";
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
-// import { AISdkClient } from "../../../utils/aisdk";
-import { AvailableModel } from "@browserbasehq/stagehand";
-// import getMemeTemplate from '@/utils/template';
-import { groq } from "@ai-sdk/groq";
-import { google } from "@ai-sdk/google";
 
+interface Meme {
+  index: number;
+  imageUrl: string;
+}
 
-
-
-// should pre-process the message to search a meme based on the message or image
+// / should pre-process the message to search a meme based on the message or image
 // add context
 // ex: image of tweet, give to llm, llm searches for right meme, caption the meme based on query and context from image
 // ex: query of "cat", give to llm, llm searches for right meme, caption the meme based on query and context
 
 // if you get off track, try to get back to main menu and start over
 
-interface Meme {
-  index: number;
-  imageUrl: string;
-//   templateName: string;
-}
-
 export async function POST(req: NextRequest) {
-  const { message, sourceType = 0, usedTemplates = [] } = await req.json();
+  const { message, sourceType = 0 } = await req.json();
 
   const StagehandConfig: ConstructorParams = {
     env:
@@ -47,9 +37,9 @@ export async function POST(req: NextRequest) {
     modelName: "claude-3-5-sonnet-latest",
     // modelName: "gpt-4o-mini",
     modelClientOptions: {
-        apiKey: process.env.ANTHROPIC_API_KEY,
-    //   apiKey: process.env.GROQ_API_KEY,
-    //   apiKey: process.env.OPENAI_API_KEY,
+      apiKey: process.env.ANTHROPIC_API_KEY,
+      //   apiKey: process.env.GROQ_API_KEY,
+      //   apiKey: process.env.OPENAI_API_KEY,
     },
     // llmClient: new AISdkClient({
     //   model: google('gemini-1.5-pro-latest')
@@ -122,10 +112,10 @@ export async function POST(req: NextRequest) {
         // });
 
         templateInfo = await page.act({
-            action: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`,
-          });
+          action: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`,
+        });
 
-          console.log("Template found:", templateInfo);
+        console.log("Template found:", templateInfo);
 
         // if (!templateInfo?.templateUrl || !templateInfo?.templateName) {
         //   throw new Error(
@@ -137,42 +127,42 @@ export async function POST(req: NextRequest) {
         throw error;
       }
 
-    //   console.log("Extracting template info...");
-    //   console.log("Template found:", templateInfo);
+      //   console.log("Extracting template info...");
+      //   console.log("Template found:", templateInfo);
 
-    //   console.log("Clicking add caption...");
-    //   await page.act({
-    //     action: `Click on the add caption for the meme template you find matching the search query the user provided. Click on the one you think is the best match.`,
-    //   });
+      //   console.log("Clicking add caption...");
+      //   await page.act({
+      //     action: `Click on the add caption for the meme template you find matching the search query the user provided. Click on the one you think is the best match.`,
+      //   });
 
-    //   console.log("Generating captions...");
-    //   const captionPrompt = await page.extract({
-    //     schema: z.object({
-    //       textBoxCount: z.number(),
-    //       captions: z.array(z.string()),
-    //     }),
-    //     instruction: `
-    //             1. Count the number of text input boxes on the meme template.
-    //             2. Generate appropriate captions related to "${message}" for each text box.
-    //             Return both the count and an array of captions matching the number of text boxes.`,
-    //   });
-    //   console.log("Generated captions:", captionPrompt);
+      //   console.log("Generating captions...");
+      //   const captionPrompt = await page.extract({
+      //     schema: z.object({
+      //       textBoxCount: z.number(),
+      //       captions: z.array(z.string()),
+      //     }),
+      //     instruction: `
+      //             1. Count the number of text input boxes on the meme template.
+      //             2. Generate appropriate captions related to "${message}" for each text box.
+      //             Return both the count and an array of captions matching the number of text boxes.`,
+      //   });
+      //   console.log("Generated captions:", captionPrompt);
 
-    //   console.log("Filling in captions...");
-    //   await page.act({
-    //     action: `Fill in the meme captions:
-    //             1. Locate all text input boxes for the meme
-    //             2. ${captionPrompt.captions
-    //               .map(
-    //                 (caption, idx) =>
-    //                   `Type "${caption}" into text box #${idx + 1}`
-    //               )
-    //               .join("\n3. ")}`,
-    //   });
+      //   console.log("Filling in captions...");
+      //   await page.act({
+      //     action: `Fill in the meme captions:
+      //             1. Locate all text input boxes for the meme
+      //             2. ${captionPrompt.captions
+      //               .map(
+      //                 (caption, idx) =>
+      //                   `Type "${caption}" into text box #${idx + 1}`
+      //               )
+      //               .join("\n3. ")}`,
+      //   });
 
-    console.log("Filling in captions...");
+      console.log("Filling in captions...");
       await page.act({
-        action: `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. DO NOT GO BACK TO THE MAIN MENU.`,
+        action: `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`,
       });
 
       console.log("Generating final meme...");

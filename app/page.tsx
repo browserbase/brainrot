@@ -17,11 +17,8 @@ interface LoadingState {
 export default function Home() {
   const [message, setMessage] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
-  const [response, setResponse] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
   const [memes, setMemes] = useState<Meme[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [usedTemplates, setUsedTemplates] = useState<string[]>([]);
   const [loadingStates, setLoadingStates] = useState<LoadingState[]>([
     { index: 0, steps: [] },
     { index: 1, steps: [] },
@@ -35,7 +32,6 @@ export default function Home() {
     setMemes([]);
     setIsLoading(true);
     setSubmittedQuery(message);
-    setUsedTemplates([]);
 
     let firstResponseReceived = false;
 
@@ -117,7 +113,6 @@ export default function Home() {
           
           if (!memes.some(m => m.templateName === result.templateName)) {
             setMemes(prevMemes => [...prevMemes, formattedResult]);
-            setUsedTemplates(prev => [...prev, result.templateName]);
           }
           
           if (!firstResponseReceived) {
@@ -126,10 +121,10 @@ export default function Home() {
           }
         }
       })
-      .catch(error => {
-        console.error("Error:", error);
-      })
-    );
+      .catch((error: Error) => {
+        console.error('Error processing request:', error);
+        setIsLoading(false);
+      }));
 
     try {
       await Promise.all(apiCalls);
