@@ -50,82 +50,63 @@ export default function Home() {
           }),
         })
           .then(async (res) => {
-            if (!res.ok) {
-              throw new Error(`HTTP error! status: ${res.status}`);
-            }
-
             const reader = res.body?.getReader();
-            if (!reader) {
-              throw new Error("No reader available");
-            }
-
             let steps: string[] = [];
             let jsonData = null;
             let completeResponse = "";
 
-            try {
-              while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
+            if (!reader) {
+              throw new Error("No reader available");
+            }
 
-                const chunk = new TextDecoder().decode(value);
-                completeResponse += chunk;
+            while (true) {
+              const { done, value } = await reader.read();
 
-                // Process each line
-                const lines = chunk.split("\n").filter((line) => line.trim());
-                for (const line of lines) {
-                  if (line.startsWith("{")) {
-                    try {
-                      jsonData = JSON.parse(line);
-                      break; // Exit loop if we successfully parse JSON
-                    } catch {
-                      // Continue if this line isn't complete JSON
-                      continue;
-                    }
-                  } else if (line.includes("console.log")) {
-                    const match = line.match(/console\.log\('([^']+)'/);
-                    if (match) {
-                      const step = match[1].trim();
-                      steps = [...steps, step];
-                      setLoadingStates((prev) =>
-                        prev.map((state) =>
-                          state.index === index ? { ...state, steps } : state
-                        )
-                      );
-                    }
+              if (done) break;
+
+              const chunk = new TextDecoder().decode(value);
+              completeResponse += chunk;
+
+              const lines = chunk.split("\n").filter((line) => line.trim());
+
+              for (const line of lines) {
+                if (line.startsWith("{") || line.startsWith("[")) {
+                  try {
+                    jsonData = JSON.parse(line);
+                  } catch {
+                    // Not valid JSON, might be incomplete
+                  }
+                } else if (line.includes("console.log")) {
+                  const match = line.match(/console\.log\('([^']+)'/);
+                  if (match) {
+                    const step = match[1].trim();
+                    steps = [...steps, step];
+                    setLoadingStates((prev) =>
+                      prev.map((state) =>
+                        state.index === index ? { ...state, steps } : state
+                      )
+                    );
                   }
                 }
               }
-
-              // If we still don't have valid JSON, try parsing the complete response
-              if (!jsonData) {
-                try {
-                  const lines = completeResponse.split("\n");
-                  const lastLine = lines[lines.length - 1];
-                  jsonData = JSON.parse(lastLine);
-                } catch (parseError) {
-                  console.error(
-                    "Failed to parse complete response:",
-                    parseError
-                  );
-                  throw new Error("Invalid response format");
-                }
-              }
-
-              return jsonData;
-            } finally {
-              reader.releaseLock();
             }
+
+            if (!jsonData) {
+              try {
+                // Try to parse the last line as JSON
+                const lines = completeResponse.split("\n");
+                const lastLine = lines[lines.length - 1];
+                jsonData = JSON.parse(lastLine);
+              } catch (error) {
+                console.error("Failed to parse response JSON:", error);
+                throw new Error("Failed to parse response JSON");
+              }
+            }
+
+            return jsonData;
           })
           .then((data) => {
-            if (!data) {
-              throw new Error("No data received");
-            }
-            if (data.error) {
-              throw new Error(data.error);
-            }
-
-            if (data[0]) {
+            if (data && !data.error) {
               const result = data[0];
               const formattedResult = {
                 ...result,
@@ -145,23 +126,17 @@ export default function Home() {
               }
             }
           })
-          .catch((error) => {
-            console.error(`Error processing request ${index}:`, error);
-            // Don't set isLoading to false here, let other requests continue
+          .catch((error: Error) => {
+            console.error("Error processing request:", error);
+            setIsLoading(false);
           })
       );
 
-    // Add timeout for the entire operation
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject(new Error("Operation timed out")), 300000); // 5 minute timeout
-    });
-
     try {
-      await Promise.race([Promise.all(apiCalls), timeoutPromise]);
+      await Promise.all(apiCalls);
     } catch (error) {
       console.error("Error:", error);
     } finally {
-      setIsLoading(false);
       setMessage("");
     }
   };

@@ -17,6 +17,9 @@ interface Meme {
 
 // if you get off track, try to get back to main menu and start over
 
+export const maxDuration = 300; // Set max duration to 300 seconds (5 minutes)
+
+
 export async function POST(req: NextRequest) {
   const { message, sourceType = 0 } = await req.json();
 
