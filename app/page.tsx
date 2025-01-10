@@ -24,7 +24,7 @@ export default function Home() {
     { index: 1, steps: [] },
     { index: 2, steps: [] },
     { index: 3, steps: [] },
-    { index: 4, steps: [] }
+    { index: 4, steps: [] },
   ]);
 
   const handleSubmit = async (e: FormEvent) => {
@@ -35,103 +35,133 @@ export default function Home() {
 
     let firstResponseReceived = false;
 
-    const apiCalls = Array(5).fill(null).map((_, index) => 
-      fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-          message,
-          sourceType: index,
-          usedTemplates: memes.map(meme => meme.templateName)
-        }),
-      })
-      .then(async res => {
-        const reader = res.body?.getReader();
-        let steps: string[] = [];
-        let jsonData = null;
-        let completeResponse = '';
-        
-        if (!reader) {
-          throw new Error('No reader available');
-        }
+    const apiCalls = Array(5)
+      .fill(null)
+      .map((_, index) =>
+        fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            message,
+            sourceType: index,
+            usedTemplates: memes.map((meme) => meme.templateName),
+          }),
+        })
+          .then(async (res) => {
+            if (!res.ok) {
+              throw new Error(`HTTP error! status: ${res.status}`);
+            }
 
-        while (true) {
-          const { done, value } = await reader.read();
-          
-          if (done) break;
-          
-          const chunk = new TextDecoder().decode(value);
-          completeResponse += chunk;
-          
-          const lines = chunk.split('\n').filter(line => line.trim());
-          
-          for (const line of lines) {
-            if (line.startsWith('{') || line.startsWith('[')) {
-              try {
-                jsonData = JSON.parse(line);
-              } catch {
-                // Not valid JSON, might be incomplete
+            const reader = res.body?.getReader();
+            if (!reader) {
+              throw new Error("No reader available");
+            }
+
+            let steps: string[] = [];
+            let jsonData = null;
+            let completeResponse = "";
+
+            try {
+              while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = new TextDecoder().decode(value);
+                completeResponse += chunk;
+
+                // Process each line
+                const lines = chunk.split("\n").filter((line) => line.trim());
+                for (const line of lines) {
+                  if (line.startsWith("{")) {
+                    try {
+                      jsonData = JSON.parse(line);
+                      break; // Exit loop if we successfully parse JSON
+                    } catch {
+                      // Continue if this line isn't complete JSON
+                      continue;
+                    }
+                  } else if (line.includes("console.log")) {
+                    const match = line.match(/console\.log\('([^']+)'/);
+                    if (match) {
+                      const step = match[1].trim();
+                      steps = [...steps, step];
+                      setLoadingStates((prev) =>
+                        prev.map((state) =>
+                          state.index === index ? { ...state, steps } : state
+                        )
+                      );
+                    }
+                  }
+                }
               }
-            } else if (line.includes('console.log')) {
-              const match = line.match(/console\.log\('([^']+)'/);
-              if (match) {
-                const step = match[1].trim();
-                steps = [...steps, step];
-                setLoadingStates(prev => prev.map(state => 
-                  state.index === index ? { ...state, steps } : state
-                ));
+
+              // If we still don't have valid JSON, try parsing the complete response
+              if (!jsonData) {
+                try {
+                  const lines = completeResponse.split("\n");
+                  const lastLine = lines[lines.length - 1];
+                  jsonData = JSON.parse(lastLine);
+                } catch (parseError) {
+                  console.error(
+                    "Failed to parse complete response:",
+                    parseError
+                  );
+                  throw new Error("Invalid response format");
+                }
+              }
+
+              return jsonData;
+            } finally {
+              reader.releaseLock();
+            }
+          })
+          .then((data) => {
+            if (!data) {
+              throw new Error("No data received");
+            }
+            if (data.error) {
+              throw new Error(data.error);
+            }
+
+            if (data[0]) {
+              const result = data[0];
+              const formattedResult = {
+                ...result,
+                imageUrl: result.imageUrl.replace(
+                  /^https?:\/\/imgflip\.com\/i\/([a-zA-Z0-9]+)$/,
+                  "https://i.imgflip.com/$1.jpg"
+                ),
+              };
+
+              if (!memes.some((m) => m.templateName === result.templateName)) {
+                setMemes((prevMemes) => [...prevMemes, formattedResult]);
+              }
+
+              if (!firstResponseReceived) {
+                firstResponseReceived = true;
+                setIsLoading(false);
               }
             }
-          }
-        }
+          })
+          .catch((error) => {
+            console.error(`Error processing request ${index}:`, error);
+            // Don't set isLoading to false here, let other requests continue
+          })
+      );
 
-        if (!jsonData) {
-          try {
-            // Try to parse the last line as JSON
-            const lines = completeResponse.split('\n');
-            const lastLine = lines[lines.length - 1];
-            jsonData = JSON.parse(lastLine);
-          } catch (error) {
-            console.error('Failed to parse response JSON:', error);
-            throw new Error('Failed to parse response JSON');
-          }
-        }
-
-        return jsonData;
-      })
-      .then(data => {
-        if (data && !data.error) {
-          const result = data[0];
-          const formattedResult = {
-            ...result,
-            imageUrl: result.imageUrl.replace(
-              /^https?:\/\/imgflip\.com\/i\/([a-zA-Z0-9]+)$/,
-              'https://i.imgflip.com/$1.jpg'
-            )
-          };
-          
-          if (!memes.some(m => m.templateName === result.templateName)) {
-            setMemes(prevMemes => [...prevMemes, formattedResult]);
-          }
-          
-          if (!firstResponseReceived) {
-            firstResponseReceived = true;
-            setIsLoading(false);
-          }
-        }
-      })
-      .catch((error: Error) => {
-        console.error('Error processing request:', error);
-        setIsLoading(false);
-      }));
+    // Add timeout for the entire operation
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error("Operation timed out")), 300000); // 5 minute timeout
+    });
 
     try {
-      await Promise.all(apiCalls);
+      await Promise.race([Promise.all(apiCalls), timeoutPromise]);
     } catch (error) {
       console.error("Error:", error);
     } finally {
+      setIsLoading(false);
       setMessage("");
     }
   };
@@ -160,7 +190,11 @@ export default function Home() {
 
           <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-sm text-blue-700 dark:text-blue-200">
             <p className="mb-2">ℹ️ Please note:</p>
-            <p>Each meme generation request takes approximately 1-5 minutes to complete. Not all memes will be generated always. Here are some ideas to make the most of your time:</p>
+            <p>
+              Each meme generation request takes approximately 1-5 minutes to
+              complete. Not all memes will be generated always. Here are some
+              ideas to make the most of your time:
+            </p>
             <ul className="list-disc ml-5 mt-2 space-y-1">
               <li>Take a coffee break ☕</li>
               <li>Relax and stretch 🧘‍♂️</li>
@@ -172,7 +206,7 @@ export default function Home() {
             <div className="mt-8 w-full">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {loadingStates.map((state) => (
-                  <MemeSkeleton 
+                  <MemeSkeleton
                     key={`loading-${state.index}`}
                     steps={state.steps}
                     index={state.index}
@@ -191,17 +225,21 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                 {memes.map((meme, index) => (
-                  <div 
-                    key={`${meme.index}-${index}`} 
+                  <div
+                    key={`${meme.index}-${index}`}
                     className="p-6 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm"
                   >
                     <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-base font-medium">{meme.templateName}</h3>
-                      <span className="text-xs text-gray-500">Meme {index + 1}/5</span>
+                      <h3 className="text-base font-medium">
+                        {meme.templateName}
+                      </h3>
+                      <span className="text-xs text-gray-500">
+                        Meme {index + 1}/5
+                      </span>
                     </div>
                     <Image
                       src={meme.imageUrl}
-                      alt={meme.templateName || 'Meme image'}
+                      alt={meme.templateName || "Meme image"}
                       width={800}
                       height={800}
                       className="rounded-lg w-full"
@@ -209,13 +247,15 @@ export default function Home() {
                     />
                   </div>
                 ))}
-                {Array(5 - memes.length).fill(null).map((_, i) => (
-                  <MemeSkeleton 
-                    key={`remaining-${i}`} 
-                    steps={loadingStates[memes.length + i]?.steps || []} 
-                    index={memes.length + i} 
-                  />
-                ))}
+                {Array(5 - memes.length)
+                  .fill(null)
+                  .map((_, i) => (
+                    <MemeSkeleton
+                      key={`remaining-${i}`}
+                      steps={loadingStates[memes.length + i]?.steps || []}
+                      index={memes.length + i}
+                    />
+                  ))}
               </div>
             </>
           )}
