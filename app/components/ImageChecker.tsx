@@ -17,13 +17,10 @@ export default function ImageChecker({ src, alt, width, height, className }: Ima
 
   useEffect(() => {
     const checkImage = () => {
-      console.log('Checking image');
       fetch(src)
         .then(response => {
           if (response.ok && response.headers.get('content-type')?.startsWith('image/')) {
-            console.log('Image loaded');
             setIsLoading(false);
-            console.log('Interval cleared');
             clearInterval(interval);
             return;
           }
@@ -34,12 +31,10 @@ export default function ImageChecker({ src, alt, width, height, className }: Ima
         });
     };
 
-    // Reset states when src changes
     setIsLoading(true);
     setError(false);
     setAttempts(0);
 
-    // Keep checking until image is loaded
     const interval = setInterval(checkImage, 1000);
     return () => clearInterval(interval);
   }, [src]);
@@ -54,9 +49,9 @@ export default function ImageChecker({ src, alt, width, height, className }: Ima
 
   return (
     <div className="relative w-full">
-      <div className="relative aspect-square w-full overflow-hidden rounded-lg">
+      <div className="relative w-full overflow-hidden rounded-lg">
         {isLoading && (
-          <div className="absolute inset-0 animate-pulse bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+          <div className="absolute inset-0 animate-pulse bg-gray-200 dark:bg-gray-700 flex items-center justify-center aspect-[4/3]">
             <div className="text-center">
               <div className="inline-block animate-spin mb-2">⟳</div>
               <div className="text-sm text-gray-500">Loading... ({attempts}s)</div>
@@ -66,10 +61,10 @@ export default function ImageChecker({ src, alt, width, height, className }: Ima
         
         <Image
           src={src}
-          alt={alt}
+          alt={alt || 'Meme Image'}
           width={width}
           height={height}
-          className={`${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+          className={`${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 w-full h-auto`}
           onLoad={() => setIsLoading(false)}
           onError={() => setError(true)}
           unoptimized={true}

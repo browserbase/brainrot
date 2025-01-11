@@ -4,6 +4,7 @@ import {
   Stagehand,
 } from "@browserbasehq/stagehand";
 import { NextRequest, NextResponse } from "next/server";
+import { MAX_CONCURRENT_MEMES } from '../../config/constants';
 
 interface Meme {
   index: number;
@@ -62,30 +63,11 @@ export async function POST(req: NextRequest) {
       const page = await stagehand.page;
 
       console.log("Navigating to search page...");
-      let templateInfo;
-      const sources = [
-        {
-          url: "https://imgflip.com/memetemplates?sort=top-30-days",
-          description: "top templates this month",
-        },
-        {
-          url: "https://imgflip.com/memetemplates?sort=top-30-days&page=2",
-          
-          description: "top templates this month",
-        },
-        {
-          url: "https://imgflip.com/memetemplates?sort=top-30-days&page=3",
-          description: "top templates this month",
-        },
-        {
-          url: "https://imgflip.com/memetemplates?sort=top-30-days&page=4",
-          description: "top templates this month",
-        },
-        {
-          url: "https://imgflip.com/memetemplates?sort=top-all-time&page=5",
-          description: "top templates this month",
-        },
-      ];
+    let templateInfo;
+      const sources = Array(MAX_CONCURRENT_MEMES).fill(null).map((_, index) => ({
+        url: `https://imgflip.com/memetemplates?sort=top-30-days${index > 0 ? `&page=${index + 1}` : ''}`,
+        description: "top templates this month"
+      }));
 
       // Use only the specified source
       const source = sources[sourceType];
@@ -130,6 +112,11 @@ export async function POST(req: NextRequest) {
 
       await page.close();
       await stagehand.close();
+
+      // Increment meme counter
+      await fetch(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api/meme-count`, {
+        method: 'POST',
+      });
 
       return NextResponse.json(results);
     } catch (error) {
