@@ -127,12 +127,13 @@ export async function POST(req: NextRequest) {
 
       // Increment meme counter
       try {
-        await fetch(
-          `${process.env.VERCEL_URL || "http://localhost:3000"}/api/meme-count`,
-          {
-            method: "POST",
-          }
-        );
+        const baseUrl = process.env.VERCEL_URL 
+          ? `https://${process.env.VERCEL_URL}` 
+          : 'http://localhost:3000';
+          
+        await fetch(`${baseUrl}/api/meme-count`, {
+          method: "POST",
+        });
       } catch (error) {
         console.error("Failed to increment meme counter:", error);
         // Continue execution even if counter fails

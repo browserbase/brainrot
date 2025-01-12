@@ -6,19 +6,27 @@ import Image from 'next/image';
 
 export default function MemeCounter() {
   const [count, setCount] = useState<number>(0);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        const res = await fetch('/api/meme-count');
+        if (!res.ok) throw new Error('Failed to fetch count');
+        const data = await res.json();
+        setCount(data.count);
+        setError(false);
+      } catch (err) {
+        console.error('Error fetching count:', err);
+        setError(true);
+      }
+    };
+
     // Initial fetch
-    fetch('/api/meme-count')
-      .then(res => res.json())
-      .then(data => setCount(data.count));
+    fetchCount();
 
     // Set up polling every 10 seconds
-    const interval = setInterval(() => {
-      fetch('/api/meme-count')
-        .then(res => res.json())
-        .then(data => setCount(data.count));
-    }, 10000);
+    const interval = setInterval(fetchCount, 10000);
 
     return () => clearInterval(interval);
   }, []);
@@ -29,7 +37,7 @@ export default function MemeCounter() {
         <div className="pl-4 pr-2 sm:py-8 py-6 text-xl sm:text-2xl text-gray-600 dark:text-gray-300">
           <span className="sm:hidden">Total Memes<br />Generated:</span>
           <span className="hidden sm:inline">Total Memes Generated:</span>
-          {' '}{count}
+          {' '}{error ? '...' : count}
         </div>
         <motion.div 
           className="px-4 py-2 sm:px-4"
