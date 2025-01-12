@@ -12,7 +12,9 @@ interface RecentlyGeneratedProps {
   recentMemes: Meme[];
 }
 
-export default function RecentlyGenerated({ recentMemes }: RecentlyGeneratedProps) {
+export default function RecentlyGenerated({
+  recentMemes,
+}: RecentlyGeneratedProps) {
   return (
     <>
       <div className="mt-16 mb-6">
@@ -23,31 +25,33 @@ export default function RecentlyGenerated({ recentMemes }: RecentlyGeneratedProp
           {recentMemes.map((meme, index) => (
             <div
               key={`recent-${meme.timestamp}-${index}`}
-              className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm"
+              className="p-4 rounded-lg bg-[#F8E3C4] dark:bg-gray-800 shadow-sm"
             >
-              <div className="flex flex-col mb-4">
-                <h3 className="text-base font-medium">
-                  {meme.templateName}
-                </h3>
-                <span className="text-xs text-gray-500 mt-1">
-                  &quot;{meme.query}&quot;
-                </span>
+              <div className="flex justify-start mb-2">
                 <span className="text-xs text-gray-500">
                   {new Date(meme.timestamp).toLocaleDateString()}
                 </span>
               </div>
+              <span className="text-xs text-gray-500 italic mb-2 py-2 block">
+                &quot;{meme.query}&quot;
+              </span>
               <ImageChecker
                 src={meme.imageUrl}
                 alt={meme.templateName}
                 width={800}
                 height={800}
-                className="rounded-lg w-full"
+                className="rounded-lg w-full mb-3"
               />
+              <div className="flex flex-col">
+                <h3 className="text-sm font-medium text-gray-500 dark:text-gray-600">
+                  {meme.templateName}
+                </h3>
+              </div>
             </div>
           ))}
         </div>
       ) : (
-        <div className="text-center p-8 bg-gray-100 dark:bg-gray-800 rounded-lg">
+        <div className="text-center p-8 bg-[#F8E3C4] dark:bg-gray-800 rounded-lg">
           <p className="text-gray-600 dark:text-gray-400">
             No memes generated yet. Try generating some memes above!
           </p>
@@ -55,4 +59,4 @@ export default function RecentlyGenerated({ recentMemes }: RecentlyGeneratedProp
       )}
     </>
   );
-} 
+}

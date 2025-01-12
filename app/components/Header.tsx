@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 const navItems = [
   { label: 'ABOUT', href: '/about', color: 'bg-[#FFD7BA]' },
   { label: 'DOCS', href: '/docs', color: 'bg-[#FEFFA3]' },
-  { label: 'EXAMPLES', href: '/examples', color: 'bg-[#E7C6FF]' },
+//   { label: 'EXAMPLES', href: '/examples', color: 'bg-[#E7C6FF]' },
   { label: 'FAQ', href: '/faq', color: 'bg-[#98FF98]' },
 ];
 
@@ -18,11 +18,17 @@ export default function Header() {
   return (
     <header className="w-full py-8 sm:py-12 px-8 sm:px-20">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <span className="text-2xl sm:text-3xl font-galindo flex items-center">
-            <div className="mr-2">🧠</div> <Logo className="h-7 mb-1 mr-0.5 w-7 text-[#1a1b1e] dark:text-white" />rainrot
-          </span>
-        </Link>
+        <div className="flex items-center gap-0.5">
+          <Link href="https://www.browserbase.com" className="flex items-center">
+            <span className="text-2xl sm:text-3xl font-galindo flex items-center">
+              <div className="mr-2">🧠</div> 
+              <Logo className="h-7 mb-1 w-7 text-[#1a1b1e] dark:text-white" />
+            </span>
+          </Link>
+          <Link href="/" className="text-2xl sm:text-3xl font-galindo hover:opacity-80 transition-opacity">
+            rainrot
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden sm:flex items-center gap-4">
@@ -63,14 +69,13 @@ export default function Header() {
         {/* Mobile Navigation Dropdown */}
         {isMenuOpen && (
           <motion.div 
-            className="absolute top-[5.5rem] right-4 w-64 bg-white/90 dark:bg-[#1a1b1e]/90 backdrop-blur-lg shadow-lg sm:hidden p-4 z-50 rounded-lg border border-[#1a1b1e]/10 origin-top"
+            className="absolute top-[5.5rem] right-4 w-64 bg-[#FFF5E1] dark:bg-[#1a1b1e]/90 backdrop-blur-lg shadow-lg sm:hidden p-4 z-50 rounded-lg border border-[#1a1b1e]/10 origin-top"
             initial={{ opacity: 0, y: -20, scaleY: 0.3 }}
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -20, scaleY: 0.3 }}
             transition={{
               type: "spring",
               stiffness: 300,
-            //   damping: 20,
               mass: 0.7,
               duration: 0.3
             }}

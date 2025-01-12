@@ -8,6 +8,9 @@ import MemeCounter from './components/MemeCounter';
 import RecentlyGenerated from "./components/RecentlyGenerated";
 import GenerationInfo from './components/GenerationInfo';
 import { MAX_CONCURRENT_MEMES } from './config/constants';
+import StickyFooter from "./components/StickyFooter";
+import Image from "next/image";
+import Link from "next/link";
 
 interface Meme {
   index: number;
@@ -177,7 +180,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20">
+    <div className="min-h-screen p-8 pb-28 sm:p-20 sm:pb-28">
       <main className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
           <div className="w-full lg:w-1/2 lg:sticky lg:top-20">
@@ -187,7 +190,9 @@ export default function Home() {
               <span className="flex flex-col items-start">
                 <div className="flex flex-col items-start">
                   <div className="flex">
-                    <Logo className="h-7 sm:h-12 w-7 sm:w-12 mr-0.5 text-[#1a1b1e] dark:text-white mt-0.5" />
+                    <Link href="https://www.browserbase.com">
+                      <Logo className="h-7 sm:h-12 w-7 sm:w-12 mr-0.5 text-[#1a1b1e] dark:text-white mt-0.5" />
+                    </Link>
                     RAINROT
                   </div>
                   <span className="flex flex-col items-start">GENERATOR</span>
@@ -198,13 +203,30 @@ export default function Home() {
           </div>
 
           <div className="w-full lg:w-1/2">
+            <div className="mb-4">
+              <h2 className="text-xl font-medium text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                <div className="flex flex-col items-start mr-4">
+                  Have something to say?
+                  <br />
+                  We&apos;ll make memes from it
+                </div>
+                <Image
+                  src="/cat.gif"
+                  alt="Cat animation"
+                  width={48}
+                  height={48}
+                  className="inline-block rounded-lg border-1 border-[#ff6b6b] "
+                  unoptimized
+                />
+              </h2>
+            </div>
             <form onSubmit={handleSubmit} className="flex gap-4">
               <input
                 type="text"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Type anything, we'll make memes from it..."
-                className="flex-1 p-2 border rounded-md bg-white/90 dark:bg-[#1a1b1e] border-[#ff6b6b]/20 dark:border-[#ff6b6b]/20 disabled:opacity-50 disabled:cursor-not-allowed text-[#1a1b1e] dark:text-white"
+                placeholder="Type anything..."
+                className="flex-1 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#EF3604] focus:border-transparent transition-shadow duration-200"
                 disabled={isLoading}
               />
               <button
@@ -248,14 +270,14 @@ export default function Home() {
                   {memes.map((meme, index) => (
                     <div
                       key={`${meme.index}-${index}`}
-                      className="p-3 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm"
+                      className="p-3 rounded-lg bg-[#F8E3C4] dark:bg-gray-800 shadow-sm"
                     >
                       <div className="flex justify-between items-center mb-4">
                         <h3 className="text-base font-medium">
                           {meme.templateName}
                         </h3>
                         <span className="text-xs text-gray-500">
-                          Template {index + 1}/{MAX_CONCURRENT_MEMES}
+                          Meme {index + 1}/{MAX_CONCURRENT_MEMES}
                         </span>
                       </div>
                       <ImageChecker
@@ -284,6 +306,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <StickyFooter />
     </div>
   );
 }

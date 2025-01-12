@@ -23,8 +23,8 @@ export default function GenerationInfo({ isVisible }: GenerationInfoProps) {
           <p className="mb-2">ℹ️ Please note:</p>
           <p>
             Each meme generation request takes approximately 1-3 minutes to
-            complete. Not all memes will be generated always. Here are some
-            ideas to make the most of your time:
+            complete. Not all memes will always be generated. <span className="block"><br /></span>
+            Here are some ideas to make the most of your time:
           </p>
           <ul className="list-disc ml-5 mt-2 space-y-1">
             <li>Take a coffee break ☕</li>

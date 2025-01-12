@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${galindo.variable} font-galindo antialiased bg-white dark:bg-[#1a1b1e] text-[#1a1b1e] dark:text-white`}>
+      <body className={`${galindo.variable} font-galindo antialiased bg-[#FFF5E1] dark:bg-[#1a1b1e] text-[#1a1b1e] dark:text-white`}>
         <Header />
         {children}
       </body>

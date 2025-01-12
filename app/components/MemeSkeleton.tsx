@@ -39,24 +39,29 @@ export default function MemeSkeleton({ steps, index }: MemeSkeletonProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="p-6 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700"
+      className="p-3 rounded-lg bg-[#F8E3C4] dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700"
     >
-      <div className="flex justify-between items-center mb-4">
-        <span className="text-xs text-gray-500">Template {index + 1}/{MAX_CONCURRENT_MEMES}</span>
+      <div className="flex justify-between items-center mb-1">
+        <span className="text-[10px] sm:text-xs dark:text-gray-300">
+          {new Date().toLocaleDateString()}
+        </span>
+        <span className="text-[10px] sm:text-xs dark:text-gray-300">
+          Template {index + 1}/{MAX_CONCURRENT_MEMES}
+        </span>
       </div>
       
-      <div className="relative aspect-square  dark:bg-gray-700 rounded-lg overflow-hidden">
+      <div className="relative aspect-[4/3] bg-transparent rounded-lg overflow-hidden">
         <motion.div 
-          className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center"
+          className="absolute inset-0 flex flex-col items-center justify-center p-2 sm:p-4"
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-4">
+          <div className="relative w-full h-32 sm:h-48 mb-1 sm:mb-2">
             <Image
-              src="./wait.png"
+              src="/wait.png"
               alt="Loading"
               fill
-              sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 192px"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               className="object-contain"
               priority
               unoptimized
@@ -67,21 +72,21 @@ export default function MemeSkeleton({ steps, index }: MemeSkeletonProps) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="text-sm font-medium text-gray-600 dark:text-gray-300"
+            className="text-[10px] sm:text-sm font-medium text-gray-600 dark:text-gray-300 text-center"
           >
             {caption}
           </motion.p>
         </motion.div>
       </div>
       
-      <div className="mt-4 space-y-2 font-mono text-xs">
+      <div className="mt-2 space-y-1 font-mono text-[8px] sm:text-xs">
         {steps.map((step, i) => (
           <motion.div 
             key={i}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="flex items-center space-x-2 text-gray-600 dark:text-gray-400"
+            className="flex items-center space-x-1 sm:space-x-2 text-gray-600 dark:text-gray-400"
           >
             <span className="text-green-500">✓</span>
             <span>{step}</span>
@@ -89,7 +94,7 @@ export default function MemeSkeleton({ steps, index }: MemeSkeletonProps) {
         ))}
         {steps.length > 0 && (
           <motion.div 
-            className="flex items-center space-x-2 text-gray-600 dark:text-gray-400"
+            className="flex items-center space-x-1 sm:space-x-2 text-gray-600 dark:text-gray-400"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >

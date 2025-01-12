@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 interface MemeProgressProps {
   current: number;
   total: number;
@@ -14,7 +12,7 @@ export default function MemeProgress({ current, total }: MemeProgressProps) {
         <span>{current} / {total} memes generated</span>
         <span>{Math.round(percentage)}%</span>
       </div>
-      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="h-4 bg-[#F8E3C4] dark:bg-gray-700 rounded-full overflow-hidden">
         <div 
           className="h-full bg-[#ff6b6b] transition-all duration-500 ease-out rounded-full"
           style={{ width: `${percentage}%` }}

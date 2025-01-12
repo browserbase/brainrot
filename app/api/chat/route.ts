@@ -4,7 +4,8 @@ import {
   Stagehand,
 } from "@browserbasehq/stagehand";
 import { NextRequest, NextResponse } from "next/server";
-import { MAX_CONCURRENT_MEMES } from '../../config/constants';
+import { MAX_CONCURRENT_MEMES } from "../../config/constants";
+import { z } from "zod";
 
 interface Meme {
   index: number;
@@ -18,8 +19,7 @@ interface Meme {
 
 // if you get off track, try to get back to main menu and start over
 
-export const maxDuration = 300; 
-
+export const maxDuration = 300;
 
 export async function POST(req: NextRequest) {
   const { message, sourceType = 0 } = await req.json();
@@ -63,11 +63,15 @@ export async function POST(req: NextRequest) {
       const page = await stagehand.page;
 
       console.log("Navigating to search page...");
-    let templateInfo;
-      const sources = Array(MAX_CONCURRENT_MEMES).fill(null).map((_, index) => ({
-        url: `https://imgflip.com/memetemplates?sort=top-30-days${index > 0 ? `&page=${index + 1}` : ''}`,
-        description: "top templates this month"
-      }));
+      let templateInfo;
+      const sources = Array(MAX_CONCURRENT_MEMES)
+        .fill(null)
+        .map((_, index) => ({
+          url: `https://imgflip.com/memetemplates?sort=top-30-days${
+            index > 0 ? `&page=${index + 1}` : ""
+          }`,
+          description: "top templates this month",
+        }));
 
       // Use only the specified source
       const source = sources[sourceType];
@@ -75,13 +79,20 @@ export async function POST(req: NextRequest) {
       await page.goto(source.url, { waitUntil: "domcontentloaded" });
 
       try {
-
         templateInfo = await page.act({
           action: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`,
         });
 
         console.log("Template found:", templateInfo);
 
+        templateInfo = await page.extract({
+          instruction: `Extract the template name from the URL of the template you selected.`,
+          schema: z.object({
+            name: z.string(),
+          }),
+        });
+
+        console.log("Template name:", templateInfo.name);
       } catch (error) {
         console.log(`Error finding template in ${source.description}:`, error);
         throw error;
@@ -104,7 +115,8 @@ export async function POST(req: NextRequest) {
       const result = {
         index: sourceType,
         imageUrl: imageUrl,
-        // templateName: templateInfo.templateName,
+        templateName:
+          (templateInfo as { name?: string }).name || "Unknown Template",
       };
 
       console.log("Processing complete:", result);
@@ -114,9 +126,12 @@ export async function POST(req: NextRequest) {
       await stagehand.close();
 
       // Increment meme counter
-      await fetch(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api/meme-count`, {
-        method: 'POST',
-      });
+      await fetch(
+        `${process.env.VERCEL_URL || "http://localhost:3000"}/api/meme-count`,
+        {
+          method: "POST",
+        }
+      );
 
       return NextResponse.json(results);
     } catch (error) {
