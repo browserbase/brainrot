@@ -1,12 +1,17 @@
+import { Redis } from '@upstash/redis'
 import { NextResponse } from "next/server";
 
-let memeCount = 0;  // This will reset on server restart/redeploy
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+})
 
 export async function GET() {
-  return NextResponse.json({ count: memeCount });
+  const count = await redis.get<number>('meme-count') || 0;
+  return NextResponse.json({ count });
 }
 
 export async function POST() {
-  memeCount++;
-  return NextResponse.json({ count: memeCount });
+  const count = await redis.incr('meme-count');
+  return NextResponse.json({ count });
 }
