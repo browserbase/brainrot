@@ -31,10 +31,10 @@ export default function About() {
       <main className="max-w-6xl mx-auto">
         <div className="mb-12">
           <h1 className="text-4xl sm:text-6xl font-galindo font-bold tracking-wider text-[#1a1b1e] dark:text-white mb-6">
-            ABOUT RAINROT
+            ABOUT BRAINROT
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-            Rainrot is an AI-powered meme generator that creates multiple memes based on your text input. 
+            Brainrot is an AI-powered meme generator that creates multiple memes based on your text input. 
             It uses advanced browser automation and AI to understand your message and generate relevant, humorous memes.
           </p>
         </div>

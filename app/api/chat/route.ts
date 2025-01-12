@@ -6,6 +6,7 @@ import {
 import { NextRequest, NextResponse } from "next/server";
 import { MAX_CONCURRENT_MEMES } from "../../config/constants";
 import { z } from "zod";
+import { sendMemeNotification } from "@/utils/sms";
 
 interface Meme {
   index: number;
@@ -22,7 +23,9 @@ interface Meme {
 export const maxDuration = 300;
 
 export async function POST(req: NextRequest) {
-  const { message, sourceType = 0 } = await req.json();
+  const { message, sourceType = 0, phoneNumber } = await req.json();
+  
+  console.log('Request received with phone:', phoneNumber);
 
   const StagehandConfig: ConstructorParams = {
     env:
@@ -67,11 +70,17 @@ export async function POST(req: NextRequest) {
       const sources = Array(MAX_CONCURRENT_MEMES)
         .fill(null)
         .map((_, index) => ({
+          name: `Page ${index + 1} Templates`,
           url: `https://imgflip.com/memetemplates?sort=top-30-days${
             index > 0 ? `&page=${index + 1}` : ""
           }`,
-          description: "top templates this month",
+          description: `Top templates this month - Page ${index + 1}`,
         }));
+
+      console.log(
+        "Available meme sources:",
+        sources.map((s) => `${s.name}: ${s.description}`)
+      );
 
       // Use only the specified source
       const source = sources[sourceType];
@@ -127,16 +136,38 @@ export async function POST(req: NextRequest) {
 
       // Increment meme counter
       try {
-        const baseUrl = process.env.VERCEL_URL 
-          ? `https://${process.env.VERCEL_URL}` 
-          : 'http://localhost:3000';
-          
+        const baseUrl = process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : "http://localhost:3000";
+
         await fetch(`${baseUrl}/api/meme-count`, {
           method: "POST",
         });
       } catch (error) {
         console.error("Failed to increment meme counter:", error);
         // Continue execution even if counter fails
+      }
+
+      console.log("Phone number:", phoneNumber);
+      console.log("Image URL:", imageUrl);
+      console.log("Environment variables:", {
+        TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
+        TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
+        TWILIO_PHONE_NUMBER: process.env.TWILIO_PHONE_NUMBER,
+      });
+      console.log("Sending SMS notification...");
+      if (phoneNumber) {
+        console.log('========= PHONE NUMBER CHECK =========');
+        console.log('Phone number before SMS:', phoneNumber);
+        console.log('Phone number type:', typeof phoneNumber);
+        console.log('Phone number length:', phoneNumber.length);
+        
+        try {
+          const smsResult = await sendMemeNotification(phoneNumber, [imageUrl]);
+          console.log("SMS Result:", smsResult);
+        } catch (error) {
+          console.error("SMS Error:", error);
+        }
       }
 
       return NextResponse.json(results);

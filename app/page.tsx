@@ -11,6 +11,7 @@ import { MAX_CONCURRENT_MEMES } from './config/constants';
 import StickyFooter from "./components/StickyFooter";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface Meme {
   index: number;
@@ -38,6 +39,8 @@ export default function Home() {
     (Meme & { query: string; timestamp: number })[]
   >([]);
   const [successfulMemes, setSuccessfulMemes] = useState(0);
+  const [notificationPhone, setNotificationPhone] = useState<string>("");
+  const [formStep, setFormStep] = useState(1);
 
   useEffect(() => {
     const saved = localStorage.getItem("recentMemes");
@@ -54,6 +57,8 @@ export default function Home() {
     setSuccessfulMemes(0);
 
     let firstResponseReceived = false;
+    
+    console.log('Current phone number state:', notificationPhone);
 
     const apiCalls = Array(MAX_CONCURRENT_MEMES)
       .fill(null)
@@ -67,6 +72,7 @@ export default function Home() {
             message,
             sourceType: index,
             usedTemplates: memes.map((meme) => meme.templateName),
+            phoneNumber: notificationPhone,
           }),
         })
           .then(async (res) => {
@@ -220,24 +226,108 @@ export default function Home() {
                 />
               </h2>
             </div>
-            <form onSubmit={handleSubmit} className="flex gap-4">
-              <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Type anything..."
-                className="flex-1 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#EF3604] focus:border-transparent transition-shadow duration-200"
-                disabled={isLoading}
-              />
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="rounded-full border-2 border-[#ff6b6b] transition-colors flex items-center justify-center bg-[#ff6b6b] text-white hover:bg-[#ff8787] dark:hover:bg-[#ff8787] text-sm sm:text-base h-10 sm:h-12 px-6 sm:px-8 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap font-bold"
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              {/* Step 1 */}
+              <div className="flex gap-4">
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && message.trim() && !isLoading) {
+                      e.preventDefault();
+                      console.log('Enter pressed - Setting form step to 2');
+                      setFormStep(2);
+                    }
+                  }}
+                  placeholder="Type anything..."
+                  className="flex-1 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#EF3604] focus:border-transparent transition-shadow duration-200"
+                  disabled={isLoading}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    console.log('Setting form step to 2');
+                    setFormStep(2);
+                  }}
+                  disabled={!message.trim() || isLoading}
+                  className="rounded-full border-2 border-[#ff6b6b] transition-colors flex items-center justify-center bg-[#ff6b6b] text-white hover:bg-[#ff8787] dark:hover:bg-[#ff8787] text-sm sm:text-base h-10 sm:h-12 px-6 sm:px-8 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap font-bold"
+                >
+                  Next
+                </button>
+              </div>
+
+              {/* Step 2 */}
+              <motion.div
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ 
+                  y: formStep === 2 ? 0 : -20,
+                  opacity: formStep === 2 ? 1 : 0,
+                  display: formStep === 2 ? "block" : "none"
+                }}
+                transition={{
+                  y: {
+                    type: "spring",
+                    stiffness: 300,
+                    mass: 0.7,
+                    duration: 0.3,
+                    velocity: 2
+                  },
+                  opacity: {
+                    duration: 0.2
+                  }
+                }}
+                className="overflow-visible"
               >
-                Generate
-              </button>
+                <div className="flex gap-4 items-center">
+                  <div className="flex-1">
+                    <p className="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Get SMS updates? 📱 Enter phone number (Optional)
+                    </p>
+                    <div className="relative">
+                      <input
+                        type="tel"
+                        value={notificationPhone}
+                        onChange={(e) => {
+                          let value = e.target.value.replace(/^\+1/, '');
+                          value = value.replace(/\D/g, '');
+                          value = value.slice(0, 10);
+                          if (value) {
+                            value = '+1' + value;
+                          }
+                          setNotificationPhone(value);
+                        }}
+                        placeholder="(555) 555-5555"
+                        maxLength={12}
+                        className="w-full rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 
+                        text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 
+                        text-gray-900 dark:text-gray-100 
+                        focus:outline-none focus:ring-2 focus:ring-[#ff6b6b] focus:border-[#ff6b6b] focus:ring-opacity-50
+                        transition-all duration-200 ease-in-out
+                        placeholder:text-gray-400 dark:placeholder:text-gray-600"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="rounded-full border-2 border-[#ff6b6b] transition-all duration-200 
+                    flex items-center justify-center bg-[#ff6b6b] text-white 
+                    hover:bg-[#ff8787] hover:border-[#ff8787] hover:scale-105
+                    dark:hover:bg-[#ff8787] text-sm sm:text-base h-10 sm:h-12 
+                    px-6 sm:px-8 disabled:opacity-50 disabled:cursor-not-allowed 
+                    disabled:hover:scale-100 whitespace-nowrap font-bold
+                    self-end"
+                  >
+                    Generate
+                  </button>
+                </div>
+              </motion.div>
             </form>
-            <GenerationInfo isVisible={isLoading} />
+            <GenerationInfo 
+              isVisible={isLoading} 
+              onPhoneNumberSubmit={(phone) => setNotificationPhone(phone)} 
+            />
 
             {/* Progress bar - Always visible */}
             <div className="mt-8 w-full">
@@ -273,10 +363,10 @@ export default function Home() {
                       className="p-3 rounded-lg bg-[#F8E3C4] dark:bg-gray-800 shadow-sm"
                     >
                       <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-base font-medium">
+                        <h3 className="text-xs sm:text-base font-medium">
                           {meme.templateName}
                         </h3>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs sm:text-sm text-gray-500">
                           Meme {index + 1}/{MAX_CONCURRENT_MEMES}
                         </span>
                       </div>
