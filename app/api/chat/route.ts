@@ -136,17 +136,14 @@ export async function POST(req: NextRequest) {
 
       // Increment meme counter
       try {
-        // const baseUrl = process.env.VERCEL_URL
-          // ? `https://${process.env.VERCEL_URL}`
-          // : "http://localhost:3000";
+        const baseUrl = process.env.PRODUCTION_URL || "http://localhost:3000";
+        
+        // Remove any trailing slash and ensure no double https://
+        const cleanBaseUrl = baseUrl.replace(/\/$/, '').replace(/^https?:\/\//, '');
+        
+        console.log("Base URL for counter:", `https://${cleanBaseUrl}/api/meme-count`);
 
-        const baseUrl = process.env.PRODUCTION_URL
-          ? `https://${process.env.PRODUCTION_URL}`
-          : "http://localhost:3000";
-
-        console.log("Base URL:", baseUrl);
-
-        await fetch(`${baseUrl}/api/meme-count`, {
+        await fetch(`https://${cleanBaseUrl}/api/meme-count`, {
           method: "POST",
         });
       } catch (error) {
