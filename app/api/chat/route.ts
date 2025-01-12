@@ -136,9 +136,15 @@ export async function POST(req: NextRequest) {
 
       // Increment meme counter
       try {
-        const baseUrl = process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}`
+        // const baseUrl = process.env.VERCEL_URL
+          // ? `https://${process.env.VERCEL_URL}`
+          // : "http://localhost:3000";
+
+        const baseUrl = process.env.PRODUCTION_URL
+          ? `https://${process.env.PRODUCTION_URL}`
           : "http://localhost:3000";
+
+        console.log("Base URL:", baseUrl);
 
         await fetch(`${baseUrl}/api/meme-count`, {
           method: "POST",
