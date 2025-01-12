@@ -1,47 +1,11 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface GenerationInfoProps {
   isVisible: boolean;
   onPhoneNumberSubmit: (phoneNumber: string) => void;
 }
 
-export default function GenerationInfo({ isVisible, onPhoneNumberSubmit }: GenerationInfoProps) {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Add phone validation
-    const phoneRegex = /^\+[1-9]\d{1,14}$/;
-    if (!phoneRegex.test(phoneNumber)) {
-      alert("Please enter a valid phone number in international format (e.g., +1234567890)");
-      return;
-    }
-    
-    // Add this debug log
-    console.log('Submitting phone number:', phoneNumber);
-    onPhoneNumberSubmit(phoneNumber);
-    setIsSubmitted(true);
-  };
-
-  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
-    
-    // Add +1 prefix if user starts typing without it
-    if (value && !phoneNumber.startsWith('+')) {
-      value = '1' + value;
-    }
-    
-    // Format with + prefix
-    if (value) {
-      value = '+' + value;
-    }
-    
-    setPhoneNumber(value);
-  };
-
+export default function GenerationInfo({ isVisible }: GenerationInfoProps) {
   return (
     <AnimatePresence>
       {isVisible && (
