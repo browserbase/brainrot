@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 interface GenerationInfoProps {
   isVisible: boolean;
-  onPhoneNumberSubmit: (phoneNumber: string) => void;
+  // onPhoneNumberSubmit: (phoneNumber: string) => void;
 }
 
 export default function GenerationInfo({ isVisible }: GenerationInfoProps) {

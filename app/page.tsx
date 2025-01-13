@@ -40,7 +40,6 @@ export default function Home() {
   >([]);
   const [successfulMemes, setSuccessfulMemes] = useState(0);
   const [notificationPhone, setNotificationPhone] = useState<string>("");
-  const [formStep, setFormStep] = useState(1);
 
   useEffect(() => {
     const saved = localStorage.getItem("recentMemes");
@@ -227,106 +226,57 @@ export default function Home() {
               </h2>
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              {/* Step 1 */}
               <div className="flex gap-4">
-                <input
-                  type="text"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && message.trim() && !isLoading) {
-                      e.preventDefault();
-                      console.log('Enter pressed - Setting form step to 2');
-                      setFormStep(2);
-                    }
-                  }}
-                  placeholder="Type anything..."
-                  className="flex-1 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#EF3604] focus:border-transparent transition-shadow duration-200"
-                  disabled={isLoading}
-                />
+                <div className="flex-1 flex gap-4">
+                  <input
+                    type="text"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Type anything..."
+                    className="flex-1 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#EF3604] focus:border-transparent transition-shadow duration-200"
+                    disabled={isLoading}
+                  />
+                  {/* Phone number input temporarily disabled
+                  <input
+                    type="tel"
+                    value={notificationPhone}
+                    onChange={(e) => {
+                      let value = e.target.value.replace(/^\+1/, '');
+                      value = value.replace(/\D/g, '');
+                      value = value.slice(0, 10);
+                      if (value) {
+                        value = '+1' + value;
+                      }
+                      setNotificationPhone(value);
+                    }}
+                    placeholder="Phone # (Optional)"
+                    maxLength={12}
+                    className="w-48 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 
+                    text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 
+                    text-gray-900 dark:text-gray-100 
+                    focus:outline-none focus:ring-2 focus:ring-[#ff6b6b] focus:border-[#ff6b6b] focus:ring-opacity-50
+                    transition-all duration-200 ease-in-out
+                    placeholder:text-gray-400 dark:placeholder:text-gray-600"
+                  />
+                  */}
+                </div>
                 <button
-                  type="button"
-                  onClick={() => {
-                    console.log('Setting form step to 2');
-                    setFormStep(2);
-                  }}
+                  type="submit"
                   disabled={!message.trim() || isLoading}
-                  className="rounded-full border-2 border-[#ff6b6b] transition-colors flex items-center justify-center bg-[#ff6b6b] text-white hover:bg-[#ff8787] dark:hover:bg-[#ff8787] text-sm sm:text-base h-10 sm:h-12 px-6 sm:px-8 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap font-bold"
+                  className="rounded-full border-2 border-[#ff6b6b] transition-all duration-200 
+                  flex items-center justify-center bg-[#ff6b6b] text-white 
+                  hover:bg-[#ff8787] hover:border-[#ff8787] hover:scale-105
+                  dark:hover:bg-[#ff8787] text-sm sm:text-base h-10 sm:h-12 
+                  px-6 sm:px-8 disabled:opacity-50 disabled:cursor-not-allowed 
+                  disabled:hover:scale-100 whitespace-nowrap font-bold"
                 >
-                  Next
+                  Generate
                 </button>
               </div>
-
-              {/* Step 2 */}
-              <motion.div
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ 
-                  y: formStep === 2 ? 0 : -20,
-                  opacity: formStep === 2 ? 1 : 0,
-                  display: formStep === 2 ? "block" : "none"
-                }}
-                transition={{
-                  y: {
-                    type: "spring",
-                    stiffness: 300,
-                    mass: 0.7,
-                    duration: 0.3,
-                    velocity: 2
-                  },
-                  opacity: {
-                    duration: 0.2
-                  }
-                }}
-                className="overflow-visible"
-              >
-                <div className="flex gap-4 items-center">
-                  <div className="flex-1">
-                    <p className="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Get SMS updates? 📱 Enter phone number (Optional)
-                    </p>
-                    <div className="relative">
-                      <input
-                        type="tel"
-                        value={notificationPhone}
-                        onChange={(e) => {
-                          let value = e.target.value.replace(/^\+1/, '');
-                          value = value.replace(/\D/g, '');
-                          value = value.slice(0, 10);
-                          if (value) {
-                            value = '+1' + value;
-                          }
-                          setNotificationPhone(value);
-                        }}
-                        placeholder="(555) 555-5555"
-                        maxLength={12}
-                        className="w-full rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 
-                        text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 
-                        text-gray-900 dark:text-gray-100 
-                        focus:outline-none focus:ring-2 focus:ring-[#ff6b6b] focus:border-[#ff6b6b] focus:ring-opacity-50
-                        transition-all duration-200 ease-in-out
-                        placeholder:text-gray-400 dark:placeholder:text-gray-600"
-                      />
-                    </div>
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="rounded-full border-2 border-[#ff6b6b] transition-all duration-200 
-                    flex items-center justify-center bg-[#ff6b6b] text-white 
-                    hover:bg-[#ff8787] hover:border-[#ff8787] hover:scale-105
-                    dark:hover:bg-[#ff8787] text-sm sm:text-base h-10 sm:h-12 
-                    px-6 sm:px-8 disabled:opacity-50 disabled:cursor-not-allowed 
-                    disabled:hover:scale-100 whitespace-nowrap font-bold
-                    self-end"
-                  >
-                    Generate
-                  </button>
-                </div>
-              </motion.div>
             </form>
             <GenerationInfo 
               isVisible={isLoading} 
-              onPhoneNumberSubmit={(phone) => setNotificationPhone(phone)} 
+              // onPhoneNumberSubmit={(phone) => setNotificationPhone(phone)} 
             />
 
             {/* Progress bar - Always visible */}

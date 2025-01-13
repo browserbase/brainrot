@@ -23,9 +23,9 @@ interface Meme {
 export const maxDuration = 300;
 
 export async function POST(req: NextRequest) {
-  const { message, sourceType = 0, phoneNumber } = await req.json();
+  const { message, sourceType = 0 /* , phoneNumber */ } = await req.json();
   
-  console.log('Request received with phone:', phoneNumber);
+  // console.log('Request received with phone:', phoneNumber);
 
   const StagehandConfig: ConstructorParams = {
     env:
@@ -151,6 +151,7 @@ export async function POST(req: NextRequest) {
         // Continue execution even if counter fails
       }
 
+      /*
       console.log("Phone number:", phoneNumber);
       console.log("Image URL:", imageUrl);
       console.log("Environment variables:", {
@@ -172,6 +173,7 @@ export async function POST(req: NextRequest) {
           console.error("SMS Error:", error);
         }
       }
+      */
 
       return NextResponse.json(results);
     } catch (error) {
