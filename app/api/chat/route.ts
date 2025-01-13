@@ -6,7 +6,7 @@ import {
 import { NextRequest, NextResponse } from "next/server";
 import { MAX_CONCURRENT_MEMES } from "../../config/constants";
 import { z } from "zod";
-import { sendMemeNotification } from "@/utils/sms";
+// import { sendMemeNotification } from "@/utils/sms";
 
 interface Meme {
   index: number;

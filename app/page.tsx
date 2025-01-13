@@ -11,7 +11,7 @@ import { MAX_CONCURRENT_MEMES } from './config/constants';
 import StickyFooter from "./components/StickyFooter";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 interface Meme {
   index: number;
@@ -39,7 +39,7 @@ export default function Home() {
     (Meme & { query: string; timestamp: number })[]
   >([]);
   const [successfulMemes, setSuccessfulMemes] = useState(0);
-  const [notificationPhone, setNotificationPhone] = useState<string>("");
+  // const [notificationPhone, setNotificationPhone] = useState<string>("");
 
   useEffect(() => {
     const saved = localStorage.getItem("recentMemes");
@@ -57,7 +57,7 @@ export default function Home() {
 
     let firstResponseReceived = false;
     
-    console.log('Current phone number state:', notificationPhone);
+    // console.log('Current phone number state:', notificationPhone);
 
     const apiCalls = Array(MAX_CONCURRENT_MEMES)
       .fill(null)
@@ -71,7 +71,7 @@ export default function Home() {
             message,
             sourceType: index,
             usedTemplates: memes.map((meme) => meme.templateName),
-            phoneNumber: notificationPhone,
+            // phoneNumber: notificationPhone,
           }),
         })
           .then(async (res) => {
