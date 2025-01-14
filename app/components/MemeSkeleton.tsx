@@ -282,7 +282,7 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
             }}
           >
             <motion.div 
-              className="w-[95vw] h-[75vh] max-w-6xl bg-[#F8E3C4] dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
+              className="w-[95vw] h-[45vh] sm:h-[75vh] max-w-6xl bg-[#F8E3C4] dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <iframe
