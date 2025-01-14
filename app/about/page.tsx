@@ -27,7 +27,7 @@ const teams = [
 
 export default function About() {
   return (
-    <div className="min-h-screen p-8 pb-28 sm:p-20 sm:pb-28">
+    <div className="p-8 pb-28 sm:p-20 sm:pb-28">
       <main className="max-w-6xl mx-auto">
         <div className="mb-12">
           <h1 className="text-4xl sm:text-6xl font-galindo font-bold tracking-wider text-[#1a1b1e] dark:text-white mb-6">
@@ -79,7 +79,7 @@ export default function About() {
             We&apos;re always looking for ways to improve 🅱️rainrot. If you have ideas or want to contribute, check out our GitHub repository!
           </p>
           <Link 
-            href="https://github.com/rainrotation/stagehand" 
+            href="https://github.com/alexdphan/brainrot" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block rounded-full border-2 border-[#ff6b6b] bg-[#ff6b6b] text-white hover:bg-[#ff8787] dark:hover:bg-[#ff8787] px-6 py-2 font-bold transition-colors"

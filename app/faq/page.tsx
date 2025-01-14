@@ -10,9 +10,9 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "What is Rainrot Generator?",
+    question: "What is Brainrot Generator?",
     answer: <>
-      Rainrot Generator is an AI-powered meme generation tool that creates multiple memes based on your text input. 
+      Brainrot Generator is an AI-powered meme generation tool that creates multiple memes based on your text input. 
       <br />
       <br />
       It uses{' '}
@@ -28,6 +28,9 @@ const faqs: FAQItem[] = [
       <br />
       <br />
       If the meme generator isn&apos;t working, it&apos;s likely because I got rate limited by the API 🤷‍♂️. 
+      <br />
+      <br />
+      AI Agents don&apos;t always work, but we&apos;re slowly getting to maturity.
       <br />
       <br />
       Please try again later :)
@@ -49,6 +52,12 @@ const faqs: FAQItem[] = [
       <br />
       <br />
       You can find them in the &apos;Recently Generated&apos; section below the generator.
+    </>
+  },
+  {
+    question: "Is this open source?",
+    answer: <>
+      Yep, here&apos;s the public repo: <a href="https://github.com/alexdphan/brainrot" className="text-red-600 dark:text-red-400 hover:underline">Brainrot</a>
     </>
   },
   {

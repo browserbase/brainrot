@@ -28,6 +28,7 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
   const [caption, setCaption] = useState('');
   const [isFlipped, setIsFlipped] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   useEffect(() => {
     setCaption(LOADING_CAPTIONS[Math.floor(Math.random() * LOADING_CAPTIONS.length)]);
@@ -40,6 +41,15 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
   useEffect(() => {
     console.log(`MemeSkeleton ${index} debug URL:`, debugUrl);
   }, [debugUrl, index]);
+
+  useEffect(() => {
+    if (debugUrl) {
+      const iframe = document.createElement('iframe');
+      iframe.src = debugUrl;
+      iframe.onload = () => setIframeLoaded(true);
+      iframe.onerror = () => console.error('Failed to load debug iframe');
+    }
+  }, [debugUrl]);
 
   return (
     <>
@@ -166,12 +176,22 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
             style={{ rotateY: '180deg' }}
           >
             <div className="relative h-full">
-              {!isExpanded && (
-                <iframe
-                  src={debugUrl}
-                  className="w-full h-[calc(100%-60px)] rounded-lg"
-                  title="Debug View"
-                />
+              {!isExpanded && debugUrl && (
+                <div className="w-full h-[calc(100%-60px)] rounded-lg bg-gray-100 dark:bg-gray-900">
+                  {iframeLoaded ? (
+                    <iframe
+                      src={debugUrl}
+                      className="w-full h-full rounded-lg"
+                      title="Debug View"
+                      sandbox="allow-same-origin allow-scripts"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center h-full">
+                      <span className="animate-spin mr-2">⟳</span>
+                      Loading debug view...
+                    </div>
+                  )}
+                </div>
               )}
               <div className="absolute bottom-0 left-0 right-0 h-[60px] flex items-center justify-end px-6 bg-gradient-to-t from-[#F8E3C4] dark:from-gray-800">
                 <motion.button
@@ -220,74 +240,29 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
         </motion.div>
       </motion.div>
 
-      {/* Keep iframe always mounted but hidden when not expanded */}
-      <div className={`fixed inset-0 z-40 pointer-events-none`}>
-        <div className="w-full h-full opacity-0">
-          <iframe
-            src={debugUrl}
-            className="w-full h-full rounded-lg"
-            title="Debug View"
-          />
-        </div>
-      </div>
-
+      {/* Expanded view */}
       <AnimatePresence>
-        {isExpanded && (
+        {isExpanded && debugUrl && (
           <motion.div 
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            initial={{ 
-              opacity: 0,
-              scale: 0.5,
-              transformOrigin: "center"
-            }}
-            animate={{ 
-              opacity: 1,
-              scale: 1
-            }}
-            exit={{ 
-              opacity: 0,
-              scale: 0.5
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 25
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={() => {
               setIsExpanded(false);
               setIsFlipped(false);
             }}
           >
             <motion.div 
-              className="w-[95vw] h-[75vh] max-w-6xl bg-[#F8E3C4] dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+              className="w-[95vw] h-[75vh] max-w-6xl bg-[#F8E3C4] dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full h-full">
-                <iframe
-                  src={debugUrl}
-                  className="w-full h-[calc(100%-60px)] rounded-lg"
-                  title="Debug View"
-                />
-                <div className="absolute bottom-0 left-0 right-0 h-[60px] flex items-center justify-end px-6 bg-gradient-to-t from-[#F8E3C4] dark:from-gray-800">
-                  <motion.button
-                    onClick={() => {
-                      setIsExpanded(false);
-                      setIsFlipped(false);
-                    }}
-                    className="px-3 py-2 rounded-lg font-galindo 
-                      bg-[#FFD7BA] dark:bg-[#FFD7BA] 
-                      text-[#1a1b1e] hover:opacity-90
-                      border-2 border-[#1a1b1e]/20 dark:border-[#1a1b1e]/20
-                      text-[10px] sm:text-xs
-                      shadow-[2px_2px_0px_rgba(0,0,0,0.1)]
-                      transition-all duration-100"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    🔍 Minimize
-                  </motion.button>
-                </div>
-              </div>
+              <iframe
+                src={debugUrl}
+                className="w-full h-full rounded-lg"
+                title="Debug View"
+                sandbox="allow-same-origin allow-scripts"
+              />
             </motion.div>
           </motion.div>
         )}

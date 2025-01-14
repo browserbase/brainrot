@@ -43,7 +43,7 @@ const docs = [
 
 export default function Docs() {
   return (
-    <div className="min-h-screen p-8 pb-28 sm:p-20 sm:pb-28">
+    <div className="p-8 pb-28 sm:p-20 sm:pb-28">
       <main className="max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-6xl font-galindo font-bold tracking-wider text-[#1a1b1e] dark:text-white mb-12">
           DOCUMENTATION

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Browserbase from "@browserbasehq/sdk";
 
-export async function POST(req: NextRequest) {
+export async function POST() {
   try {
     const client = new Browserbase({
       apiKey: process.env["BROWSERBASE_API_KEY"],

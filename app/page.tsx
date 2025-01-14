@@ -25,11 +25,6 @@ interface LoadingState {
   debugUrl?: string;
 }
 
-interface SessionInfo {
-  sessionId: string;
-  debugUrl: string;
-  region: string;
-}
 
 export default function Home() {
   const [message, setMessage] = useState("");
@@ -48,8 +43,6 @@ export default function Home() {
     (Meme & { query: string; timestamp: number })[]
   >([]);
   const [successfulMemes, setSuccessfulMemes] = useState(0);
-  const [sessionInfo, setSessionInfo] = useState<SessionInfo | null>(null);
-  // const [notificationPhone, setNotificationPhone] = useState<string>("");
 
   useEffect(() => {
     const saved = localStorage.getItem("recentMemes");
@@ -238,7 +231,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen p-8 pb-28 sm:p-20 sm:pb-28">
+    <div className="p-8 pb-28 sm:p-20 sm:pb-28">
       <main className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
           <div className="w-full lg:w-1/2 lg:sticky lg:top-20">
