@@ -4,10 +4,10 @@ import MemeSkeleton from "./components/MemeSkeleton";
 import ImageChecker from "./components/ImageChecker";
 import Logo from "./components/Logo";
 import MemeProgress from "./components/MemeProgress";
-import MemeCounter from './components/MemeCounter';
+import MemeCounter from "./components/MemeCounter";
 import RecentlyGenerated from "./components/RecentlyGenerated";
-import GenerationInfo from './components/GenerationInfo';
-import { MAX_CONCURRENT_MEMES } from './config/constants';
+import GenerationInfo from "./components/GenerationInfo";
+import { MAX_CONCURRENT_MEMES } from "./config/constants";
 import StickyFooter from "./components/StickyFooter";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,6 +22,13 @@ interface Meme {
 interface LoadingState {
   index: number;
   steps: string[];
+  debugUrl?: string;
+}
+
+interface SessionInfo {
+  sessionId: string;
+  debugUrl: string;
+  region: string;
 }
 
 export default function Home() {
@@ -30,15 +37,18 @@ export default function Home() {
   const [memes, setMemes] = useState<Meme[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingStates, setLoadingStates] = useState<LoadingState[]>(
-    Array(MAX_CONCURRENT_MEMES).fill(null).map((_, index) => ({ 
-      index, 
-      steps: [] 
-    }))
+    Array(MAX_CONCURRENT_MEMES)
+      .fill(null)
+      .map((_, index) => ({
+        index,
+        steps: [],
+      }))
   );
   const [recentMemes, setRecentMemes] = useState<
     (Meme & { query: string; timestamp: number })[]
   >([]);
   const [successfulMemes, setSuccessfulMemes] = useState(0);
+  const [sessionInfo, setSessionInfo] = useState<SessionInfo | null>(null);
   // const [notificationPhone, setNotificationPhone] = useState<string>("");
 
   useEffect(() => {
@@ -56,9 +66,34 @@ export default function Home() {
     setSuccessfulMemes(0);
 
     let firstResponseReceived = false;
-    
-    // console.log('Current phone number state:', notificationPhone);
 
+    // Create multiple sessions for concurrent meme generation
+    const createSessions = async () => {
+      const sessions = await Promise.all(
+        Array(MAX_CONCURRENT_MEMES).fill(null).map(async () => {
+          const response = await fetch("/api/session", {
+            method: "POST",
+          });
+          const data = await response.json();
+          if (data.error) throw new Error(data.error);
+          return data;
+        })
+      );
+      return sessions;
+    };
+
+    const sessions = await createSessions();
+    console.log("Sessions created:", sessions);
+
+    // Initialize loading states with individual debug URLs
+    setLoadingStates(prev => 
+      prev.map((state, index) => ({
+        ...state,
+        debugUrl: sessions[index].debugUrl
+      }))
+    );
+
+    console.log("Creating memes now...");
     const apiCalls = Array(MAX_CONCURRENT_MEMES)
       .fill(null)
       .map((_, index) =>
@@ -70,8 +105,8 @@ export default function Home() {
           body: JSON.stringify({
             message,
             sourceType: index,
+            sessionId: sessions[index].sessionId,
             usedTemplates: memes.map((meme) => meme.templateName),
-            // phoneNumber: notificationPhone,
           }),
         })
           .then(async (res) => {
@@ -141,9 +176,27 @@ export default function Home() {
                 ),
               };
 
+              // Update loading state with debug URL
+              setLoadingStates((prev) =>
+                prev.map((state) => {
+                  if (state.index === result.index) {
+                    console.log("Setting debug URL for state:", result.debugUrl);
+                    return { 
+                      ...state, 
+                      debugUrl: typeof result.debugUrl === 'string' 
+                        ? result.debugUrl 
+                        : result.debugUrl?.debuggerFullscreenUrl 
+                    };
+                  }
+                  return state;
+                })
+              );
+
               if (!memes.some((m) => m.templateName === result.templateName)) {
                 setMemes((prevMemes) => [...prevMemes, formattedResult]);
-                setSuccessfulMemes(prev => Math.min(prev + 1, MAX_CONCURRENT_MEMES));
+                setSuccessfulMemes((prev) =>
+                  Math.min(prev + 1, MAX_CONCURRENT_MEMES)
+                );
 
                 // Save to localStorage
                 const newMeme = {
@@ -274,14 +327,17 @@ export default function Home() {
                 </button>
               </div>
             </form>
-            <GenerationInfo 
-              isVisible={isLoading} 
-              // onPhoneNumberSubmit={(phone) => setNotificationPhone(phone)} 
+            <GenerationInfo
+              isVisible={isLoading}
+              // onPhoneNumberSubmit={(phone) => setNotificationPhone(phone)}
             />
 
             {/* Progress bar - Always visible */}
             <div className="mt-8 w-full">
-              <MemeProgress current={successfulMemes} total={MAX_CONCURRENT_MEMES} />
+              <MemeProgress
+                current={successfulMemes}
+                total={MAX_CONCURRENT_MEMES}
+              />
             </div>
 
             {/* Loading skeletons - Only visible when loading */}
@@ -293,6 +349,7 @@ export default function Home() {
                       key={`loading-${state.index}`}
                       steps={state.steps}
                       index={state.index}
+                      debugUrl={state.debugUrl}
                     />
                   ))}
                 </div>
@@ -336,6 +393,7 @@ export default function Home() {
                         key={`remaining-${i}`}
                         steps={loadingStates[memes.length + i]?.steps || []}
                         index={memes.length + i}
+                        debugUrl={loadingStates[memes.length + i]?.debugUrl}
                       />
                     ))}
                 </div>

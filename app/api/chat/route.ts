@@ -7,6 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { MAX_CONCURRENT_MEMES } from "../../config/constants";
 import { z } from "zod";
 // import { sendMemeNotification } from "@/utils/sms";
+import Browserbase from "@browserbasehq/sdk";
 
 interface Meme {
   index: number;
@@ -23,19 +24,25 @@ interface Meme {
 export const maxDuration = 300;
 
 export async function POST(req: NextRequest) {
-  const { message, sourceType = 0 /* , phoneNumber */ } = await req.json();
+  console.log("Received request for meme generation");
+  const { message, sourceType = 0, sessionId } = await req.json();
   
-  // console.log('Request received with phone:', phoneNumber);
+  const browserbase = new Browserbase({
+    apiKey: process.env.BROWSERBASE_API_KEY,
+  });
+
+  const debugUrl = await browserbase.sessions.debug(sessionId);
+  console.log("Using existing session debug URL:", debugUrl);
 
   const StagehandConfig: ConstructorParams = {
-    env:
-      process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
-        ? "BROWSERBASE"
-        : "LOCAL",
+    env: process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
+      ? "BROWSERBASE"
+      : "LOCAL",
     apiKey: process.env.BROWSERBASE_API_KEY,
     projectId: process.env.BROWSERBASE_PROJECT_ID,
     headless: false,
     domSettleTimeoutMs: 30_000,
+    browserbaseSessionID: sessionId,
     browserbaseSessionCreateParams: {
       projectId: process.env.BROWSERBASE_PROJECT_ID!,
       region: "us-east-1",
@@ -50,13 +57,18 @@ export async function POST(req: NextRequest) {
       console.log(`[stagehand::${message.category}] ${message.message}`),
   };
 
-  const stagehand = new Stagehand(StagehandConfig);
+  let stagehand = null;
+  let page = null;
+  const results: Meme[] = [];
 
   try {
+    stagehand = new Stagehand(StagehandConfig);
+    await stagehand.init();
+    page = await stagehand.page;
+
     console.log(
       `Starting POST request processing for template ${sourceType}...`
     );
-    const results: Meme[] = [];
 
     console.log("Initializing Stagehand instance...");
     await stagehand.init();
@@ -126,13 +138,11 @@ export async function POST(req: NextRequest) {
         imageUrl: imageUrl,
         templateName:
           (templateInfo as { name?: string }).name || "Unknown Template",
+        debugUrl: debugUrl.debuggerFullscreenUrl,
       };
 
       console.log("Processing complete:", result);
       results.push(result);
-
-      await page.close();
-      await stagehand.close();
 
       // Increment meme counter
       try {
@@ -190,5 +200,12 @@ export async function POST(req: NextRequest) {
       { error: "Failed to process request" },
       { status: 500 }
     );
+  } finally {
+    if (page) {
+      await page.close().catch(console.error);
+    }
+    if (stagehand) {
+      await stagehand.close().catch(console.error);
+    }
   }
 }
