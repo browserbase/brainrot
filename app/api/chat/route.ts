@@ -137,7 +137,6 @@ export async function POST(req: NextRequest) {
         index: sourceType,
         imageUrl: imageUrl,
         templateName: (templateInfo as { name?: string }).name || "Unknown Template",
-        debugUrl: debugUrl.debuggerFullscreenUrl,
       };
 
       console.log("Processing complete:", result);

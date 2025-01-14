@@ -22,7 +22,6 @@ interface Meme {
 interface LoadingState {
   index: number;
   steps: string[];
-  debugUrl?: string;
 }
 
 
@@ -79,12 +78,7 @@ export default function Home() {
     console.log("Sessions created:", sessions);
 
     // Initialize loading states with individual debug URLs
-    setLoadingStates(prev => 
-      prev.map((state, index) => ({
-        ...state,
-        debugUrl: sessions[index].debugUrl
-      }))
-    );
+    setLoadingStates(prev => prev.map(state => ({...state})));
 
     console.log("Creating memes now...");
     const apiCalls = Array(MAX_CONCURRENT_MEMES)
@@ -340,7 +334,6 @@ export default function Home() {
                       key={`loading-${state.index}`}
                       steps={state.steps}
                       index={state.index}
-                      debugUrl={state.debugUrl}
                     />
                   ))}
                 </div>
@@ -384,7 +377,6 @@ export default function Home() {
                         key={`remaining-${i}`}
                         steps={loadingStates[memes.length + i]?.steps || []}
                         index={memes.length + i}
-                        debugUrl={loadingStates[memes.length + i]?.debugUrl}
                       />
                     ))}
                 </div>
