@@ -44,31 +44,36 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
 
   useEffect(() => {
     if (debugUrl) {
-      // Create a hidden iframe to preload the content
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = debugUrl;
-      
-      iframe.onload = () => {
-        setIframeLoaded(true);
-        // Remove the hidden iframe after loading
-        document.body.removeChild(iframe);
-      };
-      
-      iframe.onerror = () => {
-        console.error('Failed to load debug iframe');
+      try {
+        // Create a hidden iframe to preload the content
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = debugUrl;
+        iframe.allow = "fullscreen *"; // Add permissions
+        
+        iframe.onload = () => {
+          setIframeLoaded(true);
+          if (document.body.contains(iframe)) {
+            document.body.removeChild(iframe);
+          }
+        };
+        
+        iframe.onerror = (e) => {
+          console.error('Failed to load debug iframe:', e);
+          setIframeLoaded(false);
+        };
+
+        document.body.appendChild(iframe);
+
+        return () => {
+          if (document.body.contains(iframe)) {
+            document.body.removeChild(iframe);
+          }
+        };
+      } catch (error) {
+        console.error('Error in iframe preload:', error);
         setIframeLoaded(false);
-      };
-
-      // Add the hidden iframe to the document
-      document.body.appendChild(iframe);
-
-      return () => {
-        // Cleanup: remove the hidden iframe if component unmounts
-        if (document.body.contains(iframe)) {
-          document.body.removeChild(iframe);
-        }
-      };
+      }
     }
   }, [debugUrl]);
 
@@ -206,7 +211,11 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
                       iframeLoaded ? 'opacity-100' : 'opacity-0'
                     }`}
                     title="Debug View"
-                    sandbox="allow-same-origin allow-scripts"
+                    allow="fullscreen *"
+                    onError={(e) => {
+                      console.error('Iframe error:', e);
+                      setIframeLoaded(false);
+                    }}
                     onLoad={() => setIframeLoaded(true)}
                   />
                   {!iframeLoaded && (
@@ -285,12 +294,13 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
               className="w-[95vw] h-[45vh] sm:h-[75vh] max-w-6xl bg-[#F8E3C4] dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              <iframe
-                src={debugUrl}
-                className="w-full h-full rounded-lg"
-                title="Debug View"
-                sandbox="allow-same-origin allow-scripts"
-              />
+              {debugUrl && (
+                <iframe
+                  src={debugUrl}
+                  className="w-full h-full rounded-lg"
+                  title="Debug View"
+                />
+              )}
             </motion.div>
           </motion.div>
         )}
