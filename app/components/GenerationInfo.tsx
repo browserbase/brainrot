@@ -30,7 +30,7 @@ export default function GenerationInfo({ isVisible }: GenerationInfoProps) {
           <p>Here are some ideas to make the most of your time:</p>
           <ul className="list-disc ml-5 mt-2 space-y-1">
             <li>Take a coffee break ☕</li>
-            <li>Relax and stretch 🧘‍♂️</li>
+            <li>Touch some grass 🌿</li>
             <li>Look through the weather app 🌤️</li>
             <li>Maybe scroll through some TikToks 📱</li>
           </ul>
