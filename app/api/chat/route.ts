@@ -136,8 +136,7 @@ export async function POST(req: NextRequest) {
       const result = {
         index: sourceType,
         imageUrl: imageUrl,
-        templateName:
-          (templateInfo as { name?: string }).name || "Unknown Template",
+        templateName: (templateInfo as { name?: string }).name || "Unknown Template",
         debugUrl: debugUrl.debuggerFullscreenUrl,
       };
 

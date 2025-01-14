@@ -6,7 +6,7 @@ export async function POST() {
     const client = new Browserbase({
       apiKey: process.env["BROWSERBASE_API_KEY"],
     });
-    
+
     const session = await client.sessions.create({
       projectId: process.env.BROWSERBASE_PROJECT_ID!,
       region: "us-east-1",
@@ -16,10 +16,11 @@ export async function POST() {
 
     return NextResponse.json({
       sessionId: session.id,
-      debugUrl: debugUrl.debuggerFullscreenUrl.replace(
-        "https://www.browserbase.com/devtools-fullscreen/inspector.html",
-        "https://www.browserbase.com/devtools-internal-compiled/index.html"
-      ),
+      //   debugUrl: debugUrl.debuggerFullscreenUrl.replace(
+      //     "https://www.browserbase.com/devtools-fullscreen/inspector.html",
+      //     "https://www.browserbase.com/devtools-internal-compiled/index.html"
+      //   ),
+      debugUrl: debugUrl.debuggerFullscreenUrl,
       region: "us-east-1",
     });
   } catch (error) {

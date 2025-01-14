@@ -42,40 +42,40 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
     console.log(`MemeSkeleton ${index} debug URL:`, debugUrl);
   }, [debugUrl, index]);
 
-  useEffect(() => {
-    if (debugUrl) {
-      try {
-        // Create a hidden iframe to preload the content
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = debugUrl;
-        iframe.allow = "fullscreen *"; // Add permissions
+  // useEffect(() => {
+  //   if (debugUrl) {
+  //     try {
+  //       // Create a hidden iframe to preload the content
+  //       const iframe = document.createElement('iframe');
+  //       iframe.style.display = 'none';
+  //       iframe.src = debugUrl;
+  //       iframe.allow = "fullscreen *"; // Add permissions
         
-        iframe.onload = () => {
-          setIframeLoaded(true);
-          if (document.body.contains(iframe)) {
-            document.body.removeChild(iframe);
-          }
-        };
+  //       iframe.onload = () => {
+  //         setIframeLoaded(true);
+  //         if (document.body.contains(iframe)) {
+  //           document.body.removeChild(iframe);
+  //         }
+  //       };
         
-        iframe.onerror = (e) => {
-          console.error('Failed to load debug iframe:', e);
-          setIframeLoaded(false);
-        };
+  //       iframe.onerror = (e) => {
+  //         console.error('Failed to load debug iframe:', e);
+  //         setIframeLoaded(false);
+  //       };
 
-        document.body.appendChild(iframe);
+  //       document.body.appendChild(iframe);
 
-        return () => {
-          if (document.body.contains(iframe)) {
-            document.body.removeChild(iframe);
-          }
-        };
-      } catch (error) {
-        console.error('Error in iframe preload:', error);
-        setIframeLoaded(false);
-      }
-    }
-  }, [debugUrl]);
+  //       return () => {
+  //         if (document.body.contains(iframe)) {
+  //           document.body.removeChild(iframe);
+  //         }
+  //       };
+  //     } catch (error) {
+  //       console.error('Error in iframe preload:', error);
+  //       setIframeLoaded(false);
+  //     }
+  //   }
+  // }, [debugUrl]);
 
   return (
     <>
@@ -203,31 +203,15 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
           >
             <div className="relative h-full">
               {!isExpanded && debugUrl && (
-                <div className="w-full h-[calc(100%-60px)] rounded-lg bg-gray-100 dark:bg-gray-900">
-                  <iframe
-                    key={debugUrl}
-                    src={debugUrl}
-                    className={`w-full h-full rounded-lg transition-opacity duration-300 ${
-                      iframeLoaded ? 'opacity-100' : 'opacity-0'
-                    }`}
-                    title="Debug View"
-                    allow="fullscreen *"
-                    onError={(e) => {
-                      console.error('Iframe error:', e);
-                      setIframeLoaded(false);
-                    }}
-                    onLoad={() => setIframeLoaded(true)}
-                  />
-                  {!iframeLoaded && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="flex flex-col items-center space-y-2">
-                        <span className="animate-spin text-2xl">⟳</span>
-                        <span className="text-sm text-gray-600 dark:text-gray-400">
-                          Loading debug view...
-                        </span>
-                      </div>
-                    </div>
-                  )}
+                <div className="w-full h-[calc(100%-60px)] rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
+                  <motion.button
+                    onClick={() => window.open(debugUrl, '_blank', 'noopener,noreferrer')}
+                    className="px-4 py-2 rounded-lg font-medium bg-[#FFD7BA] dark:bg-[#FFD7BA] text-[#1a1b1e] hover:opacity-90"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    🔍 Open Debug View
+                  </motion.button>
                 </div>
               )}
               <div className="absolute bottom-0 left-0 right-0 h-[60px] flex items-center justify-end px-6 bg-gradient-to-t from-[#F8E3C4] dark:from-gray-800">
@@ -291,16 +275,17 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
             }}
           >
             <motion.div 
-              className="w-[95vw] h-[45vh] sm:h-[75vh] max-w-6xl bg-[#F8E3C4] dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
+              className="w-[95vw] h-[45vh] sm:h-[75vh] max-w-6xl bg-[#F8E3C4] dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              {debugUrl && (
-                <iframe
-                  src={debugUrl}
-                  className="w-full h-full rounded-lg"
-                  title="Debug View"
-                />
-              )}
+              <motion.button
+                onClick={() => window.open(debugUrl, '_blank', 'noopener,noreferrer')}
+                className="px-4 py-2 rounded-lg font-medium bg-[#FFD7BA] dark:bg-[#FFD7BA] text-[#1a1b1e] hover:opacity-90"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                🔍 Open Debug View in New Window
+              </motion.button>
             </motion.div>
           </motion.div>
         )}

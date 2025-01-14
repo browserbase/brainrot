@@ -176,9 +176,7 @@ export default function Home() {
                     console.log("Setting debug URL for state:", result.debugUrl);
                     return { 
                       ...state, 
-                      debugUrl: typeof result.debugUrl === 'string' 
-                        ? result.debugUrl 
-                        : result.debugUrl?.debuggerFullscreenUrl 
+                      debugUrl: result.debugUrl
                     };
                   }
                   return state;
