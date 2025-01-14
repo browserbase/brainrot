@@ -44,10 +44,31 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
 
   useEffect(() => {
     if (debugUrl) {
+      // Create a hidden iframe to preload the content
       const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
       iframe.src = debugUrl;
-      iframe.onload = () => setIframeLoaded(true);
-      iframe.onerror = () => console.error('Failed to load debug iframe');
+      
+      iframe.onload = () => {
+        setIframeLoaded(true);
+        // Remove the hidden iframe after loading
+        document.body.removeChild(iframe);
+      };
+      
+      iframe.onerror = () => {
+        console.error('Failed to load debug iframe');
+        setIframeLoaded(false);
+      };
+
+      // Add the hidden iframe to the document
+      document.body.appendChild(iframe);
+
+      return () => {
+        // Cleanup: remove the hidden iframe if component unmounts
+        if (document.body.contains(iframe)) {
+          document.body.removeChild(iframe);
+        }
+      };
     }
   }, [debugUrl]);
 
@@ -178,17 +199,24 @@ export default function MemeSkeleton({ steps, index, debugUrl }: MemeSkeletonPro
             <div className="relative h-full">
               {!isExpanded && debugUrl && (
                 <div className="w-full h-[calc(100%-60px)] rounded-lg bg-gray-100 dark:bg-gray-900">
-                  {iframeLoaded ? (
-                    <iframe
-                      src={debugUrl}
-                      className="w-full h-full rounded-lg"
-                      title="Debug View"
-                      sandbox="allow-same-origin allow-scripts"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full">
-                      <span className="animate-spin mr-2">⟳</span>
-                      Loading debug view...
+                  <iframe
+                    key={debugUrl}
+                    src={debugUrl}
+                    className={`w-full h-full rounded-lg transition-opacity duration-300 ${
+                      iframeLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    title="Debug View"
+                    sandbox="allow-same-origin allow-scripts"
+                    onLoad={() => setIframeLoaded(true)}
+                  />
+                  {!iframeLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex flex-col items-center space-y-2">
+                        <span className="animate-spin text-2xl">⟳</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-400">
+                          Loading debug view...
+                        </span>
+                      </div>
                     </div>
                   )}
                 </div>
