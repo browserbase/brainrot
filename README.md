@@ -2,6 +2,22 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Add environment variables:
+
+```bash
+ANTHROPIC_API_KEY=
+BROWSERBASE_API_KEY=
+BROWSERBASE_PROJECT_ID=
+KV_URL=
+KV_REST_API_READ_ONLY_TOKEN=
+KV_REST_API_TOKEN=
+KV_REST_API_URL=
+UPSTASH_REST_URL=
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
+PRODUCTION_URL= 
+```
+
 First, run the development server:
 
 ```bash
