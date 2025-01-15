@@ -11,6 +11,7 @@ import { MAX_CONCURRENT_MEMES } from "./config/constants";
 import StickyFooter from "./components/StickyFooter";
 import Image from "next/image";
 import Link from "next/link";
+import DebugUrlDisplay from './components/DebugUrlDisplay';
 // import { motion } from "framer-motion";
 
 interface Meme {
@@ -24,6 +25,7 @@ interface LoadingState {
   steps: string[];
   debugUrl?: string;
   sessionId?: string;
+  isComplete?: boolean;
 }
 
 
@@ -44,6 +46,7 @@ export default function Home() {
     (Meme & { query: string; timestamp: number })[]
   >([]);
   const [successfulMemes, setSuccessfulMemes] = useState(0);
+  const [debugUrls, setDebugUrls] = useState<string[]>([]);
 
   useEffect(() => {
     const saved = localStorage.getItem("recentMemes");
@@ -51,6 +54,13 @@ export default function Home() {
       setRecentMemes(JSON.parse(saved));
     }
   }, []);
+
+  useEffect(() => {
+    const urls = loadingStates
+      .map(state => state.debugUrl)
+      .filter((url): url is string => !!url);
+    setDebugUrls(urls);
+  }, [loadingStates]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -217,6 +227,8 @@ export default function Home() {
                 firstResponseReceived = true;
                 setIsLoading(false);
               }
+
+              updateLoadingState(result.index);
             }
           })
           .catch((error: Error) => {
@@ -232,6 +244,16 @@ export default function Home() {
     } finally {
       setMessage("");
     }
+  };
+
+  const updateLoadingState = (index: number) => {
+    setLoadingStates(prev => 
+      prev.map(state => 
+        state.index === index 
+          ? { ...state, isComplete: true }
+          : state
+      )
+    );
   };
 
   return (
@@ -255,6 +277,9 @@ export default function Home() {
               </span>
             </h1>
             <MemeCounter />
+            <div className="mt-4 w-full">
+              <DebugUrlDisplay debugUrls={debugUrls} />
+            </div>
           </div>
 
           <div className="w-full lg:w-1/2">
@@ -337,6 +362,11 @@ export default function Home() {
               />
             </div>
 
+            {/* Debug URL Display */}
+            {/* <div className="mt-6 w-full hidden sm:block">
+              <DebugUrlDisplay debugUrls={debugUrls} />
+            </div> */}
+
             {/* Loading skeletons - Only visible when loading */}
             {isLoading && (
               <div className="mt-6 w-full">
@@ -348,6 +378,7 @@ export default function Home() {
                       index={state.index}
                       debugUrl={state.debugUrl}
                       sessionId={state.sessionId}
+                      isSessionComplete={state.isComplete}
                     />
                   ))}
                 </div>
@@ -392,6 +423,7 @@ export default function Home() {
                         steps={loadingStates[memes.length + i]?.steps || []}
                         index={memes.length + i}
                         sessionId={loadingStates[memes.length + i]?.sessionId}
+                        isSessionComplete={loadingStates[memes.length + i]?.isComplete}
                       />
                     ))}
                 </div>
@@ -403,6 +435,7 @@ export default function Home() {
         </div>
       </main>
       <StickyFooter />
+      {/* <DebugUrlDisplay debugUrls={debugUrls} /> */}
     </div>
   );
 }

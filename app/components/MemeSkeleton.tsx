@@ -9,6 +9,7 @@ interface MemeSkeletonProps {
   index: number;
   debugUrl?: string;
   sessionId?: string;
+  isSessionComplete?: boolean;
 }
 
 const LOADING_CAPTIONS = [
@@ -26,9 +27,8 @@ const LOADING_CAPTIONS = [
   "Crafting internet gold 🏆"
 ];
 
-export default function MemeSkeleton({ steps, index, debugUrl, sessionId }: MemeSkeletonProps) {
+export default function MemeSkeleton({ steps, index, debugUrl, sessionId, isSessionComplete = false }: MemeSkeletonProps) {
   const [caption, setCaption] = useState('');
-  const [isDebugModalOpen, setIsDebugModalOpen] = useState(false);
 
   const openDebugUrl = () => {
     if (debugUrl) {
@@ -47,6 +47,10 @@ export default function MemeSkeleton({ steps, index, debugUrl, sessionId }: Meme
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  if (isSessionComplete) {
+    return null;
+  }
 
   return (
     <motion.div 
@@ -124,7 +128,7 @@ export default function MemeSkeleton({ steps, index, debugUrl, sessionId }: Meme
           </div>
 
           {debugUrl && (
-            <div className="border-gray-200 dark:border-gray-700 flex justify-center">
+            <div className="border-gray-200 dark:border-gray-700 flex justify-center sm:hidden">
               <motion.button
                 onClick={openDebugUrl}
                 className="px-1.5 py-1 sm:px-3 sm:py-2 rounded-lg font-galindo 
