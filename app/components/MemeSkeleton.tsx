@@ -47,10 +47,6 @@ export default function MemeSkeleton({ steps, index, debugUrl, isSessionComplete
     return () => clearInterval(interval);
   }, []);
 
-  if (isSessionComplete) {
-    return null;
-  }
-
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -72,80 +68,90 @@ export default function MemeSkeleton({ steps, index, debugUrl, isSessionComplete
             </span>
           </div>
           
-          <div className="flex-1 relative aspect-[4/3] bg-transparent rounded-lg overflow-hidden">
-            <motion.div 
-              className="absolute inset-0 flex flex-col items-center justify-center p-2"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <div className="relative w-full h-32 sm:h-48 mb-3">
-                <Image
-                  src="/wait.png"
-                  alt="Loading"
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                  className="object-contain"
-                  priority
-                  unoptimized
-                />
-              </div>
-              <motion.p 
-                key={caption}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="text-[10px] sm:text-sm font-medium text-gray-600 dark:text-gray-300 text-center"
-              >
-                {caption}
-              </motion.p>
-            </motion.div>
-          </div>
-          
-          <div className="space-y-2 font-mono text-[8px] sm:text-xs">
-            {steps.map((step, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-center space-x-2 text-gray-600 dark:text-gray-400"
-              >
-                <span className="text-green-500">✓</span>
-                <span>{step}</span>
-              </motion.div>
-            ))}
-            {steps.length > 0 && (
-              <motion.div 
-                className="flex items-center space-x-2 text-gray-600 dark:text-gray-400"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <span className="inline-block animate-spin">⟳</span>
-                <span>Processing...</span>
-              </motion.div>
-            )}
-          </div>
-
-          {debugUrl && (
-            <div className="border-gray-200 dark:border-gray-700 flex justify-center sm:hidden">
-              <motion.button
-                onClick={openDebugUrl}
-                className="px-1.5 py-1 sm:px-3 sm:py-2 rounded-lg font-galindo 
-                  bg-[#FEFFA3] dark:bg-[#FEFFA3] 
-                  text-[#1a1b1e] hover:opacity-90
-                  border-2 border-[#1a1b1e]/20 dark:border-[#1a1b1e]/20
-                  text-[7px] sm:text-xs
-                  shadow-[2px_2px_0px_rgba(0,0,0,0.1)]
-                  transition-all duration-100
-                  flex items-center justify-center gap-0.5 sm:gap-2
-                  w-fit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="inline-block group-hover:rotate-12 transition-transform">🔍</span>
-                <span className="whitespace-nowrap">Peek behind the scenes!</span>
-              </motion.button>
+          {isSessionComplete ? (
+            <div className="flex-1 flex items-center justify-center">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Generation complete
+              </p>
             </div>
+          ) : (
+            <>
+              <div className="flex-1 relative aspect-[4/3] bg-transparent rounded-lg overflow-hidden">
+                <motion.div 
+                  className="absolute inset-0 flex flex-col items-center justify-center p-2"
+                  animate={{ opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <div className="relative w-full h-32 sm:h-48 mb-3">
+                    <Image
+                      src="/wait.png"
+                      alt="Loading"
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                      className="object-contain"
+                      priority
+                      unoptimized
+                    />
+                  </div>
+                  <motion.p 
+                    key={caption}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="text-[10px] sm:text-sm font-medium text-gray-600 dark:text-gray-300 text-center"
+                  >
+                    {caption}
+                  </motion.p>
+                </motion.div>
+              </div>
+              
+              <div className="space-y-2 font-mono text-[8px] sm:text-xs">
+                {steps.map((step, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center space-x-2 text-gray-600 dark:text-gray-400"
+                  >
+                    <span className="text-green-500">✓</span>
+                    <span>{step}</span>
+                  </motion.div>
+                ))}
+                {steps.length > 0 && (
+                  <motion.div 
+                    className="flex items-center space-x-2 text-gray-600 dark:text-gray-400"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <span className="inline-block animate-spin">⟳</span>
+                    <span>Processing...</span>
+                  </motion.div>
+                )}
+              </div>
+
+              {debugUrl && (
+                <div className="border-gray-200 dark:border-gray-700 flex justify-center sm:hidden">
+                  <motion.button
+                    onClick={openDebugUrl}
+                    className="px-1.5 py-1 sm:px-3 sm:py-2 rounded-lg font-galindo 
+                      bg-[#FEFFA3] dark:bg-[#FEFFA3] 
+                      text-[#1a1b1e] hover:opacity-90
+                      border-2 border-[#1a1b1e]/20 dark:border-[#1a1b1e]/20
+                      text-[7px] sm:text-xs
+                      shadow-[2px_2px_0px_rgba(0,0,0,0.1)]
+                      transition-all duration-100
+                      flex items-center justify-center gap-0.5 sm:gap-2
+                      w-fit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="inline-block group-hover:rotate-12 transition-transform">🔍</span>
+                    <span className="whitespace-nowrap">Peek behind the scenes!</span>
+                  </motion.button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

@@ -25,7 +25,7 @@ export const maxDuration = 300;
 
 export async function POST(req: NextRequest) {
   console.log("Received request for meme generation");
-  const { message, sourceType = 0, sessionId } = await req.json();
+  const { message, sourceType = 0, sessionId, isLastSession = false } = await req.json();
 
   const browserbase = new Browserbase({
     apiKey: process.env.BROWSERBASE_API_KEY,
@@ -187,11 +187,14 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   } finally {
-    if (page) {
-      await page.close().catch(console.error);
-    }
-    if (stagehand) {
-      await stagehand.close().catch(console.error);
+    // Only close if it's the last session
+    if (isLastSession) {
+      if (page) {
+        await page.close().catch(console.error);
+      }
+      if (stagehand) {
+        await stagehand.close().catch(console.error);
+      }
     }
   }
 }

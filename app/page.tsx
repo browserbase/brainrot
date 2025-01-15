@@ -129,16 +129,11 @@ export default function Home() {
       .map((_, index) =>
         fetch("/api/chat", {
           method: "POST",
-          // mode: "no-cors",
-          // headers: {
-          //   "Content-Type": "application/json",
-          //   "Access-Control-Allow-Origin": "*",
-          // },
           body: JSON.stringify({
             message,
             sourceType: index,
             sessionId: sessions[index].sessionId,
-            usedTemplates: memes.map((meme) => meme.templateName),
+            isLastSession: index === MAX_CONCURRENT_MEMES - 1
           }),
         })
           .then(async (res) => {
@@ -279,7 +274,7 @@ export default function Home() {
     setLoadingStates((prev) => 
       prev.map((state) => 
         state.index === index 
-          ? { ...state, debugUrl: undefined, isComplete: true }
+          ? { ...state, isComplete: true }
           : state
       )
     );
@@ -475,19 +470,23 @@ export default function Home() {
                       />
                     </div>
                   ))}
-                  {Array(MAX_CONCURRENT_MEMES - memes.length)
+                  {Array(MAX_CONCURRENT_MEMES)
                     .fill(null)
-                    .map((_, i) => (
-                      <MemeSkeleton
-                        key={`remaining-${i}`}
-                        steps={loadingStates[memes.length + i]?.steps || []}
-                        index={memes.length + i}
-                        sessionId={loadingStates[memes.length + i]?.sessionId}
-                        isSessionComplete={
-                          loadingStates[memes.length + i]?.isComplete
-                        }
-                      />
-                    ))}
+                    .map((_, i) => {
+                      if (memes.find(meme => meme.index === i)) {
+                        return null;
+                      }
+                      return (
+                        <MemeSkeleton
+                          key={`skeleton-${i}`}
+                          steps={loadingStates[i]?.steps || []}
+                          index={i}
+                          debugUrl={loadingStates[i]?.debugUrl}
+                          sessionId={loadingStates[i]?.sessionId}
+                          isSessionComplete={loadingStates[i]?.isComplete}
+                        />
+                      );
+                    })}
                 </div>
               </>
             )}
