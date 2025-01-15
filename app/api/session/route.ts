@@ -16,11 +16,11 @@ export async function POST() {
 
     return NextResponse.json({
       sessionId: session.id,
-      // debugUrl: debugUrl.debuggerFullscreenUrl.replace(
-      //   "https://www.browserbase.com/devtools-fullscreen/inspector.html",
-      //   "https://www.browserbase.com/devtools-internal-compiled/index.html"
-      // ),
-      debugUrl: debugUrl.debuggerFullscreenUrl,
+      debugUrl: debugUrl.debuggerFullscreenUrl.replace(
+        "https://www.browserbase.com/devtools-fullscreen/inspector.html",
+        "https://www.browserbase.com/devtools-internal-compiled/index.html"
+      ),
+      // debugUrl: debugUrl.debuggerFullscreenUrl,
       region: "us-east-1",
     });
   } catch (error) {
