@@ -12,7 +12,7 @@ import StickyFooter from "./components/StickyFooter";
 import Image from "next/image";
 import Link from "next/link";
 import DebugUrlDisplay from "./components/DebugUrlDisplay";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface Meme {
   index: number;
@@ -47,6 +47,9 @@ export default function Home() {
   const [successfulMemes, setSuccessfulMemes] = useState(0);
   const [debugUrls, setDebugUrls] = useState<string[]>([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeSessions, setActiveSessions] = useState(MAX_CONCURRENT_MEMES);
+  const [isHovered, setIsHovered] = useState(false);
+  const [allSessionsComplete, setAllSessionsComplete] = useState(true);
 
   useEffect(() => {
     const saved = localStorage.getItem("recentMemes");
@@ -78,7 +81,8 @@ export default function Home() {
     setIsLoading(true);
     setSubmittedQuery(message);
     setSuccessfulMemes(0);
-
+    setActiveSessions(MAX_CONCURRENT_MEMES);
+    setAllSessionsComplete(false);
     let firstResponseReceived = false;
 
     // Create multiple sessions for concurrent meme generation
@@ -265,15 +269,13 @@ export default function Home() {
       console.error("Error:", error);
     } finally {
       setMessage("");
+      setAllSessionsComplete(true);
     }
   };
 
   const updateLoadingState = (index: number) => {
-    setLoadingStates((prev) =>
-      prev.map((state) =>
-        state.index === index ? { ...state, isComplete: true } : state
-      )
-    );
+    console.log("Updating loading state for index:", index);
+    setActiveSessions((prev) => Math.max(0, prev - 1));
   };
 
   return (
@@ -299,7 +301,10 @@ export default function Home() {
             <MemeCounter />
             {!isMobile && (
               <div className="mt-4 w-full">
-                <DebugUrlDisplay debugUrls={debugUrls} />
+                <DebugUrlDisplay
+                  debugUrls={debugUrls}
+                  activeSessions={activeSessions}
+                />
               </div>
             )}
           </div>
@@ -331,44 +336,66 @@ export default function Home() {
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Type anything..."
                     className="flex-1 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-[#EF3604] focus:border-transparent transition-shadow duration-200"
-                    disabled={isLoading}
+                    disabled={isLoading || !allSessionsComplete}
                   />
-                  {/* Phone number input temporarily disabled
-                  <input
-                    type="tel"
-                    value={notificationPhone}
-                    onChange={(e) => {
-                      let value = e.target.value.replace(/^\+1/, '');
-                      value = value.replace(/\D/g, '');
-                      value = value.slice(0, 10);
-                      if (value) {
-                        value = '+1' + value;
-                      }
-                      setNotificationPhone(value);
-                    }}
-                    placeholder="Phone # (Optional)"
-                    maxLength={12}
-                    className="w-48 rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-2 
-                    text-sm sm:text-base h-10 sm:h-12 bg-white dark:bg-gray-800 
-                    text-gray-900 dark:text-gray-100 
-                    focus:outline-none focus:ring-2 focus:ring-[#ff6b6b] focus:border-[#ff6b6b] focus:ring-opacity-50
-                    transition-all duration-200 ease-in-out
-                    placeholder:text-gray-400 dark:placeholder:text-gray-600"
-                  />
-                  */}
                 </div>
-                <button
+                <motion.button
                   type="submit"
                   disabled={!message.trim() || isLoading}
-                  className="rounded-full border-2 border-[#ff6b6b] transition-all duration-200 
-                  flex items-center justify-center bg-[#ff6b6b] text-white 
-                  hover:bg-[#ff8787] hover:border-[#ff8787] hover:scale-105
-                  dark:hover:bg-[#ff8787] text-sm sm:text-base h-10 sm:h-12 
-                  px-6 sm:px-8 disabled:opacity-50 disabled:cursor-not-allowed 
-                  disabled:hover:scale-100 whitespace-nowrap font-bold"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  className={`
+                    bg-[#EF3604] px-5 py-3 rounded-lg 
+                    font-galindo text-white
+                    hover:opacity-90 transition-all duration-200
+                    border-2 border-[#1a1b1e]/20
+                    disabled:opacity-50 disabled:cursor-not-allowed 
+                    disabled:hover:opacity-50
+                    h-10 sm:h-12 whitespace-nowrap
+                    shadow-[4px_4px_0px_#1a1b1e]
+                    hover:shadow-none
+                    active:translate-x-1 active:translate-y-1
+                    hover:bg-[#FF4B1F]
+                    overflow-hidden
+                    relative
+                  `}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: {
+                      rotate: {
+                        repeat: Infinity,
+                        duration: 0.5,
+                        ease: "linear",
+                      },
+                    },
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                    rotate: 0,
+                  }}
                 >
-                  Generate
-                </button>
+                  <motion.span className="absolute inset-0 bg-gradient-to-r from-[#EF3604]/0 via-white/20 to-[#EF3604]/0" />
+                  <motion.span className="flex items-center gap-2 relative z-10">
+                    GENERATE
+                    {isHovered && (
+                      <motion.span 
+                        className="inline-block"
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0 }}
+                      >
+                        <Image
+                          src="/boom.gif"
+                          alt="Boom animation"
+                          width={24}
+                          height={24}
+                          className="inline-block ml-1"
+                          unoptimized
+                        />
+                      </motion.span>
+                    )}
+                  </motion.span>
+                </motion.button>
               </div>
             </form>
             <GenerationInfo
@@ -386,7 +413,10 @@ export default function Home() {
 
             {isMobile && (
               <div className="my-8 w-full">
-                <DebugUrlDisplay debugUrls={debugUrls} />
+                <DebugUrlDisplay
+                  debugUrls={debugUrls}
+                  activeSessions={activeSessions}
+                />
               </div>
             )}
 

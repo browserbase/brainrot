@@ -26,7 +26,7 @@ export const maxDuration = 300;
 export async function POST(req: NextRequest) {
   console.log("Received request for meme generation");
   const { message, sourceType = 0, sessionId } = await req.json();
-  
+
   const browserbase = new Browserbase({
     apiKey: process.env.BROWSERBASE_API_KEY,
   });
@@ -35,9 +35,10 @@ export async function POST(req: NextRequest) {
   console.log("Using existing session debug URL:", debugUrl);
 
   const StagehandConfig: ConstructorParams = {
-    env: process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
-      ? "BROWSERBASE"
-      : "LOCAL",
+    env:
+      process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
+        ? "BROWSERBASE"
+        : "LOCAL",
     apiKey: process.env.BROWSERBASE_API_KEY,
     projectId: process.env.BROWSERBASE_PROJECT_ID,
     headless: false,
@@ -136,9 +137,15 @@ export async function POST(req: NextRequest) {
       const result = {
         index: sourceType,
         imageUrl: imageUrl,
-        templateName: (templateInfo as { name?: string }).name || "Unknown Template",
-        debugUrl: debugUrl.debuggerFullscreenUrl,
+        templateName:
+          (templateInfo as { name?: string }).name || "Unknown Template",
+        debugUrl: debugUrl.debuggerFullscreenUrl.replace(
+          "https://www.browserbase.com/devtools-fullscreen/inspector.html",
+          "https://www.browserbase.com/devtools-internal-compiled/index.html"
+        ),
       };
+
+      console.log("this is the valid debug URL:", result.debugUrl);
 
       console.log("Processing complete:", result);
       results.push(result);
@@ -146,11 +153,16 @@ export async function POST(req: NextRequest) {
       // Increment meme counter
       try {
         const baseUrl = process.env.PRODUCTION_URL || "http://localhost:3000";
-        
+
         // Remove any trailing slash and ensure no double https://
-        const cleanBaseUrl = baseUrl.replace(/\/$/, '').replace(/^https?:\/\//, '');
-        
-        console.log("Base URL for counter:", `https://${cleanBaseUrl}/api/meme-count`);
+        const cleanBaseUrl = baseUrl
+          .replace(/\/$/, "")
+          .replace(/^https?:\/\//, "");
+
+        console.log(
+          "Base URL for counter:",
+          `https://${cleanBaseUrl}/api/meme-count`
+        );
 
         await fetch(`https://${cleanBaseUrl}/api/meme-count`, {
           method: "POST",
