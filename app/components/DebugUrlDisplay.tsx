@@ -21,7 +21,7 @@ export default function DebugUrlDisplay({ debugUrls }: DebugUrlDisplayProps) {
     <div className="w-full mt-8">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-medium">
-          Debug View ({currentIndex + 1}/{debugUrls.length})
+          Live View ({currentIndex + 1}/{debugUrls.length})
         </h3>
         <button
           onClick={() =>
@@ -29,7 +29,7 @@ export default function DebugUrlDisplay({ debugUrls }: DebugUrlDisplayProps) {
           }
           className="px-3 py-1 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors text-sm"
         >
-          Next Debug View
+          Next Live View
         </button>
       </div>
       <div className="w-full h-[400px] bg-[#F8E3C4] dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 relative">

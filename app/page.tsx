@@ -77,6 +77,10 @@ export default function Home() {
         Array(MAX_CONCURRENT_MEMES).fill(null).map(async () => {
           const response = await fetch("/api/session", {
             method: "POST",
+            // mode: "no-cors",
+            // headers: {
+            //   "Access-Control-Allow-Origin": "*",
+            // },
           });
           const data = await response.json();
           if (data.error) throw new Error(data.error);
@@ -108,9 +112,11 @@ export default function Home() {
       .map((_, index) =>
         fetch("/api/chat", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          // mode: "no-cors",
+          // headers: {
+          //   "Content-Type": "application/json",
+          //   "Access-Control-Allow-Origin": "*",
+          // },
           body: JSON.stringify({
             message,
             sourceType: index,
