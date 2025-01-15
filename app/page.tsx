@@ -46,6 +46,7 @@ export default function Home() {
   >([]);
   const [successfulMemes, setSuccessfulMemes] = useState(0);
   const [debugUrls, setDebugUrls] = useState<string[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("recentMemes");
@@ -60,6 +61,16 @@ export default function Home() {
       .filter((url): url is string => !!url);
     setDebugUrls(urls);
   }, [loadingStates]);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -284,9 +295,11 @@ export default function Home() {
               </span>
             </h1>
             <MemeCounter />
-            <div className="mt-4 w-full hidden md:block">
-              <DebugUrlDisplay debugUrls={debugUrls} />
-            </div>
+            {!isMobile && (
+              <div className="mt-4 w-full">
+                <DebugUrlDisplay debugUrls={debugUrls} />
+              </div>
+            )}
           </div>
 
           <div className="w-full lg:w-1/2">
@@ -369,10 +382,11 @@ export default function Home() {
               />
             </div>
 
-            {/* Debug URL Display */}
-            {/* <div className="mt-6 w-full hidden sm:block">
-              <DebugUrlDisplay debugUrls={debugUrls} />
-            </div> */}
+            {isMobile && (
+              <div className="my-8 w-full">
+                <DebugUrlDisplay debugUrls={debugUrls} />
+              </div>
+            )}
 
             {/* Loading skeletons - Only visible when loading */}
             {isLoading && (
@@ -398,9 +412,6 @@ export default function Home() {
                   <span className="text-base text-gray-600 dark:text-gray-400">
                     Results for: &quot;{submittedQuery}&quot;
                   </span>
-                </div>
-                <div className="my-8 w-full block md:hidden">
-                  <DebugUrlDisplay debugUrls={debugUrls} />
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-6 w-full">
                   {memes.map((meme, index) => (
@@ -447,7 +458,6 @@ export default function Home() {
         </div>
       </main>
       <StickyFooter />
-      {/* <DebugUrlDisplay debugUrls={debugUrls} /> */}
     </div>
   );
 }
