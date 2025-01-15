@@ -55,9 +55,15 @@ const faqs: FAQItem[] = [
     </>
   },
   {
+    question: "Do we collect your memes?",
+    answer: <>
+      Nope, go degen I guess.
+    </>
+  },
+  {
     question: "Is this open source?",
     answer: <>
-      Yep, here&apos;s the public repo: <a href="https://github.com/alexdphan/brainrot" className="text-red-600 dark:text-red-400 hover:underline">Brainrot</a>
+      Yep, here&apos;s the public repo: <a href="https://github.com/browserbase/brainrot" className="text-red-600 dark:text-red-400 hover:underline">Brainrot</a>
     </>
   },
   {
