@@ -276,6 +276,13 @@ export default function Home() {
   const updateLoadingState = (index: number) => {
     console.log("Updating loading state for index:", index);
     setActiveSessions((prev) => Math.max(0, prev - 1));
+    setLoadingStates((prev) => 
+      prev.map((state) => 
+        state.index === index 
+          ? { ...state, debugUrl: undefined, isComplete: true }
+          : state
+      )
+    );
   };
 
   return (

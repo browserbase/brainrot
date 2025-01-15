@@ -9,10 +9,10 @@ export default function DebugUrlDisplay({ debugUrls, activeSessions }: DebugUrlD
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    if (currentIndex >= activeSessions) {
+    if (currentIndex >= activeSessions || !debugUrls[currentIndex]) {
       setCurrentIndex(0);
     }
-  }, [currentIndex, activeSessions]);
+  }, [currentIndex, activeSessions, debugUrls]);
 
   if (!debugUrls.length || activeSessions === 0) {
     return null;
