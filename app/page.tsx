@@ -11,7 +11,7 @@ import { MAX_CONCURRENT_MEMES } from "./config/constants";
 import StickyFooter from "./components/StickyFooter";
 import Image from "next/image";
 import Link from "next/link";
-import DebugUrlDisplay from './components/DebugUrlDisplay';
+import DebugUrlDisplay from "./components/DebugUrlDisplay";
 // import { motion } from "framer-motion";
 
 interface Meme {
@@ -27,7 +27,6 @@ interface LoadingState {
   sessionId?: string;
   isComplete?: boolean;
 }
-
 
 export default function Home() {
   const [message, setMessage] = useState("");
@@ -57,7 +56,7 @@ export default function Home() {
 
   useEffect(() => {
     const urls = loadingStates
-      .map(state => state.debugUrl)
+      .map((state) => state.debugUrl)
       .filter((url): url is string => !!url);
     setDebugUrls(urls);
   }, [loadingStates]);
@@ -74,14 +73,16 @@ export default function Home() {
     // Create multiple sessions for concurrent meme generation
     const createSessions = async () => {
       const sessions = await Promise.all(
-        Array(MAX_CONCURRENT_MEMES).fill(null).map(async () => {
-          const response = await fetch("/api/session", {
-            method: "POST",
-          });
-          const data = await response.json();
-          if (data.error) throw new Error(data.error);
-          return data;
-        })
+        Array(MAX_CONCURRENT_MEMES)
+          .fill(null)
+          .map(async () => {
+            const response = await fetch("/api/session", {
+              method: "POST",
+            });
+            const data = await response.json();
+            if (data.error) throw new Error(data.error);
+            return data;
+          })
       );
       return sessions;
     };
@@ -91,15 +92,20 @@ export default function Home() {
 
     // Initialize loading states with session IDs
     setLoadingStates(
-      Array(MAX_CONCURRENT_MEMES).fill(null).map((_, index) => {
-        console.log(`Setting loading state ${index} with debug URL:`, sessions[index].debugUrl);
-        return {
-          index,
-          steps: [],
-          sessionId: sessions[index].sessionId,
-          debugUrl: sessions[index].debugUrl
-        };
-      })
+      Array(MAX_CONCURRENT_MEMES)
+        .fill(null)
+        .map((_, index) => {
+          console.log(
+            `Setting loading state ${index} with debug URL:`,
+            sessions[index].debugUrl
+          );
+          return {
+            index,
+            steps: [],
+            sessionId: sessions[index].sessionId,
+            debugUrl: sessions[index].debugUrl,
+          };
+        })
     );
 
     console.log("Creating memes now...");
@@ -189,10 +195,13 @@ export default function Home() {
               setLoadingStates((prev) =>
                 prev.map((state) => {
                   if (state.index === result.index) {
-                    console.log("Setting debug URL for state:", result.debugUrl);
-                    return { 
-                      ...state, 
-                      debugUrl: result.debugUrl
+                    console.log(
+                      "Setting debug URL for state:",
+                      result.debugUrl
+                    );
+                    return {
+                      ...state,
+                      debugUrl: result.debugUrl,
                     };
                   }
                   return state;
@@ -247,11 +256,9 @@ export default function Home() {
   };
 
   const updateLoadingState = (index: number) => {
-    setLoadingStates(prev => 
-      prev.map(state => 
-        state.index === index 
-          ? { ...state, isComplete: true }
-          : state
+    setLoadingStates((prev) =>
+      prev.map((state) =>
+        state.index === index ? { ...state, isComplete: true } : state
       )
     );
   };
@@ -277,7 +284,7 @@ export default function Home() {
               </span>
             </h1>
             <MemeCounter />
-            <div className="mt-4 w-full">
+            <div className="mt-4 w-full hidden md:block">
               <DebugUrlDisplay debugUrls={debugUrls} />
             </div>
           </div>
@@ -392,6 +399,9 @@ export default function Home() {
                     Results for: &quot;{submittedQuery}&quot;
                   </span>
                 </div>
+                <div className="my-8 w-full block md:hidden">
+                  <DebugUrlDisplay debugUrls={debugUrls} />
+                </div>
                 <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-6 w-full">
                   {memes.map((meme, index) => (
                     <div
@@ -423,7 +433,9 @@ export default function Home() {
                         steps={loadingStates[memes.length + i]?.steps || []}
                         index={memes.length + i}
                         sessionId={loadingStates[memes.length + i]?.sessionId}
-                        isSessionComplete={loadingStates[memes.length + i]?.isComplete}
+                        isSessionComplete={
+                          loadingStates[memes.length + i]?.isComplete
+                        }
                       />
                     ))}
                 </div>
