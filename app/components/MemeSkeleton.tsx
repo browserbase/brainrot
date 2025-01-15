@@ -127,19 +127,20 @@ export default function MemeSkeleton({ steps, index, debugUrl, sessionId }: Meme
             <div className="border-gray-200 dark:border-gray-700 flex justify-center">
               <motion.button
                 onClick={openDebugUrl}
-                className="px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg font-galindo 
+                className="px-1.5 py-1 sm:px-3 sm:py-2 rounded-lg font-galindo 
                   bg-[#FEFFA3] dark:bg-[#FEFFA3] 
                   text-[#1a1b1e] hover:opacity-90
                   border-2 border-[#1a1b1e]/20 dark:border-[#1a1b1e]/20
-                  text-[9px] sm:text-xs
+                  text-[7px] sm:text-xs
                   shadow-[2px_2px_0px_rgba(0,0,0,0.1)]
                   transition-all duration-100
-                  flex items-center justify-center gap-1 sm:gap-2"
+                  flex items-center justify-center gap-0.5 sm:gap-2
+                  w-fit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="inline-block group-hover:rotate-12 transition-transform">🔍</span>
-                <span>Peek behind the scenes!</span>
+                <span className="whitespace-nowrap">Peek behind the scenes!</span>
               </motion.button>
             </div>
           )}
