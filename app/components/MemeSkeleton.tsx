@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MAX_CONCURRENT_MEMES } from '../config/constants';
-import DebugModal from './DebugModal';
 
 interface MemeSkeletonProps {
   steps: string[];
@@ -27,7 +26,7 @@ const LOADING_CAPTIONS = [
   "Crafting internet gold 🏆"
 ];
 
-export default function MemeSkeleton({ steps, index, debugUrl, sessionId, isSessionComplete = false }: MemeSkeletonProps) {
+export default function MemeSkeleton({ steps, index, debugUrl, isSessionComplete = false }: MemeSkeletonProps) {
   const [caption, setCaption] = useState('');
 
   const openDebugUrl = () => {
