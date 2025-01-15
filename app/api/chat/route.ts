@@ -171,31 +171,6 @@ export async function POST(req: NextRequest) {
         console.error("Failed to increment meme counter:", error);
         // Continue execution even if counter fails
       }
-
-      /*
-      console.log("Phone number:", phoneNumber);
-      console.log("Image URL:", imageUrl);
-      console.log("Environment variables:", {
-        TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
-        TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
-        TWILIO_PHONE_NUMBER: process.env.TWILIO_PHONE_NUMBER,
-      });
-      console.log("Sending SMS notification...");
-      if (phoneNumber) {
-        console.log('========= PHONE NUMBER CHECK =========');
-        console.log('Phone number before SMS:', phoneNumber);
-        console.log('Phone number type:', typeof phoneNumber);
-        console.log('Phone number length:', phoneNumber.length);
-        
-        try {
-          const smsResult = await sendMemeNotification(phoneNumber, [imageUrl]);
-          console.log("SMS Result:", smsResult);
-        } catch (error) {
-          console.error("SMS Error:", error);
-        }
-      }
-      */
-
       return NextResponse.json(results);
     } catch (error) {
       console.error("Error during meme generation:", error);

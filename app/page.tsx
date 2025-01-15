@@ -374,8 +374,8 @@ export default function Home() {
                     rotate: 0,
                   }}
                 >
-                  <motion.span className="absolute inset-0 bg-gradient-to-r from-[#EF3604]/0 via-white/20 to-[#EF3604]/0" />
-                  <motion.span className="flex items-center gap-2 relative z-10">
+                  <motion.span className="inset-0 bg-gradient-to-r from-[#EF3604]/0 via-white/20 to-[#EF3604]/0 flex items-center justify-center mb-[-2px] sm:mb-0" />
+                  <motion.span className="flex items-center justify-center gap-2 relative z-10 w-full">
                     GENERATE
                     {isHovered && (
                       <motion.span 
