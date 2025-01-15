@@ -12,8 +12,14 @@ export async function POST() {
       region: "us-east-1",
     });
 
+    const debugUrl = await client.sessions.debug(session.id);
+
     return NextResponse.json({
       sessionId: session.id,
+      debugUrl: debugUrl.debuggerFullscreenUrl.replace(
+        "https://www.browserbase.com/devtools-fullscreen/inspector.html",
+        "https://www.browserbase.com/devtools-internal-compiled/index.html"
+      ),
       region: "us-east-1",
     });
   } catch (error) {
