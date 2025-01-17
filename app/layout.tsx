@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Galindo } from 'next/font/google'
 import Header from './components/Header';
-
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: 'Brainrot - Browserbase Meme Generator',
@@ -52,6 +52,7 @@ export default function RootLayout({
       <body className={`${galindo.variable} font-galindo antialiased bg-[#FFF5E1] dark:bg-[#1a1b1e] text-[#1a1b1e] dark:text-white flex flex-col overflow-x-hidden overflow-y-auto`}>
         <Header />
         {children}
+        <Analytics />
       </body>
     </html>
   );
