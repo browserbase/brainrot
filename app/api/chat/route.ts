@@ -14,13 +14,6 @@ interface Meme {
   imageUrl: string;
 }
 
-// / should pre-process the message to search a meme based on the message or image
-// add context
-// ex: image of tweet, give to llm, llm searches for right meme, caption the meme based on query and context from image
-// ex: query of "cat", give to llm, llm searches for right meme, caption the meme based on query and context
-
-// if you get off track, try to get back to main menu and start over
-
 export const maxDuration = 300;
 
 export async function POST(req: NextRequest) {
