@@ -1,1 +1,1 @@
-export const MAX_CONCURRENT_MEMES = Number(process.env.NEXT_PUBLIC_MAX_CONCURRENT_MEMES || 4);
+export const MAX_CONCURRENT_MEMES = Number(1);
