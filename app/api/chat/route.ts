@@ -1,6 +1,4 @@
 import {
-  ConstructorParams,
-  LogLine,
   Stagehand,
 } from "@browserbasehq/stagehand";
 import { NextRequest, NextResponse } from "next/server";
@@ -27,49 +25,32 @@ export async function POST(req: NextRequest) {
   const debugUrl = await browserbase.sessions.debug(sessionId);
   console.log("Using existing session debug URL:", debugUrl);
 
-  const StagehandConfig: ConstructorParams = {
-    env:
-      process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
-        ? "BROWSERBASE"
-        : "LOCAL",
-    apiKey: process.env.BROWSERBASE_API_KEY,
-    projectId: process.env.BROWSERBASE_PROJECT_ID,
-    headless: false,
-    domSettleTimeoutMs: 30_000,
-    browserbaseSessionID: sessionId,
-    browserbaseSessionCreateParams: {
-      projectId: process.env.BROWSERBASE_PROJECT_ID!,
-      region: "us-east-1",
-    },
-    enableCaching: false,
-    modelName: "claude-3-5-sonnet-latest",
-    modelClientOptions: {
-      apiKey: process.env.ANTHROPIC_API_KEY,
-    },
-    verbose: 0,
-    logger: (message: LogLine) =>
-      console.log(`[stagehand::${message.category}] ${message.message}`),
-  };
-
-  let stagehand = null;
-  let page = null;
+  let stagehand: Stagehand | null = null;
   const results: Meme[] = [];
 
   try {
-    stagehand = new Stagehand(StagehandConfig);
+    stagehand = new Stagehand({
+      env:
+        process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
+          ? "BROWSERBASE"
+          : "LOCAL",
+      apiKey: process.env.BROWSERBASE_API_KEY,
+      projectId: process.env.BROWSERBASE_PROJECT_ID,
+      domSettleTimeout: 30000,
+      browserbaseSessionID: sessionId,
+      model: "anthropic/claude-3-5-sonnet-20241022",
+    });
     await stagehand.init();
-    page = await stagehand.page;
 
     console.log(
       `Starting POST request processing for template ${sourceType}...`
     );
 
     console.log("Initializing Stagehand instance...");
-    await stagehand.init();
+    const page = stagehand.context.pages()[0];
 
     try {
       console.log("Starting meme processing...");
-      const page = await stagehand.page;
 
       console.log("Navigating to search page...");
       let templateInfo;
@@ -94,34 +75,35 @@ export async function POST(req: NextRequest) {
       await page.goto(source.url, { waitUntil: "domcontentloaded" });
 
       try {
-        templateInfo = await page.act({
-          action: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`,
-        });
+        await stagehand.act(
+          `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`
+        );
 
-        console.log("Template found:", templateInfo);
+        console.log("Template found");
 
-        templateInfo = await page.extract({
-          instruction: `Extract the template name from the URL of the template you selected.`,
-          schema: z.object({
+        const extractedData = await stagehand.extract(
+          `Extract the template name from the URL of the template you selected.`,
+          z.object({
             name: z.string(),
-          }),
-        });
+          })
+        );
 
-        console.log("Template name:", templateInfo.name);
+        templateInfo = extractedData;
+        console.log("Template name:", (templateInfo as any).name);
       } catch (error) {
         console.log(`Error finding template in ${source.description}:`, error);
         throw error;
       }
 
       console.log("Filling in captions...");
-      await page.act({
-        action: `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`,
-      });
+      await stagehand.act(
+        `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`
+      );
 
       console.log("Generating final meme...");
-      await page.act({
-        action: "click the button labeled 'Generate Meme'",
-      });
+      await stagehand.act(
+        "click the button labeled 'Generate Meme'"
+      );
 
       console.log("Extracting image URL...");
       const imageUrlInput = await page.locator(".img-code-wrap input").first();
@@ -182,9 +164,6 @@ export async function POST(req: NextRequest) {
   } finally {
     // Only close if it's the last session
     if (isLastSession) {
-      if (page) {
-        await page.close().catch(console.error);
-      }
       if (stagehand) {
         await stagehand.close().catch(console.error);
       }
