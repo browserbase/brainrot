@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   const results: Meme[] = [];
 
   try {
-    stagehand = new Stagehand({
+    const stagehandConfig: any = {
       env:
         process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
           ? "BROWSERBASE"
@@ -37,9 +37,25 @@ export async function POST(req: NextRequest) {
       apiKey: process.env.BROWSERBASE_API_KEY,
       projectId: process.env.BROWSERBASE_PROJECT_ID,
       domSettleTimeout: 30000,
-      browserbaseSessionID: sessionId,
       model: "anthropic/claude-3-5-sonnet-20241022",
+      // The ANTHROPIC_API_KEY env var must be set for this to work
+    };
+    
+    // Connect to existing session from /api/session endpoint to avoid creating new session
+    if (sessionId) {
+      stagehandConfig.browserbaseSessionID = sessionId;
+      console.log("Connecting to existing Browserbase session:", sessionId);
+    }
+    
+    console.log("Stagehand config:", {
+      env: stagehandConfig.env,
+      apiKey: stagehandConfig.apiKey ? "***" : "NOT SET",
+      projectId: stagehandConfig.projectId ? "***" : "NOT SET",
+      browserbaseSessionID: stagehandConfig.browserbaseSessionID || "WILL CREATE NEW",
+      model: stagehandConfig.model,
     });
+
+    stagehand = new Stagehand(stagehandConfig);
     await stagehand.init();
 
     console.log(
@@ -47,10 +63,22 @@ export async function POST(req: NextRequest) {
     );
 
     console.log("Initializing Stagehand instance...");
-    const page = stagehand.context.pages()[0];
+    console.log("Available pages in context:", stagehand.context.pages().length);
+    const pages = stagehand.context.pages();
+    console.log("Pages:", pages);
+    
+    if (pages.length === 0) {
+      throw new Error("No pages available in context after init");
+    }
+    
+    const page = pages[0];
+    console.log("Using page:", { url: page.url(), title: page.title() });
 
     try {
       console.log("Starting meme processing...");
+      
+      // Wait a bit for the session to be fully ready
+      await new Promise(resolve => setTimeout(resolve, 2000));
 
       console.log("Navigating to search page...");
       let templateInfo;
@@ -72,9 +100,17 @@ export async function POST(req: NextRequest) {
       // Use only the specified source
       const source = sources[sourceType];
       console.log(`Using ${source.description}...`);
-      await page.goto(source.url, { waitUntil: "domcontentloaded" });
+      console.log("Navigating to URL:", source.url);
+      try {
+        await page.goto(source.url, { waitUntil: "domcontentloaded" });
+        console.log("Page loaded successfully");
+      } catch (gotoError) {
+        console.error("Error in page.goto():", gotoError);
+        throw gotoError;
+      }
 
       try {
+        console.log("About to call stagehand.act()...");
         await stagehand.act(
           `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`
         );
@@ -91,19 +127,32 @@ export async function POST(req: NextRequest) {
         templateInfo = extractedData;
         console.log("Template name:", (templateInfo as any).name);
       } catch (error) {
-        console.log(`Error finding template in ${source.description}:`, error);
+        console.error(`Error finding template in ${source.description}:`, error);
+        console.error("Full error stack:", (error as any).stack);
         throw error;
       }
 
       console.log("Filling in captions...");
-      await stagehand.act(
-        `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`
-      );
+      try {
+        await stagehand.act(
+          `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`
+        );
+      } catch (error) {
+        console.error("Error filling captions:", error);
+        console.error("Error stack:", (error as any).stack);
+        throw error;
+      }
 
       console.log("Generating final meme...");
-      await stagehand.act(
-        "click the button labeled 'Generate Meme'"
-      );
+      try {
+        await stagehand.act(
+          "click the button labeled 'Generate Meme'"
+        );
+      } catch (error) {
+        console.error("Error generating meme:", error);
+        console.error("Error stack:", (error as any).stack);
+        throw error;
+      }
 
       console.log("Extracting image URL...");
       const imageUrlInput = await page.locator(".img-code-wrap input").first();
@@ -149,9 +198,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(results);
     } catch (error) {
       console.error("Error during meme generation:", error);
+      console.error("Full error details:", JSON.stringify(error, null, 2));
+      console.error("Error stack:", (error as any).stack);
       await stagehand.close();
       return NextResponse.json(
-        { error: "Failed to process request" },
+        { error: "Failed to process request", details: String(error) },
         { status: 500 }
       );
     }
