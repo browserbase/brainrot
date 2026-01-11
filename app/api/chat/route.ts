@@ -31,13 +31,11 @@ export async function POST(req: NextRequest) {
   try {
     const stagehandConfig: any = {
       env:
-        process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
-          ? "BROWSERBASE"
-          : "LOCAL",
+        "BROWSERBASE",
       apiKey: process.env.BROWSERBASE_API_KEY,
       projectId: process.env.BROWSERBASE_PROJECT_ID,
       domSettleTimeout: 30000,
-      model: "anthropic/claude-3-5-sonnet-20241022",
+      model: "anthropic/claude-sonnet-4-5-20250929",
       // The ANTHROPIC_API_KEY env var must be set for this to work
     };
     
@@ -46,14 +44,6 @@ export async function POST(req: NextRequest) {
       stagehandConfig.browserbaseSessionID = sessionId;
       console.log("Connecting to existing Browserbase session:", sessionId);
     }
-    
-    console.log("Stagehand config:", {
-      env: stagehandConfig.env,
-      apiKey: stagehandConfig.apiKey ? "***" : "NOT SET",
-      projectId: stagehandConfig.projectId ? "***" : "NOT SET",
-      browserbaseSessionID: stagehandConfig.browserbaseSessionID || "WILL CREATE NEW",
-      model: stagehandConfig.model,
-    });
 
     stagehand = new Stagehand(stagehandConfig);
     await stagehand.init();
@@ -63,22 +53,10 @@ export async function POST(req: NextRequest) {
     );
 
     console.log("Initializing Stagehand instance...");
-    console.log("Available pages in context:", stagehand.context.pages().length);
-    const pages = stagehand.context.pages();
-    console.log("Pages:", pages);
-    
-    if (pages.length === 0) {
-      throw new Error("No pages available in context after init");
-    }
-    
-    const page = pages[0];
-    console.log("Using page:", { url: page.url(), title: page.title() });
+    const page = stagehand.context.pages()[0];
 
     try {
       console.log("Starting meme processing...");
-      
-      // Wait a bit for the session to be fully ready
-      await new Promise(resolve => setTimeout(resolve, 2000));
 
       console.log("Navigating to search page...");
       let templateInfo;
@@ -110,7 +88,6 @@ export async function POST(req: NextRequest) {
       }
 
       try {
-        console.log("About to call stagehand.act()...");
         await stagehand.act(
           `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`
         );
@@ -125,10 +102,12 @@ export async function POST(req: NextRequest) {
         );
 
         templateInfo = extractedData;
-        console.log("Template name:", (templateInfo as any).name);
+        console.log("Template name:", templateInfo.name);
       } catch (error) {
         console.error(`Error finding template in ${source.description}:`, error);
-        console.error("Full error stack:", (error as any).stack);
+        if (error instanceof Error) {
+          console.error("Full error stack:", error.stack);
+        }
         throw error;
       }
 
@@ -139,7 +118,9 @@ export async function POST(req: NextRequest) {
         );
       } catch (error) {
         console.error("Error filling captions:", error);
-        console.error("Error stack:", (error as any).stack);
+        if (error instanceof Error) {
+          console.error("Error stack:", error.stack);
+        }
         throw error;
       }
 
