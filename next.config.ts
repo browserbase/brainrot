@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: [
+    '@browserbasehq/stagehand',
+    'thread-stream',
+    'pino'
+  ],
   images: {
     domains: ['imgflip.com', 'i.imgflip.com'],
     remotePatterns: [

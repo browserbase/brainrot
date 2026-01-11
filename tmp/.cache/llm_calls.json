@@ -64,7 +64,7 @@
       "id": "msg_01FCEc34vdwb5R9D3NwbZ9av",
       "object": "chat.completion",
       "created": 1736290767204,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -99,7 +99,7 @@
       "id": "msg_01LESmebkyVHNEEs3tYcvc4g",
       "object": "chat.completion",
       "created": 1736290775566,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -188,7 +188,7 @@
       "id": "msg_01Jg84dkPuKwTWSFBFnMTxUc",
       "object": "chat.completion",
       "created": 1736291144064,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -223,7 +223,7 @@
       "id": "msg_01VPZRLHrpEVfKbBd6955cBV",
       "object": "chat.completion",
       "created": 1736291361475,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -258,7 +258,7 @@
       "id": "msg_01S7rGvpDcLyYsV37YHMgeGH",
       "object": "chat.completion",
       "created": 1736291416943,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -293,7 +293,7 @@
       "id": "msg_01HgYx7FZZgetDLh8VcQJjZA",
       "object": "chat.completion",
       "created": 1736291520784,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -328,7 +328,7 @@
       "id": "msg_015hrmLS5DGhrZ2dTVugmdgB",
       "object": "chat.completion",
       "created": 1736291798096,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -500,7 +500,7 @@
       "id": "msg_011eJteu1Y78QExCwh6Hdiyh",
       "object": "chat.completion",
       "created": 1736294441181,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -535,7 +535,7 @@
       "id": "msg_01CUz2Qt4aY2Yp5ESM3kbjB6",
       "object": "chat.completion",
       "created": 1736294475235,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -570,7 +570,7 @@
       "id": "msg_01M2VgXU4p3FMxMDugvYke7b",
       "object": "chat.completion",
       "created": 1736294578436,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -709,7 +709,7 @@
       "id": "msg_01W3FpC2iUG7VBvrK6okjXDE",
       "object": "chat.completion",
       "created": 1736295010654,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -744,7 +744,7 @@
       "id": "msg_01W6jKotRBK3WUL5imbYvVsE",
       "object": "chat.completion",
       "created": 1736295060135,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -779,7 +779,7 @@
       "id": "msg_01KfYGb9UZPN4AWC1Q5uXtoh",
       "object": "chat.completion",
       "created": 1736295109053,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -821,7 +821,7 @@
       "id": "msg_01TYr38P7nGvWQxEsbeFZfTc",
       "object": "chat.completion",
       "created": 1736295193796,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -863,7 +863,7 @@
       "id": "msg_015YZjNTRV9HtrTQTh3noCbg",
       "object": "chat.completion",
       "created": 1736295249703,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -957,7 +957,7 @@
       "id": "msg_01Bak9jataTfvSsxzuSNq2wC",
       "object": "chat.completion",
       "created": 1736295594132,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1058,7 +1058,7 @@
       "id": "msg_01N4B5rjwJydTHPo66Pbvi62",
       "object": "chat.completion",
       "created": 1736295682186,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1093,7 +1093,7 @@
       "id": "msg_01TFeYQ8QXtu4F62SK7SL51D",
       "object": "chat.completion",
       "created": 1736295789304,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1135,7 +1135,7 @@
       "id": "msg_018t1cuVSP5uhHD7Nifsi9q9",
       "object": "chat.completion",
       "created": 1736295888410,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1388,7 +1388,7 @@
       "id": "msg_01Dqp4SwU6dfPtmsmKZeZueF",
       "object": "chat.completion",
       "created": 1736296269466,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1472,7 +1472,7 @@
       "id": "msg_01Hh2UvTUnYgqG1HNwP4MbDj",
       "object": "chat.completion",
       "created": 1736296290360,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1517,7 +1517,7 @@
       "id": "msg_01UA4Z1geJ4dZTNhWTzbJVMn",
       "object": "chat.completion",
       "created": 1736296299872,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1570,7 +1570,7 @@
       "id": "msg_01KXx3pF9frQsF2uzymnrQvy",
       "object": "chat.completion",
       "created": 1736296317053,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1605,7 +1605,7 @@
       "id": "msg_01Vs5ct3CnAUskCzyn7PSnFX",
       "object": "chat.completion",
       "created": 1736296318237,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1640,7 +1640,7 @@
       "id": "msg_01Bcin5NkFoQocLxCkEprcEo",
       "object": "chat.completion",
       "created": 1736296335799,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1675,7 +1675,7 @@
       "id": "msg_011z5zq33hsVWohivKUs69ia",
       "object": "chat.completion",
       "created": 1736296349258,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1710,7 +1710,7 @@
       "id": "msg_01Qe8pi2B4FZ6cvJB7weLWq6",
       "object": "chat.completion",
       "created": 1736296355644,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1752,7 +1752,7 @@
       "id": "msg_01MocCSdQGdRmXJS4NXbpUpU",
       "object": "chat.completion",
       "created": 1736296378640,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1787,7 +1787,7 @@
       "id": "msg_01PVXFMpx7rbRcQVqZyeSNYH",
       "object": "chat.completion",
       "created": 1736296387005,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1843,7 +1843,7 @@
       "id": "msg_01ExXqRkp6NdRLYFjiaAXJFP",
       "object": "chat.completion",
       "created": 1736296439441,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -1878,7 +1878,7 @@
       "id": "msg_01HgJtCEeAqhYvp3pgP3iG44",
       "object": "chat.completion",
       "created": 1736296442633,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2083,7 +2083,7 @@
       "id": "msg_01Qkb7GQiN1hfbZ8ZQg7SuV3",
       "object": "chat.completion",
       "created": 1736296539460,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2181,7 +2181,7 @@
       "id": "msg_01EWcSzCY67iCTURJafV4DGW",
       "object": "chat.completion",
       "created": 1736296563955,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2216,7 +2216,7 @@
       "id": "msg_01RnKehngj6YVcST6yaxp1a7",
       "object": "chat.completion",
       "created": 1736296569643,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2251,7 +2251,7 @@
       "id": "msg_019HkbHpQbbyNcziBPYhqTrU",
       "object": "chat.completion",
       "created": 1736296591964,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2286,7 +2286,7 @@
       "id": "msg_014cLMNDfW9wCRXtnVbs4CMb",
       "object": "chat.completion",
       "created": 1736296592691,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2321,7 +2321,7 @@
       "id": "msg_015JjQgLREm2vKTWKwJnNtWB",
       "object": "chat.completion",
       "created": 1736296606461,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2356,7 +2356,7 @@
       "id": "msg_01EoLJGS89NgWEDoBFadKmDc",
       "object": "chat.completion",
       "created": 1736296632951,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2398,7 +2398,7 @@
       "id": "msg_01Qv4kcwNpUnTNSM35bJ79My",
       "object": "chat.completion",
       "created": 1736296695385,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2440,7 +2440,7 @@
       "id": "msg_01KY8tnLc6uD167uXC4cwdV4",
       "object": "chat.completion",
       "created": 1736296711964,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2482,7 +2482,7 @@
       "id": "msg_01HoSU8sUyas6b3WBSBftnFq",
       "object": "chat.completion",
       "created": 1736296753155,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2524,7 +2524,7 @@
       "id": "msg_01DHcJoyoUVqgQYAAvCk2Qem",
       "object": "chat.completion",
       "created": 1736296787643,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2617,7 +2617,7 @@
       "id": "msg_01TM5DR1BzAQpQFFBFJ66yy5",
       "object": "chat.completion",
       "created": 1736296877926,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2804,7 +2804,7 @@
       "id": "msg_01Raof55FS8E1c7jdNoxfWMx",
       "object": "chat.completion",
       "created": 1736296950481,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2871,7 +2871,7 @@
       "id": "msg_012qwTCDuNPv3VGcdVfPbuNj",
       "object": "chat.completion",
       "created": 1736296968670,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2916,7 +2916,7 @@
       "id": "msg_01MVhM69F86yShWdtcug8Y4o",
       "object": "chat.completion",
       "created": 1736296971096,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -2969,7 +2969,7 @@
       "id": "msg_018etscVH6fM2kYoUh4g3p3E",
       "object": "chat.completion",
       "created": 1736296984397,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3004,7 +3004,7 @@
       "id": "msg_0121j7kUcpiitvEn2k6KmcxQ",
       "object": "chat.completion",
       "created": 1736296993877,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3039,7 +3039,7 @@
       "id": "msg_01DkhHULAhSabfHBY2dFpQ4U",
       "object": "chat.completion",
       "created": 1736296996118,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3074,7 +3074,7 @@
       "id": "msg_01FpPjnJaRSWUJDzBJCmVT7J",
       "object": "chat.completion",
       "created": 1736297005146,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3109,7 +3109,7 @@
       "id": "msg_01QRJJUNrHXagt9c4ppwbve7",
       "object": "chat.completion",
       "created": 1736297045051,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3144,7 +3144,7 @@
       "id": "msg_01F1hFq8xN6L3pX7jwzD3uNz",
       "object": "chat.completion",
       "created": 1736297056329,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3193,7 +3193,7 @@
       "id": "msg_01QbqHRj5FLj1zbdFoEo4PfK",
       "object": "chat.completion",
       "created": 1736297080508,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3228,7 +3228,7 @@
       "id": "msg_01J1nccQeM7w4R542QDXG2U9",
       "object": "chat.completion",
       "created": 1736297084128,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3284,7 +3284,7 @@
       "id": "msg_01We5fkf6o8KUQULXxeSgauM",
       "object": "chat.completion",
       "created": 1736297144958,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3319,7 +3319,7 @@
       "id": "msg_01PH4gLkQtH6zQPwwf9nbWs8",
       "object": "chat.completion",
       "created": 1736297151728,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3354,7 +3354,7 @@
       "id": "msg_01EkwuX7MNcZFe9yXT4Fea5i",
       "object": "chat.completion",
       "created": 1736297152968,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3624,7 +3624,7 @@
       "id": "msg_01YUxe1GboW3S3PS4RxHysQY",
       "object": "chat.completion",
       "created": 1736297301946,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3718,7 +3718,7 @@
       "id": "msg_01SQNW6ENrLZnEqHhJkDgpdQ",
       "object": "chat.completion",
       "created": 1736297323643,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3753,7 +3753,7 @@
       "id": "msg_01UnX99amgwJM1M4NA1axFyB",
       "object": "chat.completion",
       "created": 1736297323667,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3806,7 +3806,7 @@
       "id": "msg_01K4cpphpa61TfeqjE629ptQ",
       "object": "chat.completion",
       "created": 1736297334254,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3841,7 +3841,7 @@
       "id": "msg_01Ha1jVpwaQ557Uk47Gyc3re",
       "object": "chat.completion",
       "created": 1736297346074,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3883,7 +3883,7 @@
       "id": "msg_01PtXhNt2b4CXfJbeUVcnqbV",
       "object": "chat.completion",
       "created": 1736297365755,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3925,7 +3925,7 @@
       "id": "msg_01F9XSmrLMVGGNTjvk7reVkk",
       "object": "chat.completion",
       "created": 1736297378620,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -3967,7 +3967,7 @@
       "id": "msg_01RR9jkGhMSsgD3yWBkUN5om",
       "object": "chat.completion",
       "created": 1736297392640,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4009,7 +4009,7 @@
       "id": "msg_011JHtdTRdwraex17z8XcwTu",
       "object": "chat.completion",
       "created": 1736297401798,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4097,7 +4097,7 @@
       "id": "msg_017EnpakZQ1heemBSEZVa41o",
       "object": "chat.completion",
       "created": 1736297427470,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4139,7 +4139,7 @@
       "id": "msg_01DFSzCWMRqJM2z69s4pKExB",
       "object": "chat.completion",
       "created": 1736297438759,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4174,7 +4174,7 @@
       "id": "msg_018MhwTV1t5VayC8cwVhSPF6",
       "object": "chat.completion",
       "created": 1736297451435,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4216,7 +4216,7 @@
       "id": "msg_01KP7i8QXUz2nqVV43s2vxTJ",
       "object": "chat.completion",
       "created": 1736297463989,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4258,7 +4258,7 @@
       "id": "msg_01BDf9w9jWerXcc6UdK1m9ZL",
       "object": "chat.completion",
       "created": 1736297517694,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4407,7 +4407,7 @@
       "id": "msg_01Wi9fFEUE8TQHExYDjKbfB7",
       "object": "chat.completion",
       "created": 1736297982985,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4442,7 +4442,7 @@
       "id": "msg_019MPsDaTkjaphAh4zvmL84Y",
       "object": "chat.completion",
       "created": 1736297983670,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4477,7 +4477,7 @@
       "id": "msg_01Suu7mnvEZQqz4DB5B4Dgvo",
       "object": "chat.completion",
       "created": 1736297992944,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4512,7 +4512,7 @@
       "id": "msg_01Qm4DMMh5WunXb6gYutr9GN",
       "object": "chat.completion",
       "created": 1736297993549,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4547,7 +4547,7 @@
       "id": "msg_01HpFeoYzS5q3LpvVchN5dT2",
       "object": "chat.completion",
       "created": 1736298005311,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4582,7 +4582,7 @@
       "id": "msg_01QgGC5jfTRs2rSPPZ9TLCdg",
       "object": "chat.completion",
       "created": 1736298006496,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4631,7 +4631,7 @@
       "id": "msg_018yiJjpSHKvNLdH1vASD47k",
       "object": "chat.completion",
       "created": 1736298027621,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4666,7 +4666,7 @@
       "id": "msg_01D3RRYLpow3Z37iaHhxr6aj",
       "object": "chat.completion",
       "created": 1736298028817,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4715,7 +4715,7 @@
       "id": "msg_01C5kx8pKxgthrbGoHxnLAAy",
       "object": "chat.completion",
       "created": 1736298043138,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4750,7 +4750,7 @@
       "id": "msg_01JpZpR3QtBnvDhwhNjZdVYF",
       "object": "chat.completion",
       "created": 1736298043878,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -4974,7 +4974,7 @@
       "id": "msg_01VN3Si419m16xx8RgKsEGHY",
       "object": "chat.completion",
       "created": 1736298263652,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5101,7 +5101,7 @@
       "id": "msg_01XtfgxRdVEhLU1SoXZbgXBm",
       "object": "chat.completion",
       "created": 1736298290439,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5143,7 +5143,7 @@
       "id": "msg_01332w8NSW5AfHJpgSyCBV3S",
       "object": "chat.completion",
       "created": 1736298300039,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5178,7 +5178,7 @@
       "id": "msg_01BKRU9PjRdEFWvdrA6TjZUL",
       "object": "chat.completion",
       "created": 1736298302859,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5213,7 +5213,7 @@
       "id": "msg_01QtkEL8ZKatsYRsGjrcoKda",
       "object": "chat.completion",
       "created": 1736298310934,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5248,7 +5248,7 @@
       "id": "msg_01Hi6sCkZXG6DP52vrmQCodR",
       "object": "chat.completion",
       "created": 1736298324458,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5290,7 +5290,7 @@
       "id": "msg_01FuLtvnW6mFPabYiGZ5SxhV",
       "object": "chat.completion",
       "created": 1736298332915,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5325,7 +5325,7 @@
       "id": "msg_012QQTJVwR6EfSiUJes7byJD",
       "object": "chat.completion",
       "created": 1736298339639,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5367,7 +5367,7 @@
       "id": "msg_01B9q66fsGRkQbRWbUHz6rDr",
       "object": "chat.completion",
       "created": 1736298346572,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5402,7 +5402,7 @@
       "id": "msg_0136nWGE2bSzJRdsrpMPwXg4",
       "object": "chat.completion",
       "created": 1736298351119,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5437,7 +5437,7 @@
       "id": "msg_01GBYCMgva5wjxscD55ckWzT",
       "object": "chat.completion",
       "created": 1736298354701,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5479,7 +5479,7 @@
       "id": "msg_01Rymbd65DzLq7sDqHDnYCRu",
       "object": "chat.completion",
       "created": 1736298365360,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5534,7 +5534,7 @@
       "id": "msg_012UncanXZ1nc4Vnry6ZDh3K",
       "object": "chat.completion",
       "created": 1736298380540,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5576,7 +5576,7 @@
       "id": "msg_01XzwyxxodGPCdGbg5Fm7qKb",
       "object": "chat.completion",
       "created": 1736298394583,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5611,7 +5611,7 @@
       "id": "msg_01QSQDdoa6pMVfRmhcD9FReY",
       "object": "chat.completion",
       "created": 1736298401894,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5695,7 +5695,7 @@
       "id": "msg_01TW77aFCHH8WBjWhdn4GyS2",
       "object": "chat.completion",
       "created": 1736298468047,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5781,7 +5781,7 @@
       "id": "msg_01Nc7TEka41NfvYNcTWunPLZ",
       "object": "chat.completion",
       "created": 1736298905344,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -5997,7 +5997,7 @@
       "id": "msg_01BFsXafXkXXBFZDWGH7hF3G",
       "object": "chat.completion",
       "created": 1736298984425,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6088,7 +6088,7 @@
       "id": "msg_01KV2MUoXNJDNoEnexvigPsH",
       "object": "chat.completion",
       "created": 1736299000136,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6123,7 +6123,7 @@
       "id": "msg_01XtXVduwHJtbHdEvcPLVZMG",
       "object": "chat.completion",
       "created": 1736299002745,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6158,7 +6158,7 @@
       "id": "msg_01YPWWETK3r3EKbRcEKGJTD8",
       "object": "chat.completion",
       "created": 1736299007801,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6193,7 +6193,7 @@
       "id": "msg_0197iwUWwB8juUWCjafPUUvQ",
       "object": "chat.completion",
       "created": 1736299020454,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6228,7 +6228,7 @@
       "id": "msg_01647FmHouSExTdrwZNzUywF",
       "object": "chat.completion",
       "created": 1736299025686,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6263,7 +6263,7 @@
       "id": "msg_01VwYrgCcVjAZFDWubEgeUCG",
       "object": "chat.completion",
       "created": 1736299025968,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6298,7 +6298,7 @@
       "id": "msg_01DmNuKFtojaoAZDyfgpJ3bi",
       "object": "chat.completion",
       "created": 1736299035242,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6347,7 +6347,7 @@
       "id": "msg_01KbXkCVGbEYYAHaewC6jFji",
       "object": "chat.completion",
       "created": 1736299075210,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6382,7 +6382,7 @@
       "id": "msg_01EgiSQh8usT2t2aDzfMo6uJ",
       "object": "chat.completion",
       "created": 1736299075270,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6417,7 +6417,7 @@
       "id": "msg_01PZerooYDjCgx7ZKnrVJFbe",
       "object": "chat.completion",
       "created": 1736299078108,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6466,7 +6466,7 @@
       "id": "msg_01G7cGBvPQt4j25rmhVnBwBS",
       "object": "chat.completion",
       "created": 1736299131272,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6501,7 +6501,7 @@
       "id": "msg_01LrU1XCYJfpPrrLK4DYHyW5",
       "object": "chat.completion",
       "created": 1736299134111,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6543,7 +6543,7 @@
       "id": "msg_01YLsBWZXHj7BdYcmDWzu6AR",
       "object": "chat.completion",
       "created": 1736299146361,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6817,7 +6817,7 @@
       "id": "msg_01U6jZ5bHTCb591iTmrkSJdC",
       "object": "chat.completion",
       "created": 1736299335748,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6852,7 +6852,7 @@
       "id": "msg_01D2tAYGjVz56CC2YzesEi5D",
       "object": "chat.completion",
       "created": 1736299335921,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6908,7 +6908,7 @@
       "id": "msg_019zJcroLuvecih1fNwi16QD",
       "object": "chat.completion",
       "created": 1736299345402,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6943,7 +6943,7 @@
       "id": "msg_01A13qSx3JPu7mrUUqKhDZdQ",
       "object": "chat.completion",
       "created": 1736299346724,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -6978,7 +6978,7 @@
       "id": "msg_01PwEKHzEZRWyR7mJ9Gdggu5",
       "object": "chat.completion",
       "created": 1736299359061,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7013,7 +7013,7 @@
       "id": "msg_0139XXptPV4PeMjini1sD6mS",
       "object": "chat.completion",
       "created": 1736299365998,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7055,7 +7055,7 @@
       "id": "msg_01EoJFpM2VtZzYXjgsUDmoqX",
       "object": "chat.completion",
       "created": 1736299377397,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7090,7 +7090,7 @@
       "id": "msg_016jyQTbuiszuScu7vFC8Q2d",
       "object": "chat.completion",
       "created": 1736299381038,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7132,7 +7132,7 @@
       "id": "msg_01DCPPDLW8ELFMTM5XLUU8A1",
       "object": "chat.completion",
       "created": 1736299390644,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7167,7 +7167,7 @@
       "id": "msg_01MuUdBqwUEWRauouRQMfkKs",
       "object": "chat.completion",
       "created": 1736299393234,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7209,7 +7209,7 @@
       "id": "msg_01Fg7FqYxZ416gKuBeQB5SkJ",
       "object": "chat.completion",
       "created": 1736299408485,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7251,7 +7251,7 @@
       "id": "msg_01L13K5QQuihJAURdb5r3SLi",
       "object": "chat.completion",
       "created": 1736299432065,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7286,7 +7286,7 @@
       "id": "msg_01EMvUDagq5HtpysFeuTMQpX",
       "object": "chat.completion",
       "created": 1736299433661,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7321,7 +7321,7 @@
       "id": "msg_01A2hjm3mQKNGdCPJxmddT2c",
       "object": "chat.completion",
       "created": 1736299460754,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7542,7 +7542,7 @@
       "id": "msg_01VgdGBYo5t8aAKkgKRbrzFh",
       "object": "chat.completion",
       "created": 1736299629390,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -7743,7 +7743,7 @@
       "id": "msg_01PD8UGabyXovdDECBk6jikv",
       "object": "chat.completion",
       "created": 1736299668461,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8005,7 +8005,7 @@
       "id": "msg_01RU1Lx9MqbumHgZuRPDhhsK",
       "object": "chat.completion",
       "created": 1736299711128,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8040,7 +8040,7 @@
       "id": "msg_018oybiTS8bx9rdcTwAWpfEt",
       "object": "chat.completion",
       "created": 1736299713095,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8147,7 +8147,7 @@
       "id": "msg_01MLZ96v5qA51xYp8hxqAdqs",
       "object": "chat.completion",
       "created": 1736299741860,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8182,7 +8182,7 @@
       "id": "msg_01J4DwpXG8bRnNkmq5icd8cw",
       "object": "chat.completion",
       "created": 1736299753940,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8217,7 +8217,7 @@
       "id": "msg_017ttK64RFAVJ8k1vjmMbe9M",
       "object": "chat.completion",
       "created": 1736299761137,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8252,7 +8252,7 @@
       "id": "msg_013wSbcyqtM9iDaKRro2FJ3y",
       "object": "chat.completion",
       "created": 1736299776271,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8326,7 +8326,7 @@
       "id": "msg_01ECLUTGCRteaWM33VbHAxyy",
       "object": "chat.completion",
       "created": 1736299865960,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8424,7 +8424,7 @@
       "id": "msg_01EGhQCWUDVwgnq5tiTz8o5P",
       "object": "chat.completion",
       "created": 1736299891443,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8459,7 +8459,7 @@
       "id": "msg_01FAKEhRPjWdtaCa9gE7kGuy",
       "object": "chat.completion",
       "created": 1736299895905,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8568,7 +8568,7 @@
       "id": "msg_01A6R8iXBp3hAbePeiJZ51Nd",
       "object": "chat.completion",
       "created": 1736299971978,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8603,7 +8603,7 @@
       "id": "msg_0124MJyosJJBFRQM69QCxJQb",
       "object": "chat.completion",
       "created": 1736299978627,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8638,7 +8638,7 @@
       "id": "msg_01G9RJZAsVMBbQv78FCyJyvw",
       "object": "chat.completion",
       "created": 1736300010199,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8673,7 +8673,7 @@
       "id": "msg_01NQDXYQ1vHWWxwbHETtPZMx",
       "object": "chat.completion",
       "created": 1736300018078,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8832,7 +8832,7 @@
       "id": "msg_01BQQwTXKBJXmN9Ebd9qxrcr",
       "object": "chat.completion",
       "created": 1736300230005,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -8867,7 +8867,7 @@
       "id": "msg_015vezpTtYQbJCoq18RLFEPR",
       "object": "chat.completion",
       "created": 1736300233433,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9023,7 +9023,7 @@
       "id": "msg_01PEUsPemgYdJriybpADTqw5",
       "object": "chat.completion",
       "created": 1736300318296,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9058,7 +9058,7 @@
       "id": "msg_019ctzvySZ3XFp5U2M6PvjY8",
       "object": "chat.completion",
       "created": 1736300322157,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9093,7 +9093,7 @@
       "id": "msg_01F9rnBfaoE9S5xAz1aK8u3p",
       "object": "chat.completion",
       "created": 1736300324826,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9128,7 +9128,7 @@
       "id": "msg_01TAshFdGuuC32JxWdfRvs62",
       "object": "chat.completion",
       "created": 1736300360879,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9163,7 +9163,7 @@
       "id": "msg_011fGqzJQxwBpVptDfD2RRvd",
       "object": "chat.completion",
       "created": 1736300364191,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9198,7 +9198,7 @@
       "id": "msg_01U5FCmgPDTsnM63AxTwv26L",
       "object": "chat.completion",
       "created": 1736300365278,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9233,7 +9233,7 @@
       "id": "msg_015o2EZjRYJjoEgH5TL5c9Mj",
       "object": "chat.completion",
       "created": 1736300397786,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9268,7 +9268,7 @@
       "id": "msg_0187teTMBndFt1T9rt33UyBe",
       "object": "chat.completion",
       "created": 1736300409186,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9310,7 +9310,7 @@
       "id": "msg_01FYFGhXr8pHar89DfxvXEyL",
       "object": "chat.completion",
       "created": 1736300425606,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9345,7 +9345,7 @@
       "id": "msg_01T6sC4Q2dJHw71fTwdZTX8U",
       "object": "chat.completion",
       "created": 1736300432638,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9380,7 +9380,7 @@
       "id": "msg_01Pi845dkyXfe3BzR9ra4cZz",
       "object": "chat.completion",
       "created": 1736300454342,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9422,7 +9422,7 @@
       "id": "msg_01Vca6nu56fNqqNfLzwrQet8",
       "object": "chat.completion",
       "created": 1736300474701,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9464,7 +9464,7 @@
       "id": "msg_01H7hSdGkfvo6gRa9THaLAmi",
       "object": "chat.completion",
       "created": 1736300501033,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9499,7 +9499,7 @@
       "id": "msg_01FUp2vuuJqp9NCmvamfNGFs",
       "object": "chat.completion",
       "created": 1736300505153,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9548,7 +9548,7 @@
       "id": "msg_01K67wPiGkPT73va7eatcmtc",
       "object": "chat.completion",
       "created": 1736300574491,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9590,7 +9590,7 @@
       "id": "msg_017dLi8HdmNMhPXKMP5SirkE",
       "object": "chat.completion",
       "created": 1736300605794,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9632,7 +9632,7 @@
       "id": "msg_01KsHqYKoZwLPrXHWprC3YMg",
       "object": "chat.completion",
       "created": 1736300646246,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9718,7 +9718,7 @@
       "id": "msg_01PeKQmxmmfQXTwYqcWMfw5V",
       "object": "chat.completion",
       "created": 1736300725753,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9833,7 +9833,7 @@
       "id": "msg_01ShMD4ac4vDzuTLs4MGoafF",
       "object": "chat.completion",
       "created": 1736300753971,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9868,7 +9868,7 @@
       "id": "msg_017T1V562YmpHyA6i5bTFjM9",
       "object": "chat.completion",
       "created": 1736300756088,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9903,7 +9903,7 @@
       "id": "msg_01QJsMkj5Jnt3fL8syLm16BL",
       "object": "chat.completion",
       "created": 1736300784813,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9945,7 +9945,7 @@
       "id": "msg_01WTFkVjQjNUodrr6YtCwFZg",
       "object": "chat.completion",
       "created": 1736300790876,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -9987,7 +9987,7 @@
       "id": "msg_01Pfm7xUTWu4Zc183huKkTjL",
       "object": "chat.completion",
       "created": 1736300836304,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10022,7 +10022,7 @@
       "id": "msg_01DTqy3ngzLodHBNfir3p2mH",
       "object": "chat.completion",
       "created": 1736300879908,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10071,7 +10071,7 @@
       "id": "msg_01S2tcDDXXmc6Jpb42XPYxBS",
       "object": "chat.completion",
       "created": 1736300928337,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10227,7 +10227,7 @@
       "id": "msg_013q74EyigWfxJZaYM4oepps",
       "object": "chat.completion",
       "created": 1736301530940,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10262,7 +10262,7 @@
       "id": "msg_01RTbsmjD7rUXxaGt4FS9NYr",
       "object": "chat.completion",
       "created": 1736301560325,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10297,7 +10297,7 @@
       "id": "msg_01Xks6gDtqyJ6H79XSJWW54Q",
       "object": "chat.completion",
       "created": 1736301591109,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10332,7 +10332,7 @@
       "id": "msg_013qH6X6s2rMeFT9BWvnSFkw",
       "object": "chat.completion",
       "created": 1736301622415,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10367,7 +10367,7 @@
       "id": "msg_013nYgiDUpCvfNZdpTcee14W",
       "object": "chat.completion",
       "created": 1736301637015,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10402,7 +10402,7 @@
       "id": "msg_01G1MSguN6GMNzLqvV3Kp3VR",
       "object": "chat.completion",
       "created": 1736301640413,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10497,7 +10497,7 @@
       "id": "msg_01EjMP2zRAn1V3QUyhzPh2JX",
       "object": "chat.completion",
       "created": 1736301759906,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10532,7 +10532,7 @@
       "id": "msg_01LPdyERpb9FwswPdaqwWTcf",
       "object": "chat.completion",
       "created": 1736301812330,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10574,7 +10574,7 @@
       "id": "msg_01GoXzbC7Fi2F8mrV4piewHH",
       "object": "chat.completion",
       "created": 1736301860031,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10690,7 +10690,7 @@
       "id": "msg_01FA5D6YygpzBS6nnZUhbCSm",
       "object": "chat.completion",
       "created": 1736302212478,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10725,7 +10725,7 @@
       "id": "msg_01R7aA79BQNAK2sgVEZyVB17",
       "object": "chat.completion",
       "created": 1736302217822,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10760,7 +10760,7 @@
       "id": "msg_01MqArh3yAHWKTziRTuPEkg2",
       "object": "chat.completion",
       "created": 1736302248960,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10802,7 +10802,7 @@
       "id": "msg_0186rDeFofvDX6ZvKdEYSHFf",
       "object": "chat.completion",
       "created": 1736302322018,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10895,7 +10895,7 @@
       "id": "msg_01AJMrHqnPJhxgB3tpBQ7XYz",
       "object": "chat.completion",
       "created": 1736302452150,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10930,7 +10930,7 @@
       "id": "msg_01RuF6epKXqMvfajvwQeSKte",
       "object": "chat.completion",
       "created": 1736302513752,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -10972,7 +10972,7 @@
       "id": "msg_01VftfvD7XFcAzbAAGce8K9s",
       "object": "chat.completion",
       "created": 1736302564937,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11160,7 +11160,7 @@
       "id": "msg_01NzmBZK1iPKjiELf5hSXdZd",
       "object": "chat.completion",
       "created": 1736302712267,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11203,7 +11203,7 @@
       "id": "msg_01KSSU1tjnpamkEwHNnpBKPc",
       "object": "chat.completion",
       "created": 1736302722209,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11238,7 +11238,7 @@
       "id": "msg_01G4W9LXmkbajbJZp2k9kG9R",
       "object": "chat.completion",
       "created": 1736302722718,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11280,7 +11280,7 @@
       "id": "msg_01RyTMHkpnWtyWjmudx1J1cj",
       "object": "chat.completion",
       "created": 1736302745894,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11337,7 +11337,7 @@
       "id": "msg_011i1kZMzfk6431v45FDh2D7",
       "object": "chat.completion",
       "created": 1736302759370,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11380,7 +11380,7 @@
       "id": "msg_012APbMHV9SvMgkptgn4qWXk",
       "object": "chat.completion",
       "created": 1736302769056,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11415,7 +11415,7 @@
       "id": "msg_0184CydPrTd5afAyAgYSvDhD",
       "object": "chat.completion",
       "created": 1736302776902,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11457,7 +11457,7 @@
       "id": "msg_01TgEN196EHb6RGWQVswP5mB",
       "object": "chat.completion",
       "created": 1736302808228,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11492,7 +11492,7 @@
       "id": "msg_016e6yCYMMnX1fBMC5PPAcJq",
       "object": "chat.completion",
       "created": 1736302816299,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11534,7 +11534,7 @@
       "id": "msg_01L9vQZJGq9Hs8zvy4dprVVF",
       "object": "chat.completion",
       "created": 1736302855130,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11606,7 +11606,7 @@
       "id": "msg_01CoV4sFQw17oTYcxobtfUcN",
       "object": "chat.completion",
       "created": 1736302978464,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11662,7 +11662,7 @@
       "id": "msg_01PgGD9ejECEfRyPPiVxdeZM",
       "object": "chat.completion",
       "created": 1736303018481,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11738,7 +11738,7 @@
       "id": "msg_01EyUey3GJtSiWcgL1YDmoGY",
       "object": "chat.completion",
       "created": 1736303090364,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11810,7 +11810,7 @@
       "id": "msg_01G36XxRLADSmgJkzGhxvFw2",
       "object": "chat.completion",
       "created": 1736303114324,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11882,7 +11882,7 @@
       "id": "msg_01VaLrLGQXu6DChb31PWGv98",
       "object": "chat.completion",
       "created": 1736303140524,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11917,7 +11917,7 @@
       "id": "msg_01VqTPCumpQC8aJ16yfP3ZnK",
       "object": "chat.completion",
       "created": 1736303142127,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11952,7 +11952,7 @@
       "id": "msg_01WGoDGHdenXqiyGtcheujPZ",
       "object": "chat.completion",
       "created": 1736303147235,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -11987,7 +11987,7 @@
       "id": "msg_01AFvDq6b2R9ExV7q3oTqfce",
       "object": "chat.completion",
       "created": 1736303184228,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12022,7 +12022,7 @@
       "id": "msg_018HGGzN1RayNH5oSd7Wn2ue",
       "object": "chat.completion",
       "created": 1736303189268,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12057,7 +12057,7 @@
       "id": "msg_01P83Acrm3anW5Ejuiq5TNXL",
       "object": "chat.completion",
       "created": 1736303194065,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12099,7 +12099,7 @@
       "id": "msg_01A77NPJ9mV8LL8yBXz4Em1d",
       "object": "chat.completion",
       "created": 1736303244299,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12141,7 +12141,7 @@
       "id": "msg_01RMcRqN67vhXyf39Q6U78mg",
       "object": "chat.completion",
       "created": 1736303260377,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12305,7 +12305,7 @@
       "id": "msg_015NvcshrWNU2zakzbzAYkjG",
       "object": "chat.completion",
       "created": 1736304348309,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12361,7 +12361,7 @@
       "id": "msg_01GdiFQDggEQMnFKDvZY9tFB",
       "object": "chat.completion",
       "created": 1736304355876,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12424,7 +12424,7 @@
       "id": "msg_015Xxwa4NEpvNSeH6sJsJbot",
       "object": "chat.completion",
       "created": 1736304371033,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12514,7 +12514,7 @@
       "id": "msg_01GupPu4znqqq7RszAfAyTow",
       "object": "chat.completion",
       "created": 1736304385133,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12549,7 +12549,7 @@
       "id": "msg_01J3U4Yp24YfAYYLqfPeWLWg",
       "object": "chat.completion",
       "created": 1736304385698,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12616,7 +12616,7 @@
       "id": "msg_01WaunLqbpRpWtkNfJhmVDnf",
       "object": "chat.completion",
       "created": 1736304401597,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12651,7 +12651,7 @@
       "id": "msg_01KCiMVQe7UgYuWmix3FXE9p",
       "object": "chat.completion",
       "created": 1736304405056,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12686,7 +12686,7 @@
       "id": "msg_01K4FFJ7oKJYyByncTj9Mnss",
       "object": "chat.completion",
       "created": 1736304407734,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12721,7 +12721,7 @@
       "id": "msg_01U8cQr5FNUQhQ7hfZkpYh7y",
       "object": "chat.completion",
       "created": 1736304415378,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12763,7 +12763,7 @@
       "id": "msg_01JEds7Mn2C1CqcCvRn5Y8i4",
       "object": "chat.completion",
       "created": 1736304423300,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12798,7 +12798,7 @@
       "id": "msg_019Mn5ftVUn3K6rRYkEvXhkj",
       "object": "chat.completion",
       "created": 1736304430733,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12840,7 +12840,7 @@
       "id": "msg_01RuSeZThnA7e38LJfUXvNAV",
       "object": "chat.completion",
       "created": 1736304436704,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12882,7 +12882,7 @@
       "id": "msg_01WVo8rbDrTkRwfXai5VBX2J",
       "object": "chat.completion",
       "created": 1736304440738,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12924,7 +12924,7 @@
       "id": "msg_0114YYZSZwpKCePZTXyPUhGJ",
       "object": "chat.completion",
       "created": 1736304457707,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -12967,7 +12967,7 @@
       "id": "msg_01CReHXvDtkH8BZAzSws1q46",
       "object": "chat.completion",
       "created": 1736362737364,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13017,7 +13017,7 @@
       "id": "msg_01NeuNfGx4u1hVRmo6fYkRvN",
       "object": "chat.completion",
       "created": 1736362997011,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13052,7 +13052,7 @@
       "id": "msg_01Hz6bwHJxGoXokk8p8C6KNL",
       "object": "chat.completion",
       "created": 1736363000832,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13159,7 +13159,7 @@
       "id": "msg_01PstR6iBpjujKS76QsgNojn",
       "object": "chat.completion",
       "created": 1736363242505,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13303,7 +13303,7 @@
       "id": "msg_01XqYgXSfF3dbCaSAnocsxv2",
       "object": "chat.completion",
       "created": 1736363268415,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13371,7 +13371,7 @@
       "id": "msg_01GyjTKompXptojTZR5jTjYT",
       "object": "chat.completion",
       "created": 1736363280502,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13406,7 +13406,7 @@
       "id": "msg_015yPd5xQRRx2WeykS9w6C81",
       "object": "chat.completion",
       "created": 1736363280979,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13485,7 +13485,7 @@
       "id": "msg_01WDqFMMNJus29sPUJ911yBq",
       "object": "chat.completion",
       "created": 1736363298257,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13520,7 +13520,7 @@
       "id": "msg_017wEyjbrbRdWECMj19GXkAZ",
       "object": "chat.completion",
       "created": 1736363300345,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13585,7 +13585,7 @@
       "id": "msg_01GFL2HRov42KXkEin7hhDyh",
       "object": "chat.completion",
       "created": 1736363314727,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13627,7 +13627,7 @@
       "id": "msg_01XuoqwKcjKNGxqVmtu21zSG",
       "object": "chat.completion",
       "created": 1736363317583,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13662,7 +13662,7 @@
       "id": "msg_01XdhwKhMa5Zp6fJRX1mab87",
       "object": "chat.completion",
       "created": 1736363319055,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13704,7 +13704,7 @@
       "id": "msg_01HS9p8BXPmd3WSTxMUwL1cC",
       "object": "chat.completion",
       "created": 1736363333254,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13739,7 +13739,7 @@
       "id": "msg_01Sap5bVnoCARyTm4exPypCZ",
       "object": "chat.completion",
       "created": 1736363334955,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13795,7 +13795,7 @@
       "id": "msg_012bEh74V2ssmyhneNpe5PSp",
       "object": "chat.completion",
       "created": 1736363357811,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -13909,7 +13909,7 @@
       "id": "msg_014cSuR7Y3oNXLKQHMY5awKv",
       "object": "chat.completion",
       "created": 1736363723172,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14039,7 +14039,7 @@
       "id": "msg_01CtdrRp9DD5jfRQ7igDD9Eb",
       "object": "chat.completion",
       "created": 1736363746279,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14074,7 +14074,7 @@
       "id": "msg_01Vv3MMLvpKBZbgnB28F8dr2",
       "object": "chat.completion",
       "created": 1736363749662,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14128,7 +14128,7 @@
       "id": "msg_01V5htRVdnNBXkfatfdMeGVz",
       "object": "chat.completion",
       "created": 1736363760624,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14221,7 +14221,7 @@
       "id": "msg_018a4B5QsqwTPjycyADBAfAH",
       "object": "chat.completion",
       "created": 1736363778538,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14272,7 +14272,7 @@
       "id": "msg_011ptwpXjQeydYrPi9MaR3Vt",
       "object": "chat.completion",
       "created": 1736363786347,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14307,7 +14307,7 @@
       "id": "msg_01KaKkzrmQs2ePnengM6FXcF",
       "object": "chat.completion",
       "created": 1736363790905,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14349,7 +14349,7 @@
       "id": "msg_01WQ6oPTTXsyBAU1QWy5AQz2",
       "object": "chat.completion",
       "created": 1736363803340,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14384,7 +14384,7 @@
       "id": "msg_01E4pDbZjQuKpHmHn7hoAtsc",
       "object": "chat.completion",
       "created": 1736363808291,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14419,7 +14419,7 @@
       "id": "msg_01J18214zmuvWKNy5guzRxvA",
       "object": "chat.completion",
       "created": 1736363811075,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14461,7 +14461,7 @@
       "id": "msg_01PpuRJwG9r8LsrQXFr8AHVh",
       "object": "chat.completion",
       "created": 1736363824767,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14510,7 +14510,7 @@
       "id": "msg_01RdwZ6AKy5ChFapvSKUPxqp",
       "object": "chat.completion",
       "created": 1736363836563,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14757,7 +14757,7 @@
       "id": "msg_01PFURK85SN7URSfpQycGV1s",
       "object": "chat.completion",
       "created": 1736364108488,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14800,7 +14800,7 @@
       "id": "msg_01Buep475AB5LE5cWprkFgQr",
       "object": "chat.completion",
       "created": 1736364117832,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14842,7 +14842,7 @@
       "id": "msg_01A9g4Pp3Tve9D7ZDB7kofVA",
       "object": "chat.completion",
       "created": 1736364129624,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14888,7 +14888,7 @@
       "id": "msg_012vF6fbDMB1hqXkzAaHjM7z",
       "object": "chat.completion",
       "created": 1736364136770,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14942,7 +14942,7 @@
       "id": "msg_01K1HBBDZsRudAdch3G4r22T",
       "object": "chat.completion",
       "created": 1736364149030,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -14991,7 +14991,7 @@
       "id": "msg_013QbLQuQmouChnTZCWkwfg9",
       "object": "chat.completion",
       "created": 1736364165684,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15178,7 +15178,7 @@
       "id": "msg_015NPsu5wJPvjWQKRJgbb9rr",
       "object": "chat.completion",
       "created": 1736364400146,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15242,7 +15242,7 @@
       "id": "msg_015L4prwBuiPmESpurr1DoBr",
       "object": "chat.completion",
       "created": 1736364418986,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15285,7 +15285,7 @@
       "id": "msg_015gZ7XgfWYsNsbqfuJQzMy2",
       "object": "chat.completion",
       "created": 1736364427608,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15334,7 +15334,7 @@
       "id": "msg_01T7ankPHudPbSZDbfAM6AG2",
       "object": "chat.completion",
       "created": 1736364448899,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15608,7 +15608,7 @@
       "id": "msg_01FKbzfMmbJxYNAhKXPCoXAi",
       "object": "chat.completion",
       "created": 1736365103250,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15650,7 +15650,7 @@
       "id": "msg_01UWHxxmeWHsCUyPDhzM77iv",
       "object": "chat.completion",
       "created": 1736365120819,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15831,7 +15831,7 @@
       "id": "msg_01HUiv57j3XJxRGj5cG3kGqk",
       "object": "chat.completion",
       "created": 1736365467575,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15874,7 +15874,7 @@
       "id": "msg_016kcxYm5ftCVd7BgQ1D1kE7",
       "object": "chat.completion",
       "created": 1736365471685,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15909,7 +15909,7 @@
       "id": "msg_01P1eLqYBbUNCGwMVXWeAwc1",
       "object": "chat.completion",
       "created": 1736365483797,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -15944,7 +15944,7 @@
       "id": "msg_013RWbto8WPgMxkZ9MX4srdt",
       "object": "chat.completion",
       "created": 1736365488981,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -16200,7 +16200,7 @@
       "id": "msg_017nisv1Gtmz5DWULqnWo9aE",
       "object": "chat.completion",
       "created": 1736366299781,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -16249,7 +16249,7 @@
       "id": "msg_01SkH6pGFEVw6pCd36yUqaNc",
       "object": "chat.completion",
       "created": 1736366314721,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -16600,7 +16600,7 @@
       "id": "msg_01767dwB68XkAz93QDgfwe5T",
       "object": "chat.completion",
       "created": 1736366699097,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -16649,7 +16649,7 @@
       "id": "msg_01K75ZJrQkvwegRVq146fUX9",
       "object": "chat.completion",
       "created": 1736366716938,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -16860,7 +16860,7 @@
       "id": "msg_014eWkpLnvyyf1dYaYZXnmyQ",
       "object": "chat.completion",
       "created": 1736367250477,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -16909,7 +16909,7 @@
       "id": "msg_01Vtg59eDbEt6mex9f3dbr6a",
       "object": "chat.completion",
       "created": 1736367269568,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17089,7 +17089,7 @@
       "id": "msg_01Qp7ewGR7apehoFKwsD61aF",
       "object": "chat.completion",
       "created": 1736367465884,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17124,7 +17124,7 @@
       "id": "msg_01RtiTdk2VJ1Svuut47tZ893",
       "object": "chat.completion",
       "created": 1736367467692,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17177,7 +17177,7 @@
       "id": "msg_01LG18fHSu8bdUsZdccnjMoY",
       "object": "chat.completion",
       "created": 1736367484023,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17223,7 +17223,7 @@
       "id": "msg_01Bn7G7M8mPBM2FPJbYbDyxN",
       "object": "chat.completion",
       "created": 1736367488498,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17266,7 +17266,7 @@
       "id": "msg_01317qa16XeYRM8He3GsYbfm",
       "object": "chat.completion",
       "created": 1736367496153,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17315,7 +17315,7 @@
       "id": "msg_01MRUWv671eWkbT7WjT4h2Cx",
       "object": "chat.completion",
       "created": 1736367511231,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17646,7 +17646,7 @@
       "id": "msg_01FqYEnsmCXib111PQzGztmt",
       "object": "chat.completion",
       "created": 1736368318793,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17688,7 +17688,7 @@
       "id": "msg_01Ssc8minuQh5YRgjwfc9SJp",
       "object": "chat.completion",
       "created": 1736368338617,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -17751,7 +17751,7 @@
       "id": "msg_01QR3geXiLL7Jo3mEDXW2Z9Z",
       "object": "chat.completion",
       "created": 1736368371410,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -18451,7 +18451,7 @@
       "id": "msg_01Vct1n4KBXBchcgyiD5fYMU",
       "object": "chat.completion",
       "created": 1736369467105,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -18511,7 +18511,7 @@
       "id": "msg_01RtsVt5CgXVatF7yttJnAgX",
       "object": "chat.completion",
       "created": 1736369484698,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -18881,7 +18881,7 @@
       "id": "msg_01Cpn53HwC2mEefwA7bkjD8W",
       "object": "chat.completion",
       "created": 1736370213936,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -19000,7 +19000,7 @@
       "id": "msg_01Kagzjffp3zTzKvgQWTheLS",
       "object": "chat.completion",
       "created": 1736370234207,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -19064,7 +19064,7 @@
       "id": "msg_014ngJsSQFB11JyK4vrTq1Cp",
       "object": "chat.completion",
       "created": 1736370239404,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -19107,7 +19107,7 @@
       "id": "msg_013juX9eMcXDU2HRYChp2wko",
       "object": "chat.completion",
       "created": 1736370248536,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -19200,7 +19200,7 @@
       "id": "msg_01WEkj2WeZb2NV5CP8Nd6H6B",
       "object": "chat.completion",
       "created": 1736370265158,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -19251,7 +19251,7 @@
       "id": "msg_012VUCaSiCx6HMyEzL99g8PV",
       "object": "chat.completion",
       "created": 1736370273954,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -19293,7 +19293,7 @@
       "id": "msg_01WXch5ERehYqT3uwNtuReTC",
       "object": "chat.completion",
       "created": 1736370287452,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -19328,7 +19328,7 @@
       "id": "msg_01RepftVKwToJa1U5qELfykQ",
       "object": "chat.completion",
       "created": 1736370294149,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -19384,7 +19384,7 @@
       "id": "msg_01BqTXa5L29TgzbQupYnSo78",
       "object": "chat.completion",
       "created": 1736370318964,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20402,7 +20402,7 @@
       "id": "msg_0128opFcprJBh2AHw8NJNpkW",
       "object": "chat.completion",
       "created": 1736373646296,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20437,7 +20437,7 @@
       "id": "msg_014smGJesdmMDyRpQjn2apoo",
       "object": "chat.completion",
       "created": 1736373663622,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20542,7 +20542,7 @@
       "id": "msg_0157yN2iRwq1PjvExNa4gKWC",
       "object": "chat.completion",
       "created": 1736374674390,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20577,7 +20577,7 @@
       "id": "msg_01B1u7xmHpJEPjX5zyZckSoH",
       "object": "chat.completion",
       "created": 1736374676467,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20612,7 +20612,7 @@
       "id": "msg_01Uxacz52Fr95MrhfTzGEJT1",
       "object": "chat.completion",
       "created": 1736374679164,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20758,7 +20758,7 @@
       "id": "msg_011pnjgw4zEzyJXucbmjbeyC",
       "object": "chat.completion",
       "created": 1736374714270,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20793,7 +20793,7 @@
       "id": "msg_01JKHPzkUd5bfjaziuuABDnH",
       "object": "chat.completion",
       "created": 1736374718696,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20828,7 +20828,7 @@
       "id": "msg_01C3tmWnCtCyWCWaaKXBe7Eb",
       "object": "chat.completion",
       "created": 1736374720586,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20863,7 +20863,7 @@
       "id": "msg_01ULu5MAQBX17ydbzDzEfS17",
       "object": "chat.completion",
       "created": 1736374731853,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20898,7 +20898,7 @@
       "id": "msg_017oH9r5RGmNSeEbtubbYxG4",
       "object": "chat.completion",
       "created": 1736374736977,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -20933,7 +20933,7 @@
       "id": "msg_01T71Ttw1TPNT8YQ8uVZQJbz",
       "object": "chat.completion",
       "created": 1736374742485,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21085,7 +21085,7 @@
       "id": "msg_01RsN2LmVyKL87BnZVHTDwgd",
       "object": "chat.completion",
       "created": 1736375187580,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21134,7 +21134,7 @@
       "id": "msg_01Py5Rpq2Gne7t4hWnsuJXqS",
       "object": "chat.completion",
       "created": 1736375206763,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21205,7 +21205,7 @@
       "id": "msg_01FXGuyALB5yJ5kRvi1jEsAP",
       "object": "chat.completion",
       "created": 1736375431051,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21285,7 +21285,7 @@
       "id": "msg_016DndCFeQQAGrLzgiVqpQVy",
       "object": "chat.completion",
       "created": 1736375514623,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21320,7 +21320,7 @@
       "id": "msg_01FcRYEpNbnhCAFQQK34sFkj",
       "object": "chat.completion",
       "created": 1736375528851,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21362,7 +21362,7 @@
       "id": "msg_01Am42eZVfiRTtzhNM8BfgeF",
       "object": "chat.completion",
       "created": 1736375548385,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21467,7 +21467,7 @@
       "id": "msg_019vEJDL2qjjzmDW7nmVVuyQ",
       "object": "chat.completion",
       "created": 1736375894251,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21502,7 +21502,7 @@
       "id": "msg_01M3ohRRozNZwQmnMgVizkKj",
       "object": "chat.completion",
       "created": 1736375917030,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21632,7 +21632,7 @@
       "id": "msg_011DovqJvFEwjwdLSsQZdtJT",
       "object": "chat.completion",
       "created": 1736376243581,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21674,7 +21674,7 @@
       "id": "msg_01CWjbm1xZj3P1cxQg3JGhvj",
       "object": "chat.completion",
       "created": 1736376247499,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21709,7 +21709,7 @@
       "id": "msg_01TKHxCXdXni9nrjpLTdZJTZ",
       "object": "chat.completion",
       "created": 1736376248322,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -21986,7 +21986,7 @@
       "id": "msg_018hj4ny7gc4Vt8Ga9De8p4f",
       "object": "chat.completion",
       "created": 1736377360146,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22029,7 +22029,7 @@
       "id": "msg_01Umr1SqA9bdeZB2rMAnnyuZ",
       "object": "chat.completion",
       "created": 1736377366275,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22064,7 +22064,7 @@
       "id": "msg_01KrBQkyWuEX9dTqbm77UJSi",
       "object": "chat.completion",
       "created": 1736377375104,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22099,7 +22099,7 @@
       "id": "msg_01Ef1LXZwhtcG7yANFbCqB3Q",
       "object": "chat.completion",
       "created": 1736377381444,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22178,7 +22178,7 @@
       "id": "msg_014D6fxE7aTmizhBnp7FYYgH",
       "object": "chat.completion",
       "created": 1736377404495,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22220,7 +22220,7 @@
       "id": "msg_015nmziFh8Ruv6wEvPBcWtqJ",
       "object": "chat.completion",
       "created": 1736377419797,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22262,7 +22262,7 @@
       "id": "msg_01A2zsLUgBG8rQGMRdM7wbTf",
       "object": "chat.completion",
       "created": 1736377436329,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22351,7 +22351,7 @@
       "id": "msg_01Y5BS2cE1Qs3Xj94iCe4e2K",
       "object": "chat.completion",
       "created": 1736377816807,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22449,7 +22449,7 @@
       "id": "msg_01DGTpth5qvc3WmeQ8n3ZmD6",
       "object": "chat.completion",
       "created": 1736377834631,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22484,7 +22484,7 @@
       "id": "msg_019yNMe6sQjprTbjJvZy5Ucm",
       "object": "chat.completion",
       "created": 1736377836617,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22551,7 +22551,7 @@
       "id": "msg_011ytfdYHc4qd41AWVqrofvZ",
       "object": "chat.completion",
       "created": 1736377849196,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22586,7 +22586,7 @@
       "id": "msg_01U1BD2bXzub4f84CjBquc1d",
       "object": "chat.completion",
       "created": 1736377851578,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22621,7 +22621,7 @@
       "id": "msg_0169UwnWcZjhntGrUn9yaYro",
       "object": "chat.completion",
       "created": 1736377851864,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22656,7 +22656,7 @@
       "id": "msg_01TGLhYCixTzeEnFFoapXLms",
       "object": "chat.completion",
       "created": 1736377867407,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22705,7 +22705,7 @@
       "id": "msg_01J1LwENDLPHYTyNVnZdrphP",
       "object": "chat.completion",
       "created": 1736377883190,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22761,7 +22761,7 @@
       "id": "msg_01Pk1HNwGGpGrU1JZJ7MGngu",
       "object": "chat.completion",
       "created": 1736377903068,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22851,7 +22851,7 @@
       "id": "msg_01EEHH7QfJjkRxmaREmGaXKH",
       "object": "chat.completion",
       "created": 1736378102315,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -22886,7 +22886,7 @@
       "id": "msg_016rwt8XRa5ba2wfKBWDb66t",
       "object": "chat.completion",
       "created": 1736378103955,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23021,7 +23021,7 @@
       "id": "msg_0132q2M9TFi1Garj4G8J4B32",
       "object": "chat.completion",
       "created": 1736378137823,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23056,7 +23056,7 @@
       "id": "msg_01RHkYRVv1hfkG9mNkMrG2Py",
       "object": "chat.completion",
       "created": 1736378153470,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23098,7 +23098,7 @@
       "id": "msg_015vVbaT5XsHBu74EuZHS4vv",
       "object": "chat.completion",
       "created": 1736378173131,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23148,7 +23148,7 @@
       "id": "msg_019Z5YkTR57ES9KaYxaV256f",
       "object": "chat.completion",
       "created": 1736378271548,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23221,7 +23221,7 @@
       "id": "msg_01XfgpiH2qMtVvqeCKR48QW5",
       "object": "chat.completion",
       "created": 1736378285936,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23279,7 +23279,7 @@
       "id": "msg_01VWyiKmXZrkbLUEfAXd2h1f",
       "object": "chat.completion",
       "created": 1736378291083,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23322,7 +23322,7 @@
       "id": "msg_01RwPAEq7dMfC6yEeACgSFZB",
       "object": "chat.completion",
       "created": 1736378295196,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23357,7 +23357,7 @@
       "id": "msg_01H2R5yAp3Zkqah9TbR9KrFa",
       "object": "chat.completion",
       "created": 1736378296391,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23392,7 +23392,7 @@
       "id": "msg_01Mzde2bKTY9mwVV5Df2QZKP",
       "object": "chat.completion",
       "created": 1736378296607,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23427,7 +23427,7 @@
       "id": "msg_017m2HTKa4AnmWbeGJcycZzx",
       "object": "chat.completion",
       "created": 1736378300834,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23486,7 +23486,7 @@
       "id": "msg_01FbSx4stWExgZ6P9nz4cjw5",
       "object": "chat.completion",
       "created": 1736378483034,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23572,7 +23572,7 @@
       "id": "msg_01VbLkHKhvrhA7tqQSgbyHJJ",
       "object": "chat.completion",
       "created": 1736378512592,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23621,7 +23621,7 @@
       "id": "msg_01SxuFXmRoTDDscZo1EvJdMr",
       "object": "chat.completion",
       "created": 1736378529725,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23677,7 +23677,7 @@
       "id": "msg_01D1Hf8GgwTLASM3ob6k3LVb",
       "object": "chat.completion",
       "created": 1736378552281,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23775,7 +23775,7 @@
       "id": "msg_01WCzu67RnB4LLyJoh6gWDqP",
       "object": "chat.completion",
       "created": 1736378655667,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23810,7 +23810,7 @@
       "id": "msg_0191tpxuASKfVEqrADtojaQ4",
       "object": "chat.completion",
       "created": 1736378657639,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23919,7 +23919,7 @@
       "id": "msg_01AsYAfkMDMssQTD2xBRioGy",
       "object": "chat.completion",
       "created": 1736378685048,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23954,7 +23954,7 @@
       "id": "msg_012rHqjUVsN1j2X9eCij3rK7",
       "object": "chat.completion",
       "created": 1736378687550,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -23989,7 +23989,7 @@
       "id": "msg_01Q9zUKfr1u59AQqWJLPN1pC",
       "object": "chat.completion",
       "created": 1736378701515,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24024,7 +24024,7 @@
       "id": "msg_01XsDCRya6rAHg9Uu5YwMsNc",
       "object": "chat.completion",
       "created": 1736378705565,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24066,7 +24066,7 @@
       "id": "msg_013tKoi4rbEMAMfr9ngqdWRA",
       "object": "chat.completion",
       "created": 1736378721131,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24108,7 +24108,7 @@
       "id": "msg_012eKrX4J1U5cNXHXAkAtQJM",
       "object": "chat.completion",
       "created": 1736378729926,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24227,7 +24227,7 @@
       "id": "msg_01UMhvgN7TXXf6QihfeEVKwi",
       "object": "chat.completion",
       "created": 1736378761610,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24262,7 +24262,7 @@
       "id": "msg_01BPUKFhPXyoYYr8szQHv8Ey",
       "object": "chat.completion",
       "created": 1736378777605,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24304,7 +24304,7 @@
       "id": "msg_016JXZxK6753AtNL2ukpNHVD",
       "object": "chat.completion",
       "created": 1736378801547,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24339,7 +24339,7 @@
       "id": "msg_01UYhBjtknRx4XKWb4rbGfJZ",
       "object": "chat.completion",
       "created": 1736378816018,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24374,7 +24374,7 @@
       "id": "msg_01FdWWnJMsDJA699FAU2yh7A",
       "object": "chat.completion",
       "created": 1736378831713,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24409,7 +24409,7 @@
       "id": "msg_01MC7B33wcwhPfyYgf8jvEFu",
       "object": "chat.completion",
       "created": 1736378852334,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24444,7 +24444,7 @@
       "id": "msg_01UemSYCwap2eBmYUDYNw9Zk",
       "object": "chat.completion",
       "created": 1736378870865,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24479,7 +24479,7 @@
       "id": "msg_01A1c64vCuHw3LEgJPdUA1nX",
       "object": "chat.completion",
       "created": 1736378889101,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24514,7 +24514,7 @@
       "id": "msg_01PB9mVEDPngyML8G6wkCEJv",
       "object": "chat.completion",
       "created": 1736378910641,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24549,7 +24549,7 @@
       "id": "msg_016xn5qBoksiQdJESTnBytSC",
       "object": "chat.completion",
       "created": 1736378939309,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24584,7 +24584,7 @@
       "id": "msg_01NWfrM28MX2BsDLehx4XF9z",
       "object": "chat.completion",
       "created": 1736379004799,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24619,7 +24619,7 @@
       "id": "msg_01E6FCpY9mtmuLGDyhjC1G11",
       "object": "chat.completion",
       "created": 1736379039737,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24654,7 +24654,7 @@
       "id": "msg_012ZeQno7wcJdAAzimUkj77r",
       "object": "chat.completion",
       "created": 1736379071115,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24689,7 +24689,7 @@
       "id": "msg_01DhGVjKmMwbPXTqtUD5ANGt",
       "object": "chat.completion",
       "created": 1736379110575,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24715,7 +24715,7 @@
       "id": "msg_013bAZzjRSJ9CoKnL5Fwqk9b",
       "object": "chat.completion",
       "created": 1736379120992,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24750,7 +24750,7 @@
       "id": "msg_01RneBMZoJrZ1YY4fkBsmxnK",
       "object": "chat.completion",
       "created": 1736379154445,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24785,7 +24785,7 @@
       "id": "msg_013ZcEd2NrPpoRZ3PPpekbMU",
       "object": "chat.completion",
       "created": 1736379188966,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24868,7 +24868,7 @@
       "id": "msg_01KY8nDg4hMbsDddTd8BrBDL",
       "object": "chat.completion",
       "created": 1736379237056,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -24903,7 +24903,7 @@
       "id": "msg_019YUXcvoFmHR1FDS6JVxLKV",
       "object": "chat.completion",
       "created": 1736379237323,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25041,7 +25041,7 @@
       "id": "msg_01DFNZqazmGTDiDmpQSpWCAW",
       "object": "chat.completion",
       "created": 1736379264764,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25084,7 +25084,7 @@
       "id": "msg_018zqtgK7KnruRkieAkTEotN",
       "object": "chat.completion",
       "created": 1736379266359,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25119,7 +25119,7 @@
       "id": "msg_01E9XN19XC92MKzSeC1JoEZu",
       "object": "chat.completion",
       "created": 1736379270495,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25154,7 +25154,7 @@
       "id": "msg_0143JtCZBNuWd3iXSg9s8L21",
       "object": "chat.completion",
       "created": 1736379281520,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25189,7 +25189,7 @@
       "id": "msg_01H1pJwfphNN1UFW9KTyLVGR",
       "object": "chat.completion",
       "created": 1736379283210,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25224,7 +25224,7 @@
       "id": "msg_013CcnsLGw6zfbg43tTEAjwB",
       "object": "chat.completion",
       "created": 1736379285953,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25273,7 +25273,7 @@
       "id": "msg_01M69VzvQgCft3vxF2g9rSrf",
       "object": "chat.completion",
       "created": 1736379300186,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25308,7 +25308,7 @@
       "id": "msg_01UWS1fXZGBSs23B1wZGhTXo",
       "object": "chat.completion",
       "created": 1736379303385,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25350,7 +25350,7 @@
       "id": "msg_01X23kY6MiGscaennLNdz9GN",
       "object": "chat.completion",
       "created": 1736379309875,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25454,7 +25454,7 @@
       "id": "msg_01NxLJmzYWhWFHWMvmHAb4XP",
       "object": "chat.completion",
       "created": 1736379535882,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25513,7 +25513,7 @@
       "id": "msg_01LJLVKty6QaHexWcjNdz33X",
       "object": "chat.completion",
       "created": 1736379566432,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25621,7 +25621,7 @@
       "id": "msg_019DpJTa3nLh1vV5EKHSXrxi",
       "object": "chat.completion",
       "created": 1736379728038,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25663,7 +25663,7 @@
       "id": "msg_012Coy7sq3GPYQeN9VbthWcr",
       "object": "chat.completion",
       "created": 1736379735423,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25716,7 +25716,7 @@
       "id": "msg_012yjETudGUvD7hSFMktx84v",
       "object": "chat.completion",
       "created": 1736379744364,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25758,7 +25758,7 @@
       "id": "msg_012sYvcjNeaa8TDn4PHcHV7t",
       "object": "chat.completion",
       "created": 1736379753194,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25823,7 +25823,7 @@
       "id": "msg_01MDTaYtVLQrmXn9zbjnr9sa",
       "object": "chat.completion",
       "created": 1736379761493,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25858,7 +25858,7 @@
       "id": "msg_01Xop4UTqGZUu9Vm6Tw59tJ7",
       "object": "chat.completion",
       "created": 1736379765392,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25907,7 +25907,7 @@
       "id": "msg_01VeQztRrCcD3FaRzuxoLqAZ",
       "object": "chat.completion",
       "created": 1736379779215,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25942,7 +25942,7 @@
       "id": "msg_011aLrppXNMoNWwT9V2W2yTf",
       "object": "chat.completion",
       "created": 1736379782236,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -25977,7 +25977,7 @@
       "id": "msg_014TVMwtAgYT9kCPbjW6vtFX",
       "object": "chat.completion",
       "created": 1736379782722,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26033,7 +26033,7 @@
       "id": "msg_0116zjpKc1eqWdKNyvQYkoTE",
       "object": "chat.completion",
       "created": 1736379801822,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26177,7 +26177,7 @@
       "id": "msg_01TbnJdS4sAqtKfMJuswyGjr",
       "object": "chat.completion",
       "created": 1736380165573,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26212,7 +26212,7 @@
       "id": "msg_01UPZAyL2djZVbc99xT9NH4G",
       "object": "chat.completion",
       "created": 1736380180361,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26295,7 +26295,7 @@
       "id": "msg_01Tjzp3UD5rxRCaFVJcVyEH9",
       "object": "chat.completion",
       "created": 1736380281019,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26330,7 +26330,7 @@
       "id": "msg_01GX3ocNgr5EtgvXccPSG5it",
       "object": "chat.completion",
       "created": 1736380282332,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26438,7 +26438,7 @@
       "id": "msg_013ZzUqnghR4iMK9muWq3gCF",
       "object": "chat.completion",
       "created": 1736380302732,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26501,7 +26501,7 @@
       "id": "msg_013hgiKBCaMnx48V4VVajMv4",
       "object": "chat.completion",
       "created": 1736380308739,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26544,7 +26544,7 @@
       "id": "msg_017fJkBvLVoRtw8Zpyp7JFeD",
       "object": "chat.completion",
       "created": 1736380320076,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26579,7 +26579,7 @@
       "id": "msg_01GhD8uCwxycaud6VTLmDzmQ",
       "object": "chat.completion",
       "created": 1736380326069,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26621,7 +26621,7 @@
       "id": "msg_01XDvpcZgBdcNnDsm2zV1z7U",
       "object": "chat.completion",
       "created": 1736380339153,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26663,7 +26663,7 @@
       "id": "msg_014fEmYN8xHbxDMKrFYAnSRa",
       "object": "chat.completion",
       "created": 1736380346542,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26698,7 +26698,7 @@
       "id": "msg_01QFtSNXWMHJxrL42ZDwupet",
       "object": "chat.completion",
       "created": 1736380353648,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26802,7 +26802,7 @@
       "id": "msg_014oKbRi8HGEsvsMjHEkHvN1",
       "object": "chat.completion",
       "created": 1736380408019,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26837,7 +26837,7 @@
       "id": "msg_01Bqf5cvhwiFakY3RL32W4tL",
       "object": "chat.completion",
       "created": 1736380409020,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -26872,7 +26872,7 @@
       "id": "msg_016gvUicEzB54eiBVfmE7Dhf",
       "object": "chat.completion",
       "created": 1736380409832,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27018,7 +27018,7 @@
       "id": "msg_01VePDkEjHoXHBkeoqELYGUB",
       "object": "chat.completion",
       "created": 1736380442558,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27053,7 +27053,7 @@
       "id": "msg_013UEY39FWtmu1KYeDCaE8yS",
       "object": "chat.completion",
       "created": 1736380444266,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27088,7 +27088,7 @@
       "id": "msg_01P3VnyCFx6SoTy8tjKbpkcP",
       "object": "chat.completion",
       "created": 1736380446670,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27123,7 +27123,7 @@
       "id": "msg_015BDGmuWVvJaUN28QT8AZpA",
       "object": "chat.completion",
       "created": 1736380457830,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27214,7 +27214,7 @@
       "id": "msg_01MibmimK7HBvKuEgEGSf2mi",
       "object": "chat.completion",
       "created": 1736380510068,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27249,7 +27249,7 @@
       "id": "msg_01P3GFuR84cmjQ28jTWczVGB",
       "object": "chat.completion",
       "created": 1736380510989,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27316,7 +27316,7 @@
       "id": "msg_017Zw2LCXPq26WQMAenLTm2v",
       "object": "chat.completion",
       "created": 1736380533433,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27400,7 +27400,7 @@
       "id": "msg_01DGrPeVEswt9QRPV176VhPh",
       "object": "chat.completion",
       "created": 1736380545227,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27435,7 +27435,7 @@
       "id": "msg_01Ybco5YsEUeqr6qWpcZWxvC",
       "object": "chat.completion",
       "created": 1736380547762,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27477,7 +27477,7 @@
       "id": "msg_01Uhd9zeJjYToxpagDThqqWt",
       "object": "chat.completion",
       "created": 1736380555913,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27512,7 +27512,7 @@
       "id": "msg_018bMzsMvrPjaWCGLK2o4NxW",
       "object": "chat.completion",
       "created": 1736380564166,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27547,7 +27547,7 @@
       "id": "msg_01X5JWi7hwenqBbDQuLdojGP",
       "object": "chat.completion",
       "created": 1736380564877,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27596,7 +27596,7 @@
       "id": "msg_019PeCr4SrELZMuKvipHBPrR",
       "object": "chat.completion",
       "created": 1736380585251,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27638,7 +27638,7 @@
       "id": "msg_013GNekqLBaeD7pnfW8RAi1o",
       "object": "chat.completion",
       "created": 1736380594059,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27695,7 +27695,7 @@
       "id": "msg_01EnvzgfzYL2syn9rer1Cgrc",
       "object": "chat.completion",
       "created": 1736380717183,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27721,7 +27721,7 @@
       "id": "msg_01JYdAbZjNtNJy5xiZ2HaC2P",
       "object": "chat.completion",
       "created": 1736380718998,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27764,7 +27764,7 @@
       "id": "msg_01UcxCBUe2nAMPzkaeKvhsh7",
       "object": "chat.completion",
       "created": 1736380722567,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27790,7 +27790,7 @@
       "id": "msg_01KcSwRBmsZ3L3E2pq9iwQVH",
       "object": "chat.completion",
       "created": 1736380725731,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27825,7 +27825,7 @@
       "id": "msg_01BMQKfCyfvntRzJNEwc33ev",
       "object": "chat.completion",
       "created": 1736380726138,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27858,7 +27858,7 @@
       "id": "msg_01CWMpnvt6t5QKheyLgue9Bw",
       "object": "chat.completion",
       "created": 1736380736489,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -27976,7 +27976,7 @@
       "id": "msg_01XUF5AFDjURSyBX4QRnBuGT",
       "object": "chat.completion",
       "created": 1736380817845,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28078,7 +28078,7 @@
       "id": "msg_01XhAh6boAXrfBWfFHuVZ8pG",
       "object": "chat.completion",
       "created": 1736380832404,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28113,7 +28113,7 @@
       "id": "msg_01N2M741s1CWsvSBBe42gvc6",
       "object": "chat.completion",
       "created": 1736380833202,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28178,7 +28178,7 @@
       "id": "msg_01Vf17UpMgHymvqWYU2XmLF2",
       "object": "chat.completion",
       "created": 1736380848115,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28213,7 +28213,7 @@
       "id": "msg_012YhhfWGDrDHCkrmDmu4rXo",
       "object": "chat.completion",
       "created": 1736380848757,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28248,7 +28248,7 @@
       "id": "msg_019wNkrcf9wB8tMFnrGc2JcS",
       "object": "chat.completion",
       "created": 1736380849106,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28290,7 +28290,7 @@
       "id": "msg_0118hSdKxAVibN5xu28K9bAq",
       "object": "chat.completion",
       "created": 1736380863953,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28325,7 +28325,7 @@
       "id": "msg_01DxuKzphZHd5JYZRbqiRRqK",
       "object": "chat.completion",
       "created": 1736380865668,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28367,7 +28367,7 @@
       "id": "msg_01Cp3zPvNVvBMgRHSoFt9DVH",
       "object": "chat.completion",
       "created": 1736380873125,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28423,7 +28423,7 @@
       "id": "msg_01PKp67RVJCjaHWNYGxYVKNz",
       "object": "chat.completion",
       "created": 1736380883091,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28481,7 +28481,7 @@
       "id": "msg_01Pzwn3EjJikkutytPDK5EtT",
       "object": "chat.completion",
       "created": 1736380923799,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28549,7 +28549,7 @@
       "id": "msg_01JTvcVdhgPjS2j5ebkMHmbY",
       "object": "chat.completion",
       "created": 1736380947010,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28614,7 +28614,7 @@
       "id": "msg_01MRdGQnacyEhsqQkvmN2Szy",
       "object": "chat.completion",
       "created": 1736380961703,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28649,7 +28649,7 @@
       "id": "msg_01EeZx1myAgpKPhZuUZ1em7H",
       "object": "chat.completion",
       "created": 1736380962077,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28704,7 +28704,7 @@
       "id": "msg_01UxfjjJj5DFjnYpzkbZ2JJi",
       "object": "chat.completion",
       "created": 1736380974440,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28754,7 +28754,7 @@
       "id": "msg_012eGBe9JPZ4VkPR1qsond6W",
       "object": "chat.completion",
       "created": 1736380980022,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28789,7 +28789,7 @@
       "id": "msg_01AkULtdtB2awFJit9qq7jF2",
       "object": "chat.completion",
       "created": 1736380982146,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28913,7 +28913,7 @@
       "id": "msg_011Twmijq5qcGXSAjckHtCZm",
       "object": "chat.completion",
       "created": 1736381040044,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -28956,7 +28956,7 @@
       "id": "msg_01V2Hid1yuhNxzV1dii1Qo3v",
       "object": "chat.completion",
       "created": 1736381047189,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29030,7 +29030,7 @@
       "id": "msg_013p73sy2bVFDPSxZx2FtKNS",
       "object": "chat.completion",
       "created": 1736381141326,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29123,7 +29123,7 @@
       "id": "msg_01WssGDuP5YdiXSVERuDuzuQ",
       "object": "chat.completion",
       "created": 1736381203879,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29198,7 +29198,7 @@
       "id": "msg_01R8c5YLksDbpouaJVoFdf5g",
       "object": "chat.completion",
       "created": 1736381278547,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29249,7 +29249,7 @@
       "id": "msg_01H3mBYa58NBayXGAbJ5Njrg",
       "object": "chat.completion",
       "created": 1736381283779,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29284,7 +29284,7 @@
       "id": "msg_018nxpA7444fswxhBHZ4WjrV",
       "object": "chat.completion",
       "created": 1736381285691,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29405,7 +29405,7 @@
       "id": "msg_01BEpYtx1g3BfstmU2ySFvgb",
       "object": "chat.completion",
       "created": 1736381311600,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29461,7 +29461,7 @@
       "id": "msg_01TRn188u5dfGjS1WCyGEH36",
       "object": "chat.completion",
       "created": 1736381316971,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29504,7 +29504,7 @@
       "id": "msg_011i3SJMd6B5FkZFx6fajMnp",
       "object": "chat.completion",
       "created": 1736381325011,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29539,7 +29539,7 @@
       "id": "msg_01UuCR3xanq3gBVLAzJH4soM",
       "object": "chat.completion",
       "created": 1736381329900,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29574,7 +29574,7 @@
       "id": "msg_01PT2QkE5T7MWmTvdq9itHcw",
       "object": "chat.completion",
       "created": 1736381334473,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29609,7 +29609,7 @@
       "id": "msg_01EZp3B78kyUGDtx339K71Z5",
       "object": "chat.completion",
       "created": 1736381339764,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29651,7 +29651,7 @@
       "id": "msg_016r9tzJGhM7koMH6wY8iKfX",
       "object": "chat.completion",
       "created": 1736381354876,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29693,7 +29693,7 @@
       "id": "msg_01PGw44bLCBMKRR7G45QmAxs",
       "object": "chat.completion",
       "created": 1736381359137,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29735,7 +29735,7 @@
       "id": "msg_011Q3uFAHj2m84A89y5S2iiZ",
       "object": "chat.completion",
       "created": 1736381370689,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29784,7 +29784,7 @@
       "id": "msg_015FebkoSo3VahYz5ocF7vVX",
       "object": "chat.completion",
       "created": 1736381393459,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -29874,7 +29874,7 @@
       "id": "msg_0178UF4v9QaW9Vkf4Btu2MfJ",
       "object": "chat.completion",
       "created": 1736381539409,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -30085,7 +30085,7 @@
       "id": "msg_01BuvBMGzpAxPLaJTWLRn7Db",
       "object": "chat.completion",
       "created": 1736381608378,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -30136,7 +30136,7 @@
       "id": "msg_012t6Xt6mDEEzhJREHW8vw1q",
       "object": "chat.completion",
       "created": 1736381612842,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -30171,7 +30171,7 @@
       "id": "msg_019teWckNbqXX7XSWKb98bR7",
       "object": "chat.completion",
       "created": 1736381616684,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -30206,7 +30206,7 @@
       "id": "msg_012iUmQ64enCE3u6w2EBiscn",
       "object": "chat.completion",
       "created": 1736381622370,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -30241,7 +30241,7 @@
       "id": "msg_014YPwZtrG9ZUmCGwmBF67Wm",
       "object": "chat.completion",
       "created": 1736381628834,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -30276,7 +30276,7 @@
       "id": "msg_01RvHdx24inxk7jLNNPP9Tpm",
       "object": "chat.completion",
       "created": 1736381634162,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,
@@ -30318,7 +30318,7 @@
       "id": "msg_01GXA5WZ93zPgrhTuZk41L8P",
       "object": "chat.completion",
       "created": 1736381650223,
-      "model": "claude-3-5-sonnet-20241022",
+      "model": "claude-sonnet-4-5-20250929",
       "choices": [
         {
           "index": 0,

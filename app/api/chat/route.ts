@@ -1,6 +1,4 @@
 import {
-  ConstructorParams,
-  LogLine,
   Stagehand,
 } from "@browserbasehq/stagehand";
 import { NextRequest, NextResponse } from "next/server";
@@ -27,49 +25,38 @@ export async function POST(req: NextRequest) {
   const debugUrl = await browserbase.sessions.debug(sessionId);
   console.log("Using existing session debug URL:", debugUrl);
 
-  const StagehandConfig: ConstructorParams = {
-    env:
-      process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
-        ? "BROWSERBASE"
-        : "LOCAL",
-    apiKey: process.env.BROWSERBASE_API_KEY,
-    projectId: process.env.BROWSERBASE_PROJECT_ID,
-    headless: false,
-    domSettleTimeoutMs: 30_000,
-    browserbaseSessionID: sessionId,
-    browserbaseSessionCreateParams: {
-      projectId: process.env.BROWSERBASE_PROJECT_ID!,
-      region: "us-east-1",
-    },
-    enableCaching: false,
-    modelName: "claude-3-5-sonnet-latest",
-    modelClientOptions: {
-      apiKey: process.env.ANTHROPIC_API_KEY,
-    },
-    verbose: 0,
-    logger: (message: LogLine) =>
-      console.log(`[stagehand::${message.category}] ${message.message}`),
-  };
-
-  let stagehand = null;
-  let page = null;
+  let stagehand: Stagehand | null = null;
   const results: Meme[] = [];
 
   try {
-    stagehand = new Stagehand(StagehandConfig);
+    const stagehandConfig: any = {
+      env:
+        "BROWSERBASE",
+      apiKey: process.env.BROWSERBASE_API_KEY,
+      projectId: process.env.BROWSERBASE_PROJECT_ID,
+      domSettleTimeout: 30000,
+      model: "anthropic/claude-sonnet-4-5-20250929",
+      // The ANTHROPIC_API_KEY env var must be set for this to work
+    };
+    
+    // Connect to existing session from /api/session endpoint to avoid creating new session
+    if (sessionId) {
+      stagehandConfig.browserbaseSessionID = sessionId;
+      console.log("Connecting to existing Browserbase session:", sessionId);
+    }
+
+    stagehand = new Stagehand(stagehandConfig);
     await stagehand.init();
-    page = await stagehand.page;
 
     console.log(
       `Starting POST request processing for template ${sourceType}...`
     );
 
     console.log("Initializing Stagehand instance...");
-    await stagehand.init();
+    const page = stagehand.context.pages()[0];
 
     try {
       console.log("Starting meme processing...");
-      const page = await stagehand.page;
 
       console.log("Navigating to search page...");
       let templateInfo;
@@ -91,37 +78,62 @@ export async function POST(req: NextRequest) {
       // Use only the specified source
       const source = sources[sourceType];
       console.log(`Using ${source.description}...`);
-      await page.goto(source.url, { waitUntil: "domcontentloaded" });
+      console.log("Navigating to URL:", source.url);
+      try {
+        await page.goto(source.url, { waitUntil: "domcontentloaded" });
+        console.log("Page loaded successfully");
+      } catch (gotoError) {
+        console.error("Error in page.goto():", gotoError);
+        throw gotoError;
+      }
 
       try {
-        templateInfo = await page.act({
-          action: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`,
-        });
+        await stagehand.act(
+          `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`
+        );
 
-        console.log("Template found:", templateInfo);
+        console.log("Template found");
 
-        templateInfo = await page.extract({
-          instruction: `Extract the template name from the URL of the template you selected.`,
-          schema: z.object({
+        const extractedData = await stagehand.extract(
+          `Extract the template name from the URL of the template you selected.`,
+          z.object({
             name: z.string(),
-          }),
-        });
+          })
+        );
 
+        templateInfo = extractedData;
         console.log("Template name:", templateInfo.name);
       } catch (error) {
-        console.log(`Error finding template in ${source.description}:`, error);
+        console.error(`Error finding template in ${source.description}:`, error);
+        if (error instanceof Error) {
+          console.error("Full error stack:", error.stack);
+        }
         throw error;
       }
 
       console.log("Filling in captions...");
-      await page.act({
-        action: `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`,
-      });
+      try {
+        await stagehand.act(
+          `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`
+        );
+      } catch (error) {
+        console.error("Error filling captions:", error);
+        if (error instanceof Error) {
+          console.error("Error stack:", error.stack);
+        }
+        throw error;
+      }
 
       console.log("Generating final meme...");
-      await page.act({
-        action: "click the button labeled 'Generate Meme'",
-      });
+      try {
+        await stagehand.act(
+          "click the button labeled 'Generate Meme'"
+        );
+      } catch (error) {
+        console.error("Error generating meme:", error);
+        console.error("Error stack:", (error as any).stack);
+        throw error;
+      }
 
       console.log("Extracting image URL...");
       const imageUrlInput = await page.locator(".img-code-wrap input").first();
@@ -167,9 +179,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(results);
     } catch (error) {
       console.error("Error during meme generation:", error);
+      console.error("Full error details:", JSON.stringify(error, null, 2));
+      console.error("Error stack:", (error as any).stack);
       await stagehand.close();
       return NextResponse.json(
-        { error: "Failed to process request" },
+        { error: "Failed to process request", details: String(error) },
         { status: 500 }
       );
     }
@@ -182,9 +196,6 @@ export async function POST(req: NextRequest) {
   } finally {
     // Only close if it's the last session
     if (isLastSession) {
-      if (page) {
-        await page.close().catch(console.error);
-      }
       if (stagehand) {
         await stagehand.close().catch(console.error);
       }
