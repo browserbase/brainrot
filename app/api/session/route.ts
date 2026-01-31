@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
-import Browserbase from "@browserbasehq/sdk";
+import { Browserbase } from "@browserbasehq/sdk";
 
 export async function POST() {
   try {
     const client = new Browserbase({
-      apiKey: process.env["BROWSERBASE_API_KEY"],
+      apiKey: process.env.BROWSERBASE_API_KEY,
     });
 
     const session = await client.sessions.create({
       projectId: process.env.BROWSERBASE_PROJECT_ID!,
-      region: "us-east-1",
+      keepAlive: true,
+      timeout: 300, 
     });
 
     const debugUrl = await client.sessions.debug(session.id);
