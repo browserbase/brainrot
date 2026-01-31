@@ -1,13 +1,9 @@
-import {
-  ConstructorParams,
-  LogLine,
-  Stagehand,
-} from "@browserbasehq/stagehand";
+import { LogLine, Stagehand, V3Options } from "@browserbasehq/stagehand";
 import { NextRequest, NextResponse } from "next/server";
 import { MAX_CONCURRENT_MEMES } from "../../config/constants";
 import { z } from "zod";
 // import { sendMemeNotification } from "@/utils/sms";
-import Browserbase from "@browserbasehq/sdk";
+import { Browserbase } from "@browserbasehq/sdk";
 
 interface Meme {
   index: number;
@@ -18,7 +14,12 @@ export const maxDuration = 300;
 
 export async function POST(req: NextRequest) {
   console.log("Received request for meme generation");
-  const { message, sourceType = 0, sessionId, isLastSession = false } = await req.json();
+  const {
+    message,
+    sourceType = 0,
+    sessionId,
+    isLastSession = false,
+  } = await req.json();
 
   const browserbase = new Browserbase({
     apiKey: process.env.BROWSERBASE_API_KEY,
@@ -27,49 +28,35 @@ export async function POST(req: NextRequest) {
   const debugUrl = await browserbase.sessions.debug(sessionId);
   console.log("Using existing session debug URL:", debugUrl);
 
-  const StagehandConfig: ConstructorParams = {
+  const stagehandConfig: V3Options = {
     env:
       process.env.BROWSERBASE_API_KEY && process.env.BROWSERBASE_PROJECT_ID
         ? "BROWSERBASE"
         : "LOCAL",
     apiKey: process.env.BROWSERBASE_API_KEY,
     projectId: process.env.BROWSERBASE_PROJECT_ID,
-    headless: false,
-    domSettleTimeoutMs: 30_000,
+    domSettleTimeout: 30_000,
     browserbaseSessionID: sessionId,
-    browserbaseSessionCreateParams: {
-      projectId: process.env.BROWSERBASE_PROJECT_ID!,
-      region: "us-east-1",
-    },
-    enableCaching: false,
-    modelName: "claude-3-5-sonnet-latest",
-    modelClientOptions: {
-      apiKey: process.env.ANTHROPIC_API_KEY,
-    },
-    verbose: 0,
+    model: "anthropic/claude-sonnet-4-5",
+    verbose: 1,
     logger: (message: LogLine) =>
       console.log(`[stagehand::${message.category}] ${message.message}`),
   };
 
-  let stagehand = null;
-  let page = null;
+  let stagehand: Stagehand | null = null;
   const results: Meme[] = [];
 
   try {
-    stagehand = new Stagehand(StagehandConfig);
+    stagehand = new Stagehand(stagehandConfig);
     await stagehand.init();
-    page = await stagehand.page;
 
     console.log(
       `Starting POST request processing for template ${sourceType}...`
     );
 
-    console.log("Initializing Stagehand instance...");
-    await stagehand.init();
-
     try {
       console.log("Starting meme processing...");
-      const page = await stagehand.page;
+      const page = stagehand.context.pages()[0];
 
       console.log("Navigating to search page...");
       let templateInfo;
@@ -94,18 +81,18 @@ export async function POST(req: NextRequest) {
       await page.goto(source.url, { waitUntil: "domcontentloaded" });
 
       try {
-        templateInfo = await page.act({
-          action: `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`,
-        });
+        templateInfo = await stagehand.act(
+          `Look at the meme templates on the page. Find a template that would work well with the message "${message}". Click on "Add Caption" for the template you think is the best match.`
+        );
 
         console.log("Template found:", templateInfo);
 
-        templateInfo = await page.extract({
-          instruction: `Extract the template name from the URL of the template you selected.`,
-          schema: z.object({
+        templateInfo = await stagehand.extract(
+          `Extract the template name from the URL of the template you selected.`,
+          z.object({
             name: z.string(),
-          }),
-        });
+          })
+        );
 
         console.log("Template name:", templateInfo.name);
       } catch (error) {
@@ -114,17 +101,15 @@ export async function POST(req: NextRequest) {
       }
 
       console.log("Filling in captions...");
-      await page.act({
-        action: `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`,
-      });
+      await stagehand.act(
+        `Based on the message "${message}", fill in the text boxes with the appropriate caption that relates to the meme template. Please understand the meme format and fill in the text boxes accordingly. DO NOT GO BACK TO THE MAIN MENU.`
+      );
 
       console.log("Generating final meme...");
-      await page.act({
-        action: "click the button labeled 'Generate Meme'",
-      });
+      await stagehand.act("click the button labeled 'Generate Meme'");
 
       console.log("Extracting image URL...");
-      const imageUrlInput = await page.locator(".img-code-wrap input").first();
+      const imageUrlInput = page.locator(".img-code-wrap input").first();
       const imageUrl = await imageUrlInput.inputValue();
 
       const result = {
@@ -181,13 +166,8 @@ export async function POST(req: NextRequest) {
     );
   } finally {
     // Only close if it's the last session
-    if (isLastSession) {
-      if (page) {
-        await page.close().catch(console.error);
-      }
-      if (stagehand) {
-        await stagehand.close().catch(console.error);
-      }
+    if (isLastSession && stagehand) {
+      await stagehand.close().catch(console.error);
     }
   }
 }
