@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ["@browserbasehq/stagehand", "@browserbasehq/sdk"],
   images: {
     domains: ['imgflip.com', 'i.imgflip.com'],
     remotePatterns: [
